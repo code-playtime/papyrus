@@ -17,3 +17,65 @@ Stack trace:
 #12 /var/www/html/public/index.php(11): Application->configure()
 #13 {main}
   thrown in /var/www/html/modules/Main/Controllers/MainController.php on line 20
+[21-Jul-2025 13:44:51 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/modules/Main/routes.php on line 10
+[21-Jul-2025 13:45:04 UTC] PHP Fatal error:  Declaration of Modules\Auth\Middlewares\CheckUserMiddleware::handle(Pecee\Http\Request $request) must be compatible with Pecee\Http\Middleware\IMiddleware::handle(Pecee\Http\Request $request): void in /var/www/html/modules/Auth/Middlewares/CheckUserMiddleware.php on line 12
+[21-Jul-2025 13:45:38 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\ClassNotFoundHttpException: Class "Module\Auth\Middlewares\CheckUserMiddleware" does not exist in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php:19
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/LoadableRoute.php(42): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClass('Module\\Auth\\Mid...')
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(412): Pecee\SimpleRouter\Route\LoadableRoute->loadMiddleware(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#4 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#5 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#6 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#7 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#8 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#9 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#10 /var/www/html/public/index.php(11): Application->configure()
+#11 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php on line 19
+[21-Jul-2025 14:15:21 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\ClassNotFoundHttpException: Class "Module\Auth\Middleware\CheckUserMiddleware" does not exist in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php:19
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/LoadableRoute.php(42): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClass('Module\\Auth\\Mid...')
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(412): Pecee\SimpleRouter\Route\LoadableRoute->loadMiddleware(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#4 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#5 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#6 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#7 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#8 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#9 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#10 /var/www/html/public/index.php(11): Application->configure()
+#11 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php on line 19
+[21-Jul-2025 14:16:37 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\ClassNotFoundHttpException: Class "Module\Auth\Middlewares\CheckUserMiddleware" does not exist in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php:19
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/LoadableRoute.php(42): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClass('Module\\Auth\\Mid...')
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(412): Pecee\SimpleRouter\Route\LoadableRoute->loadMiddleware(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#4 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#5 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#6 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#7 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#8 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#9 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#10 /var/www/html/public/index.php(11): Application->configure()
+#11 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php on line 19
+[21-Jul-2025 14:16:58 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\ClassNotFoundHttpException: Class "Module\Auth\Middlewares\CheckUserMiddleware" does not exist in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php:19
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/LoadableRoute.php(42): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClass('Module\\Auth\\Mid...')
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(412): Pecee\SimpleRouter\Route\LoadableRoute->loadMiddleware(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#4 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#5 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#6 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#7 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#8 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#9 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#10 /var/www/html/public/index.php(11): Application->configure()
+#11 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php on line 19

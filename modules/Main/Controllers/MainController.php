@@ -12,17 +12,6 @@
 
     class MainController extends Controller {
         public function home() {
-            try {
-                $query = Pdo::execute(new GetUserCount());
-                $count = $query->first()["count"];
-                
-                if($count <= 0) {
-                    return response()->redirect(route("auth.register"));
-                }
-
-                return response()->redirect(route("auth.login"));
-            } catch(Exception $e) {
-                throw new Exception($e->getMessage());
-            }
+            echo "This is the main module";
         }
     }
