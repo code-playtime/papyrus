@@ -13,19 +13,8 @@
             echo "This is the Auth module.";
         }
 
-        public function register() {
-            try {
-                $query = Pdo::execute(new GetUserCount());
-                $count = $query->first()["count"];
-
-                if($count > 0) {
-                    return response()->redirect(route("auth.login"));
-                }
-
-                echo "This is the register page";
-            } catch(Exception $e) {
-                throw Exception($e->getMessage());
-            }
+        public function register() { 
+            return view("register", ["module" => "Auth"]);
         } 
 
         public function login() {

@@ -2,8 +2,13 @@
 
     use Devyuha\Lunaris\Http\Router;
 
-    Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])->name("auth.register");
-    Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])->name("auth.login");
+    Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])
+            ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
+            ->name("auth.register");
+
+    Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])
+            ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
+            ->name("auth.login");
 
 
 

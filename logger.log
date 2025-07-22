@@ -79,3 +79,19 @@ Stack trace:
 #10 /var/www/html/public/index.php(11): Application->configure()
 #11 {main}
   thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php on line 19
+[22-Jul-2025 12:57:03 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in /var/www/html/modules/Auth/Controllers/AuthController.php on line 26
+[22-Jul-2025 13:05:43 UTC] PHP Fatal error:  Uncaught Error: Class "Module\Auth\Middlewares\GetUserCound" not found in /var/www/html/modules/Auth/Middlewares/LoginMiddleware.php:13
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/LoadableRoute.php(52): Module\Auth\Middlewares\LoginMiddleware->handle(Object(Pecee\Http\Request))
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(412): Pecee\SimpleRouter\Route\LoadableRoute->loadMiddleware(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#4 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#5 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#6 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#7 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#8 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#9 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#10 /var/www/html/public/index.php(11): Application->configure()
+#11 {main}
+  thrown in /var/www/html/modules/Auth/Middlewares/LoginMiddleware.php on line 13
