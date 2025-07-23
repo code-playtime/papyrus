@@ -7,7 +7,11 @@
                 <h2>Register</h2>
             </div>
             <div class="body">
-                <form method="post" action="">
+                <?php
+                    inject("includes/errors", ["module" => "Auth"]);
+                ?>
+                <form method="post" action="<?= route("auth.register") ?>">
+                    <?= csrf_field() ?>
                     <div class="row">
                        <div class="col-lg-6">
                             <div class="mb-3">
@@ -35,8 +39,8 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label class="mb-3" for="confirm-password">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm-password" required />
+                                <label class="mb-3" for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" required />
                             </div>
                         </div>
                         <div class="col-12">

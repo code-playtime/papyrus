@@ -35,11 +35,11 @@
         }
 
         extract($args);
-        ob_start();
+        /* ob_start(); */
         include($viewPath);
-        $var = ob_get_contents();
-        ob_end_clean();
-        echo $var;
+        /* $var = ob_get_contents(); */
+        /* ob_end_clean(); */
+        /* echo $var; */
     }
 
     function is_module($moduleName) {
@@ -99,6 +99,11 @@
         }
 
         return null;
+    }
+
+    function csrf_field(): string
+    {
+        return '<input type="hidden" name="csrf_token" value="' . csrf_token() . '" />';
     }
 
     function server()

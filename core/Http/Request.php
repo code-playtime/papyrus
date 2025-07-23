@@ -4,9 +4,9 @@
 
     abstract class Request
     {
-        protected $inputData;
-        protected $jsonData;
-        protected $queryParams;
+        protected $inputData = [];
+        protected $jsonData = [];
+        protected $queryParams = [];
         protected $headers;
         protected $files;
         protected $customData = [];
@@ -17,7 +17,7 @@
         {
             $this->inputData = $this->sanitize($_POST);
             $this->queryParams = $this->sanitize($_GET);
-            $this->jsonData = json_decode(file_get_contents('php://input'), true);
+            $this->jsonData = json_decode(file_get_contents('php://input'), true) ?? [];
 
             $this->headers = getallheaders();
             $this->files = $_FILES;
@@ -40,6 +40,14 @@
         public function input(string $key, $default = null)
         {
             return $this->inputData[$key] ?? $default;
+        }
+
+        public function setInput(string $key, $value) {
+            $this->inputData[$key] = $value;
+        }
+
+        public function deleteInput(string $key) {
+            /* $this->inputData[$key] = null; */
         }
 
         public function json(string $key, $default = null)
