@@ -8,7 +8,7 @@
             </div>
             <div class="body">
                 <?php
-                    inject("includes/errors", ["module" => "Auth"]);
+                    inject("includes/messages", ["module" => "Auth"]);
                 ?>
                 <form method="post" action="<?= route("auth.register") ?>">
                     <?= csrf_field() ?>
