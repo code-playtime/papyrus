@@ -20,7 +20,6 @@
                 unset($_SESSION[$key]);
                 if(isset($data) && is_array($data) && count($data) > 0)
                 {
-                    print_r($data);
                     foreach($data as $index => $item)
                     {
                         echo str_replace("@message", $item, $html);
