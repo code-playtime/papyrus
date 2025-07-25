@@ -1,2 +1,28 @@
 
 [23-Jul-2025 13:26:15 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/modules/Auth/Requests/RegisterRequest.php:20) in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Response.php on line 113
+[25-Jul-2025 07:13:02 UTC] PHP Fatal error:  During class fetch: Uncaught ParseError: syntax error, unexpected token "}", expecting ";" in /var/www/html/modules/Main/Traits/Validateable.php:60
+Stack trace:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/modules/Auth/Requests/RegisterRequest.php(9): Composer\Autoload\ClassLoader->loadClass('Module\\Main\\Tra...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/m...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/modules/Auth/Controllers/AuthController.php(27): Composer\Autoload\ClassLoader->loadClass('Module\\Auth\\Req...')
+#5 [internal function]: Module\Auth\Controllers\AuthController->addUser()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addUser', Array)
+#8 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#9 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#10 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#11 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#12 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#13 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#14 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#15 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#16 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#17 /var/www/html/public/index.php(11): Application->configure()
+#18 {main} in /var/www/html/modules/Auth/Requests/RegisterRequest.php on line 9
+[25-Jul-2025 07:25:50 UTC] PHP Warning:  Undefined variable $key in /var/www/html/modules/Main/Traits/Validateable.php on line 9
+[25-Jul-2025 07:25:50 UTC] PHP Warning:  Undefined variable $key in /var/www/html/modules/Main/Traits/Validateable.php on line 9
+[25-Jul-2025 07:25:50 UTC] PHP Warning:  Undefined variable $key in /var/www/html/modules/Main/Traits/Validateable.php on line 9
+[25-Jul-2025 07:25:50 UTC] PHP Warning:  Undefined variable $key in /var/www/html/modules/Main/Traits/Validateable.php on line 9
+[25-Jul-2025 07:25:50 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/modules/Main/Traits/Validateable.php:9) in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Response.php on line 113

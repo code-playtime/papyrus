@@ -1,0 +1,38 @@
+# version: '3.8'
+
+services:
+  php:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: papyrus-php-container
+    volumes:
+      - ../:/var/www/html:z
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - papyrus_network
+
+  mysql:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.mysql
+    container_name: papyrus-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: papyrusdb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - papyrus_network
+
+volumes:
+  mariadb_data:
+
+networks:
+  papyrus_network:
+    driver: bridge

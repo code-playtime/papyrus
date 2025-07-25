@@ -10,7 +10,6 @@
         protected $headers;
         protected $files;
         protected $customData = [];
-        protected $errors = [];
         protected $isValidated = false;
 
         public function __construct()
@@ -77,27 +76,7 @@
         public function file(string $key)
         {
             return $this->files[$key] ?? null;
-        }
-
-        public function error(string $field, string $message)
-        {
-            $this->errors[$field] = $message;
-        }
-
-        public function errors()
-        {
-            return $this->errors;
-        }
-
-        public function validated()
-        {
-            if (!$this->isValidated) {
-                $this->validate();
-                $this->isValidated = true;
-            }
-
-            return empty($this->errors);
-        }
+        } 
 
         public function sanitize($data)
         {
