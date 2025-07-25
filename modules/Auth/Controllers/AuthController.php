@@ -8,6 +8,7 @@
 
     use Module\Auth\Queries\GetUserCount;
     use Module\Auth\Requests\RegisterRequest;
+    use Module\Auth\Services\RegisterService;
     
     class AuthController extends Controller
     {
@@ -30,7 +31,11 @@
                 return response()->redirect(route("auth.register"));
             }
             
-            Flash::make("success", "Form submitted successfully");
+            $service = new RegisterService();
+            $response = $service->addUser($request);
+            $responseStatus = $response->getSuccess() ? "success" : "error";
+            Flash::make($responseStatus, $response->getMessage());
+            
             return response()->redirect(route("auth.register"));
         }
     }

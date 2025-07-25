@@ -44,3 +44,21 @@ Stack trace:
 #12 /var/www/html/public/index.php(11): Application->configure()
 #13 {main}
   thrown in /var/www/html/modules/Auth/Controllers/AuthController.php on line 34
+[25-Jul-2025 10:01:49 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Module\Auth\Services\RegisterService::addUser(), 0 passed in /var/www/html/modules/Auth/Controllers/AuthController.php on line 35 and exactly 1 expected in /var/www/html/modules/Auth/Services/RegisterService.php:12
+Stack trace:
+#0 /var/www/html/modules/Auth/Controllers/AuthController.php(35): Module\Auth\Services\RegisterService->addUser()
+#1 [internal function]: Module\Auth\Controllers\AuthController->addUser()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addUser', Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#7 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#8 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#9 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#10 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#11 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#12 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#13 /var/www/html/public/index.php(11): Application->configure()
+#14 {main}
+  thrown in /var/www/html/modules/Auth/Services/RegisterService.php on line 12
