@@ -35,7 +35,7 @@
             $response = $service->addUser($request);
             $responseStatus = $response->getSuccess() ? "success" : "error";
             Flash::make($responseStatus, $response->getMessage());
-            
+
             return response()->redirect(route("auth.register"));
         }
     }
