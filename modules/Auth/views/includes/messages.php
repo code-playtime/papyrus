@@ -13,5 +13,5 @@
             @message
         </div>
     ';
-    Flash::render("sucess", $successHtml);
+    Flash::render("success", $successHtml);
 ?>

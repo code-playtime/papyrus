@@ -30,7 +30,7 @@
                 return response()->redirect(route("auth.register"));
             }
             
-            Flash::make("success", ["Form submitted successfully"]);
+            Flash::make("success", "Form submitted successfully");
             return response()->redirect(route("auth.register"));
         }
     }
