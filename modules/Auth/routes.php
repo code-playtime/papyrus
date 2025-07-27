@@ -1,19 +1,19 @@
 <?php
 
-    use Devyuha\Lunaris\Http\Router;
+use Devyuha\Lunaris\Http\Router;
 
-    Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])
-            ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
-            ->name("auth.register");
+Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])
+    ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
+    ->name("auth.register");
 
-    Router::post("/register", [Module\Auth\Controllers\AuthController::class, 'addUser'])
-            ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
-            ->name("auth.add-user");
+Router::post("/register", [Module\Auth\Controllers\AuthController::class, 'addUser'])
+    ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
+    ->name("auth.add-user");
 
-    Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])
-            ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
-            ->name("auth.login");
+Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])
+    ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
+    ->name("auth.login");
 
-
-
-
+Router::post("/login", [Module\Auth\Controllers\AuthController::class, "loginUser"])
+    ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
+    ->name("auth.signin");

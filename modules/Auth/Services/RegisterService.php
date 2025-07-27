@@ -7,6 +7,7 @@
 
     use Module\Auth\Queries\AddUserQuery;
     use Module\Main\ServiceResult;
+    use Exception;
 
     class RegisterService {
         public function addUser($request) {
