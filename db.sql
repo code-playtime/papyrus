@@ -23,11 +23,11 @@ CREATE TABLE
   `security_questions` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `question_1` text NOT NULL,
-    `answer_1` varchar(255) NOT NULL,
+    `answer_1` text NOT NULL,
     `question_2` text NOT NULL,
-    `answer_2` varchar(255) NOT NULL,
+    `answer_2` text NOT NULL,
     `question_3` text NOT NULL,
-    `answer_3` varchar(255) NOT NULL,
+    `answer_3` text NOT NULL,
     `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
     `user_id` int(11) NOT NULL,
     PRIMARY KEY (`id`)

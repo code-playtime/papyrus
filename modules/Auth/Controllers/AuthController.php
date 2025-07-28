@@ -11,6 +11,8 @@ use Module\Auth\Requests\RegisterRequest;
 use Module\Auth\Requests\LoginRequest;
 use Module\Auth\Services\RegisterService;
 use Module\Auth\Services\LoginService;
+use Module\Auth\Requests\SetupRequest;
+use Module\Auth\Services\SetupService;
 
 class AuthController extends Controller
 {
@@ -68,5 +70,20 @@ class AuthController extends Controller
 
         $url = $response->getData()["url"];
         return response()->redirect($url);
+    }
+
+    public function addSetup() {
+        $request = new SetupRequest();
+        if(!$request->validated()) {
+            Flash::make("error", $request->errors());
+            return response()->redirect(route("auth.setup"));
+        }
+
+        $service = new SetupService();
+        $response = $service->addQuestions($request);
+
+        $responseStatus = $response->getSuccess() ? "success" : "error";
+        Flash::make($responseStatus, $response->getMessage());
+        return response()->redirect($response->getData["url"]);
     }
 }
