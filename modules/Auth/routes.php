@@ -3,6 +3,7 @@
 use Devyuha\Lunaris\Http\Router;
 
 Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])
+    ->addMiddleware(Module\Auth\Middlewares\AuthNotActive::class)
     ->addMiddleware(Module\Auth\Middlewares\RegisterMiddleware::class)
     ->name("auth.register");
 
@@ -11,6 +12,7 @@ Router::post("/register", [Module\Auth\Controllers\AuthController::class, 'addUs
     ->name("auth.add-user");
 
 Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])
+    ->addMiddleware(Module\Auth\Middlewares\AuthNotActive::class)
     ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
     ->name("auth.login");
 
@@ -24,6 +26,16 @@ Router::get("/setup", [Module\Auth\Controllers\AuthController::class, "setup"])
 
 Router::post("/setup", [Module\Auth\Controllers\AuthController::class, "addSetup"])
     ->name("auth.add-questions");
+
+Router::get("/forgot", [Module\Auth\Controllers\ForgotController::class, "forgot"])
+    ->addMiddleware(Module\Auth\Middlewares\AuthNotActive::class)
+    ->name("auth.forgot");
+
+Router::post("/forgot", [Module\Auth\Controllers\ForgotController::class, "forgotEmail"])
+    ->name("auth.post-forgot");
+
+Router::get("/verify", [Module\Auth\Controllers\ForgotController::class, "verify"])
+    ->name("auth.verify");
 
 Router::get("/logout", [Module\Auth\Controllers\AuthController::class, "logout"])
     ->name("auth.logout");

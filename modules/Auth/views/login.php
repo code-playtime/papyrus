@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-3">
-                                <label class="control-label" for="email">Email / Username</label>
+                                <label class="control-label" for="email">Email</label>
                                 <input type="email" class="form-control" name="email" id="email" required />
                             </div>
                         </div>
@@ -24,6 +24,12 @@
                             <div class="mb-3">
                                 <label class="mb-3" for="password">Password</label>
                                 <input type="password" class="form-control" name="password" id="password" required />
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <a href="<?= route("auth.forgot") ?>">Forgot password?</a>
                             </div>
                         </div>
 
