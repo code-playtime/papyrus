@@ -35,7 +35,15 @@ Router::post("/forgot", [Module\Auth\Controllers\ForgotController::class, "forgo
     ->name("auth.post-forgot");
 
 Router::get("/verify", [Module\Auth\Controllers\ForgotController::class, "verify"])
+    ->addMiddleware(Module\Auth\Middlewares\VerifyMiddleware::class)
     ->name("auth.verify");
+
+Router::post("/verify", [Module\Auth\Controllers\ForgotController::class, "verifyAnswers"])
+    ->name("auth.verify-answers");
+
+Router::get("/reset-password", [Module\Auth\Controllers\ResetController::class, "reset"])
+    ->addMiddleware(Module\Auth\Middlewares\ResetMiddleware::class)
+    ->name("auth.reset");
 
 Router::get("/logout", [Module\Auth\Controllers\AuthController::class, "logout"])
     ->name("auth.logout");

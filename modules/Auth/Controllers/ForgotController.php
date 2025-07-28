@@ -7,6 +7,7 @@
 
     use Module\Auth\Requests\ForgotRequest;
     use Module\Auth\Services\ForgotService;
+    use Module\Auth\Requests\VerifyRequest;
     
     class ForgotController extends Controller
     {
@@ -46,5 +47,21 @@
 
             Flash::make("success", $response->getMessage());
             return response()->redirect(route("auth.verify"));
+        }
+
+        public function verifyAnswers() {
+            $request = new VerifyRequest();
+            if(!$request->validated()) {
+                Flash::make("error", $request->errors());
+                return response()->redirect(route("auth.verify"));
+            }
+
+            $service = new ForgotService();
+            $response = $service->verifyAnswers($request);
+            $responseStatus = $response->getSuccess() ? "success" : "error";
+            $url = $response->getData()["url"];
+
+            Flash::make($responseStatus, $response->getMessage());
+            return response()->redirect($url);
         }
     }

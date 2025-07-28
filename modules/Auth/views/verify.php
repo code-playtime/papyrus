@@ -10,7 +10,7 @@
                 <?php
                 inject("includes/messages", ["module" => "Auth"]);
                 ?>
-                <form method="post" action="<?= route("auth.add-questions") ?>">
+                <form method="post" action="<?= route("auth.verify-answers") ?>">
                     <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-12">

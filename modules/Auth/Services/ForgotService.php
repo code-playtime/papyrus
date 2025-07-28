@@ -4,12 +4,15 @@
 
     use Devyuha\Lunaris\Facades\Pdo;
     use Devyuha\Lunaris\Facades\Session;
+    use Devyuha\Lunaris\Facades\Password;
 
     use Exception;
     
     use Module\Main\ServiceResult;
     use Module\Auth\Queries\GetUserByEmail;
     use Module\Auth\Queries\GetVerifyData;
+    use Module\Auth\Queries\VerifyAnswers;
+    use Module\Auth\Facades\Token;
 
     class ForgotService {
         public function forgotEmail($request) {
@@ -47,6 +50,44 @@
                 $result->setSuccess(false);
                 $result->setMessage($e->getMessage());
             }
+            return $result;
+        }
+
+        public function verifyAnswers($request) {
+            $result = new ServiceResult();
+            try {
+                $email = Session::get("account_email");
+                $query = Pdo::execute(new VerifyAnswers([":email" => $email]));
+                $data = $query->first();
+
+                if(!Password::verify($request->input("answer_1"), $data["answer_1"])) {
+                    throw new Exception("Answer 1 is wrong");
+                }
+
+                if(!Password::verify($request->input("answer_2"), $data["answer_2"])) {
+                    throw new Exception("Answer 2 is wrong");
+                }
+
+                if(!Password::verify($request->input("answer_3"), $data["answer_3"])) {
+                    throw new Exception("Answer 3 is wrong");
+                }
+
+                $token = Token::generate([
+                    "email" => $email,
+                    "verified" => true
+                ]);
+                Session::delete("account_email");
+                Session::put("reset_token", $token);
+
+                $result->setSuccess(true);
+                $result->setData(["url" => route("auth.reset")]);
+                $result->setMessage("Your account has been verified, you can now reset your password.");
+            } catch (Exception $e) {
+                $result->setSuccess(false);
+                $result->setData(["url" => route("auth.verify")]);
+                $result->setMessage($e->getMessage());
+            }
+
             return $result;
         }
     }
