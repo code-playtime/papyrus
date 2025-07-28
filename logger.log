@@ -285,3 +285,4 @@ Stack trace:
 [28-Jul-2025 09:33:37 UTC] PHP Parse error:  Invalid indentation - tabs and spaces cannot be mixed in /var/www/html/modules/Auth/Queries/VerifyAnswers.php on line 11
 [28-Jul-2025 09:35:51 UTC] PHP Parse error:  Invalid indentation - tabs and spaces cannot be mixed in /var/www/html/modules/Auth/Queries/VerifyAnswers.php on line 13
 [28-Jul-2025 09:37:32 UTC] PHP Parse error:  syntax error, unexpected token "(", expecting variable in /var/www/html/modules/Auth/Facades/Token.php on line 6
+[28-Jul-2025 10:02:34 UTC] PHP Parse error:  syntax error, unexpected token "=", expecting "]" in /var/www/html/modules/Auth/Services/ResetService.php on line 34

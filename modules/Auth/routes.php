@@ -45,5 +45,8 @@ Router::get("/reset-password", [Module\Auth\Controllers\ResetController::class, 
     ->addMiddleware(Module\Auth\Middlewares\ResetMiddleware::class)
     ->name("auth.reset");
 
+Router::post("/reset-password", [Module\Auth\Controllers\ResetController::class, "resetPassword"])      ->addMiddleware(Module\Auth\Middlewares\ResetMiddleware::class)
+    ->name("auth.reset-password");
+
 Router::get("/logout", [Module\Auth\Controllers\AuthController::class, "logout"])
     ->name("auth.logout");
