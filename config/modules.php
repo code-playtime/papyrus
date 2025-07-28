@@ -2,5 +2,6 @@
 
     return [
         "Main",
-        "Auth"
+        "Auth",
+        "Panel"
     ];
