@@ -14,6 +14,7 @@ use Module\Auth\Services\RegisterService;
 use Module\Auth\Services\LoginService;
 use Module\Auth\Requests\SetupRequest;
 use Module\Auth\Services\SetupService;
+use Module\Auth\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -90,9 +91,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        if(Session::has("auth")) {
-            Session::delete("auth");
-        }
+        Auth::delete();
 
         Flash::make("success", "Successfully logged out!");
         return response()->redirect(route("auth.login"));

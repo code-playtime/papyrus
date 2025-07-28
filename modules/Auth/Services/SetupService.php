@@ -5,18 +5,18 @@
     use Exception;
 
     use Devyuha\Lunaris\Facades\Pdo;
-    use Devyuha\Lunaris\Facades\Session;
     use Devyuha\Lunaris\Facades\Password;
 
     use Module\Main\ServiceResult;
     use Module\Auth\Queries\AddQuestions;
+    use Module\Auth\Facades\Auth;
 
     class SetupService {
         public function addQuestions($request) {
             $result = new ServiceResult();
 
             try {
-                $user_id = Session::get("auth");
+                $user_id = Auth::getUserId();
                 $insertQuery = Pdo::execute(new AddQuestions([
                     ":user_id" => $user_id,
                     ":question_1" => $request->input("question_1"),

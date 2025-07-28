@@ -4,11 +4,11 @@ namespace Module\Auth\Services;
 
 use Devyuha\Lunaris\Facades\Pdo;
 use Devyuha\Lunaris\Facades\Password;
-use Devyuha\Lunaris\Facades\Session;
 
 use Module\Main\ServiceResult;
 use Module\Auth\Queries\GetUserByEmail;
 use Module\Auth\Queries\CheckQuestionsCount;
+use Module\Auth\Facades\Auth;
 
 use Exception;
 
@@ -33,7 +33,8 @@ class LoginService {
             if(!Password::verify($password, $user["password"])) {
                 throw new Exception("Invalid password");
             }
-            Session::put("auth", $user["id"]);
+
+            Auth::create($user["id"]);
 
             $isQuestions = $this->checkQuestions($user["id"]);
             $redirectUrl = $isQuestions ? route("panel.dashboard") : route("auth.setup");
