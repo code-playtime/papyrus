@@ -10,7 +10,7 @@
                 <?php
                 inject("includes/messages", ["module" => "Auth"]);
                 ?>
-                <form method="post" action="<?= route("auth.signin") ?>">
+                <form method="post" action="<?= route("auth.add-questions") ?>">
                     <?= csrf_field() ?>
                     <div class="row">
                         <div class="col-12">

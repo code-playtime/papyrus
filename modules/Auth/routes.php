@@ -21,3 +21,9 @@ Router::post("/login", [Module\Auth\Controllers\AuthController::class, "loginUse
 Router::get("/setup", [Module\Auth\Controllers\AuthController::class, "setup"])
     ->addMiddleware(Module\Auth\Middlewares\SetupMiddleware::class)
     ->name("auth.setup");
+
+Router::post("/setup", [Module\Auth\Controllers\AuthController::class, "addSetup"])
+    ->name("auth.add-questions");
+
+Router::get("/logout", [Module\Auth\Controllers\AuthController::class, "logout"])
+    ->name("auth.logout");

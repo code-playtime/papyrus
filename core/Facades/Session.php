@@ -3,7 +3,7 @@
     namespace Devyuha\Lunaris\Facades;
 
     class Session {
-        public static function get() {
+        public static function get($name) {
             if(isset($_SESSION[$name]) && !empty($_SESSION[$name]))
             {
                 return $_SESSION[$name];

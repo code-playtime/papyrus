@@ -103,3 +103,89 @@ Stack trace:
 #13 /var/www/html/public/index.php(11): Application->configure()
 #14 {main}
   thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Response.php on line 38
+[28-Jul-2025 06:22:05 UTC] PHP Fatal error:  Uncaught Error: Class "Route" not found in /var/www/html/modules/Auth/routes.php:25
+Stack trace:
+#0 /var/www/html/core/Container.php(29): require_once()
+#1 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#2 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#3 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#4 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#5 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#6 /var/www/html/public/index.php(11): Application->configure()
+#7 {main}
+  thrown in /var/www/html/modules/Auth/routes.php on line 25
+[28-Jul-2025 06:26:16 UTC] PHP Warning:  Undefined variable $name in /var/www/html/core/Facades/Session.php on line 7
+[28-Jul-2025 06:26:16 UTC] PHP Fatal error:  Uncaught Error: Class "Devyuha\Luanaris\Facades\Pdo" not found in /var/www/html/modules/Auth/Services/SetupService.php:19
+Stack trace:
+#0 /var/www/html/modules/Auth/Controllers/AuthController.php(84): Module\Auth\Services\SetupService->addQuestions(Object(Module\Auth\Requests\SetupRequest))
+#1 [internal function]: Module\Auth\Controllers\AuthController->addSetup()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addSetup', Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#7 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#8 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#9 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#10 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#11 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#12 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#13 /var/www/html/public/index.php(11): Application->configure()
+#14 {main}
+  thrown in /var/www/html/modules/Auth/Services/SetupService.php on line 19
+[28-Jul-2025 06:27:05 UTC] PHP Fatal error:  Uncaught Error: Class "Devyuha\Luanaris\Facades\Pdo" not found in /var/www/html/modules/Auth/Services/SetupService.php:19
+Stack trace:
+#0 /var/www/html/modules/Auth/Controllers/AuthController.php(84): Module\Auth\Services\SetupService->addQuestions(Object(Module\Auth\Requests\SetupRequest))
+#1 [internal function]: Module\Auth\Controllers\AuthController->addSetup()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addSetup', Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#7 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#8 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#9 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#10 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#11 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#12 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#13 /var/www/html/public/index.php(11): Application->configure()
+#14 {main}
+  thrown in /var/www/html/modules/Auth/Services/SetupService.php on line 19
+[28-Jul-2025 06:30:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Module\Auth\Services\SetupService::input() in /var/www/html/modules/Auth/Services/SetupService.php:22
+Stack trace:
+#0 /var/www/html/modules/Auth/Controllers/AuthController.php(84): Module\Auth\Services\SetupService->addQuestions(Object(Module\Auth\Requests\SetupRequest))
+#1 [internal function]: Module\Auth\Controllers\AuthController->addSetup()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addSetup', Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#7 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#8 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#9 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#10 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#11 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#12 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#13 /var/www/html/public/index.php(11): Application->configure()
+#14 {main}
+  thrown in /var/www/html/modules/Auth/Services/SetupService.php on line 22
+[28-Jul-2025 06:31:40 UTC] PHP Warning:  Undefined property: Module\Main\ServiceResult::$getData in /var/www/html/modules/Auth/Controllers/AuthController.php on line 88
+[28-Jul-2025 06:31:40 UTC] PHP Warning:  Trying to access array offset on value of type null in /var/www/html/modules/Auth/Controllers/AuthController.php on line 88
+[28-Jul-2025 06:31:40 UTC] PHP Fatal error:  Uncaught TypeError: Pecee\Http\Response::redirect(): Argument #1 ($url) must be of type string, null given, called in /var/www/html/modules/Auth/Controllers/AuthController.php on line 88 and defined in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Response.php:38
+Stack trace:
+#0 /var/www/html/modules/Auth/Controllers/AuthController.php(88): Pecee\Http\Response->redirect(NULL)
+#1 [internal function]: Module\Auth\Controllers\AuthController->addSetup()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\Auth\Controllers\AuthController), 'addSetup', Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#7 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#8 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#9 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#10 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#11 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#12 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#13 /var/www/html/public/index.php(11): Application->configure()
+#14 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Response.php on line 38

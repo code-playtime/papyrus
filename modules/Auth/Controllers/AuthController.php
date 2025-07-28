@@ -5,6 +5,7 @@ namespace Module\Auth\Controllers;
 use Devyuha\Lunaris\Http\Controller;
 use Devyuha\Lunaris\Facades\Pdo;
 use Devyuha\Lunaris\Facades\Flash;
+use Devyuha\Lunaris\Facades\Session;
 
 use Module\Auth\Queries\GetUserCount;
 use Module\Auth\Requests\RegisterRequest;
@@ -83,7 +84,17 @@ class AuthController extends Controller
         $response = $service->addQuestions($request);
 
         $responseStatus = $response->getSuccess() ? "success" : "error";
+        $data = $response->getData();
         Flash::make($responseStatus, $response->getMessage());
-        return response()->redirect($response->getData["url"]);
+        return response()->redirect($data["url"]);
+    }
+
+    public function logout() {
+        if(Session::has("auth")) {
+            Session::delete("auth");
+        }
+
+        Flash::make("success", "Successfully logged out!");
+        return response()->redirect(route("auth.login"));
     }
 }

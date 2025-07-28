@@ -36,7 +36,7 @@ class LoginService {
             Session::put("auth", $user["id"]);
 
             $isQuestions = $this->checkQuestions($user["id"]);
-            $redirectUrl = $isQuestions ? route("auth.dashboard") : route("auth.setup");
+            $redirectUrl = $isQuestions ? route("panel.dashboard") : route("auth.setup");
 
             $result->setSuccess(true);
             $result->setMessage("Successfully logged in");
