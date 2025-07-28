@@ -17,3 +17,7 @@ Router::get("/login", [Module\Auth\Controllers\AuthController::class, "login"])
 Router::post("/login", [Module\Auth\Controllers\AuthController::class, "loginUser"])
     ->addMiddleware(Module\Auth\Middlewares\LoginMiddleware::class)
     ->name("auth.signin");
+
+Router::get("/setup", [Module\Auth\Controllers\AuthController::class, "setup"])
+    ->addMiddleware(Module\Auth\Middlewares\SetupMiddleware::class)
+    ->name("auth.setup");

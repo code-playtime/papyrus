@@ -6,11 +6,13 @@
         private $message;
         private $success;
         private $errors;
+        private $data;
 
-        public function __construct($success = false, $message = "", $errors = []) {
+        public function __construct($success = false, $message = "", $errors = [], $data = []) {
             $this->success = $success;
             $this->message = $message;
             $this->errors = $errors;
+            $this->data = $data;
         }
         
         public function setSuccess($success) {
@@ -35,5 +37,13 @@
 
         public function getErrors() {
             return $this->errors;
+        }
+
+        public function setData($data) {
+            $this->data = $data;
+        }
+
+        public function getData() {
+            return $this->data;
         }
     }

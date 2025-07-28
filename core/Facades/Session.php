@@ -1,7 +1,5 @@
 <?php
 
-    <?php
-
     namespace Devyuha\Lunaris\Facades;
 
     class Session {

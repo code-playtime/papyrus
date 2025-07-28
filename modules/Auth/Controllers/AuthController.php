@@ -29,6 +29,11 @@ class AuthController extends Controller
         return view("login", ["module" => "Auth"]);
     }
 
+    public function setup()
+    {
+        return view("setup", ["module" => "Auth"]);
+    }
+
     public function addUser()
     {
         $request = new RegisterRequest();
@@ -55,9 +60,13 @@ class AuthController extends Controller
 
         $service = new LoginService();
         $response = $service->loginUser($request);
-        $responseStatus = $response->getSuccess() ? "success" : "error";
-        Flash::make($responseStatus, $response->getMessage());
 
-        return response()->redirect(route("auth.login"));
+        if(!$response->getSuccess()) {
+            Flash::make("error", $response->getMessage());
+            return response()->redirect(route("auth.login"));
+        }
+
+        $url = $response->getData()["url"];
+        return response()->redirect($url);
     }
 }
