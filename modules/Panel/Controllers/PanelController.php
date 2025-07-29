@@ -1,12 +1,14 @@
 <?php
 
-    namespace Module\Panel\Controllers;
+namespace Module\Panel\Controllers;
 
-    use Devyuha\Lunaris\Http\Controller;
+use Devyuha\Lunaris\Http\Controller;
     
-    class PanelController extends Controller
-    {
-        public function index() {
-            echo "This is the Panel module.";
-        }
+class PanelController extends Controller
+{
+    public function index() {
+        return view("index", [
+            "module" => "Panel"
+        ]);
     }
+}
