@@ -1,3 +1,6 @@
+// import { } from "module";
+import BlockEditor from "./Editor/BlockEditor";
+
 // Mobile detection
 function isMobile() {
     return window.innerWidth <= 768;
@@ -97,3 +100,6 @@ document.documentElement.style.scrollBehavior = 'smooth';
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Custom Admin Panel Loaded Successfully!');
 });
+
+// Editor JS Setup
+const editor = new BlockEditor("editor-container");

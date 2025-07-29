@@ -21,7 +21,8 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="content">Content</label>
-                        <textarea class="form-control" rows="5" name="content" id="content"></textarea>
+                        <!-- <textarea class="form-control" rows="5" name="content" id="content"></textarea> -->
+                        <div id="editor-container"></div>
                     </div>
                 </div>
                 <div class="col-md-4">
