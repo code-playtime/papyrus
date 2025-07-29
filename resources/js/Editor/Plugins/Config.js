@@ -37,7 +37,7 @@ export const image = {
     class: ImageTool,
     config: {
         endpoints: {
-            byFile: ""
+            byFile: "/api/upload/image"
         }
     }
 }

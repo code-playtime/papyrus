@@ -4,5 +4,6 @@
         "Main",
         "Auth",
         "Panel",
-        "PanelArticles"
+        "PanelArticles",
+        "Media"
     ];

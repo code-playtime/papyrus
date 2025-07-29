@@ -16530,7 +16530,7 @@ var image = {
   "class": _editorjs_image__WEBPACK_IMPORTED_MODULE_4__["default"],
   config: {
     endpoints: {
-      byFile: ""
+      byFile: "/api/upload/image"
     }
   }
 };

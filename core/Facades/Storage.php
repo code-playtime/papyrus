@@ -2,6 +2,8 @@
 
     namespace Devyuha\Lunaris\Facades;
 
+    use Devyuha\Lunaris\Http\PublicUploader;
+
     class Storage
     {
         public static function url($path) {
@@ -18,5 +20,9 @@
 
         public static function delete($path) {
             return storage_unlink($path);
+        }
+
+        public static function open($file, $name = "", $path = "") {
+            return new PublicUploader($file, $name, $path);
         }
     }
