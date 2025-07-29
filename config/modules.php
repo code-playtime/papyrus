@@ -3,5 +3,6 @@
     return [
         "Main",
         "Auth",
-        "Panel"
+        "Panel",
+        "PanelArticles"
     ];

@@ -12,3 +12,7 @@
     <?php inject("includes/navbar", ["module" => "Panel"]); ?>
 
     <?php inject("includes/sidebar", ["module" => "Panel"]); ?>
+
+    <main class="main-content" id="app">
+         
+

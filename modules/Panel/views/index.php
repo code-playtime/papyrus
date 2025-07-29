@@ -1,15 +1,12 @@
 <?php inject("includes/header", ["module" => "Panel"]); ?>
 
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        <!-- Content Header -->
-        <div class="content-header">
-            <h1 class="page-title">Dashboard</h1>
-            <ol class="breadcrumb">
-                <li>Home</li>
-                <li>Dashboard</li>
-            </ol>
-        </div>
+        <?php inject("includes/pagebar", [
+            "module" => "Panel",
+            "args" => [
+                "pageTitle" => "Dashboard",
+                "pageNavs" => ["Home", "Dashboard"]
+            ]
+        ]); ?>
 
         <!-- Stats Cards -->
         <div class="stats-grid">
