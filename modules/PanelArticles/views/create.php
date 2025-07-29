@@ -21,8 +21,9 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="content">Content</label>
+                        <button class="btn btn-sm btn-primary" type="button" id="clickb">Output</button>
                         <!-- <textarea class="form-control" rows="5" name="content" id="content"></textarea> -->
-                        <div id="editor-container"></div>
+                        <div id="editor-container" class="editor-container"></div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -35,6 +36,10 @@
                         <label class="form-label" for="tags">Tags</label>
                         <textarea class="form-control no-resize" rows="3" name="tags" id="tags"></textarea>
                         <span>Seperate tags with comma(,)</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <pre id="outputHtml"></pre>
                     </div>
                 </div>
             </div>

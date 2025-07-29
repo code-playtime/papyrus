@@ -12419,6 +12419,11 @@ body {
   resize: none;
 }
 
+.editor-container {
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+
 .section-header .title {
   font-size: 18px;
   font-weight: 600;

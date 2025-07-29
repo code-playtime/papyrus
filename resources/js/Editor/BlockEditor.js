@@ -1,7 +1,14 @@
 import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/header";
-import Paragraph from "@editorjs/paragraph";
-import Checklist from "@editorjs/checklist";
+import Delimiter from "@editorjs/delimiter";
+import Underline from "@editorjs/underline";
+import CodeTool from "@editorjs/code";
+import {
+    header,
+    paragraph,
+    quote,
+    list,
+    image
+} from "./Plugins/Config.js";
 
 class BlockEditor {
     constructor(selector, {
@@ -12,9 +19,14 @@ class BlockEditor {
     } = {}) {
         this.selector = selector;
         this.tools = {
-            header: Header,
-            paragraph: Paragraph,
-            checklist: Checklist,
+            header: header,
+            paragraph: paragraph,
+            quote: quote,
+            delimiter: Delimiter,
+            List: list,
+            underline: Underline,
+            code: CodeTool,
+            image: image,
             ...tools
         }
 

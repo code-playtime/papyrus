@@ -2,283 +2,293 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@editorjs/checklist/dist/checklist.mjs":
-/*!*************************************************************!*\
-  !*** ./node_modules/@editorjs/checklist/dist/checklist.mjs ***!
-  \*************************************************************/
+/***/ "./node_modules/@editorjs/code/dist/code.mjs":
+/*!***************************************************!*\
+  !*** ./node_modules/@editorjs/code/dist/code.mjs ***!
+  \***************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ f)
+/* harmony export */   "default": () => (/* binding */ d)
 /* harmony export */ });
-(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode('.cdx-checklist{gap:6px;display:flex;flex-direction:column}.cdx-checklist__item{display:flex;box-sizing:content-box;align-items:flex-start}.cdx-checklist__item-text{outline:none;flex-grow:1;line-height:1.57em}.cdx-checklist__item-checkbox{width:22px;height:22px;display:flex;align-items:center;margin-right:8px;margin-top:calc(.785em - 11px);cursor:pointer}.cdx-checklist__item-checkbox svg{opacity:0;height:20px;width:20px;position:absolute;left:-1px;top:-1px;max-height:20px}@media (hover: hover){.cdx-checklist__item-checkbox:not(.cdx-checklist__item-checkbox--no-hover):hover .cdx-checklist__item-checkbox-check svg{opacity:1}}.cdx-checklist__item-checkbox-check{cursor:pointer;display:inline-block;flex-shrink:0;position:relative;width:20px;height:20px;box-sizing:border-box;margin-left:0;border-radius:5px;border:1px solid #C9C9C9;background:#fff}.cdx-checklist__item-checkbox-check:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:100%;background-color:#369fff;visibility:hidden;pointer-events:none;transform:scale(1);transition:transform .4s ease-out,opacity .4s}@media (hover: hover){.cdx-checklist__item--checked .cdx-checklist__item-checkbox:not(.cdx-checklist__item--checked .cdx-checklist__item-checkbox--no-hover):hover .cdx-checklist__item-checkbox-check{background:#0059AB;border-color:#0059ab}}.cdx-checklist__item--checked .cdx-checklist__item-checkbox-check{background:#369FFF;border-color:#369fff}.cdx-checklist__item--checked .cdx-checklist__item-checkbox-check svg{opacity:1}.cdx-checklist__item--checked .cdx-checklist__item-checkbox-check svg path{stroke:#fff}.cdx-checklist__item--checked .cdx-checklist__item-checkbox-check:before{opacity:0;visibility:visible;transform:scale(2.5)}')),document.head.appendChild(e)}}catch(c){console.error("vite-plugin-css-injected-by-js",c)}})();
-const k = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 12L10.4884 15.8372C10.5677 15.9245 10.705 15.9245 10.7844 15.8372L17 9"/></svg>', g = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9.2 12L11.0586 13.8586C11.1367 13.9367 11.2633 13.9367 11.3414 13.8586L14.7 10.5"/><rect width="14" height="14" x="5" y="5" stroke="currentColor" stroke-width="2" rx="4"/></svg>';
-function d() {
-  const s = document.activeElement, t = window.getSelection().getRangeAt(0), n = t.cloneRange();
-  return n.selectNodeContents(s), n.setStart(t.endContainer, t.endOffset), n.extractContents();
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".ce-code__textarea{min-height:200px;font-family:Menlo,Monaco,Consolas,Courier New,monospace;color:#41314e;line-height:1.6em;font-size:12px;background:#f8f7fa;border:1px solid #f1f1f4;box-shadow:none;white-space:pre;word-wrap:normal;overflow-x:auto;resize:vertical}")),document.head.appendChild(e)}}catch(o){console.error("vite-plugin-css-injected-by-js",o)}})();
+function c(l, t) {
+  let a = "";
+  for (; a !== `
+` && t > 0; )
+    t = t - 1, a = l.substr(t, 1);
+  return a === `
+` && (t += 1), t;
 }
-function C(s) {
-  const e = document.createElement("div");
-  return e.appendChild(s), e.innerHTML;
-}
-function c(s, e = null, t = {}) {
-  const n = document.createElement(s);
-  Array.isArray(e) ? n.classList.add(...e) : e && n.classList.add(e);
-  for (const i in t)
-    n[i] = t[i];
-  return n;
-}
-function m(s) {
-  return s.innerHTML.replace("<br>", " ").trim();
-}
-function p(s, e = !1, t = void 0) {
-  const n = document.createRange(), i = window.getSelection();
-  n.selectNodeContents(s), t !== void 0 && (n.setStart(s, t), n.setEnd(s, t)), n.collapse(e), i.removeAllRanges(), i.addRange(n);
-}
-Element.prototype.matches || (Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector);
-Element.prototype.closest || (Element.prototype.closest = function(s) {
-  let e = this;
-  if (!document.documentElement.contains(e))
-    return null;
-  do {
-    if (e.matches(s))
-      return e;
-    e = e.parentElement || e.parentNode;
-  } while (e !== null && e.nodeType === 1);
-  return null;
-});
-class f {
+const h = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8L5 12L9 16"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 8L19 12L15 16"/></svg>';
+/**
+ * CodeTool for Editor.js
+ * @version 2.0.0
+ * @license MIT
+ */
+class d {
   /**
    * Notify core that read-only mode is supported
-   *
-   * @returns {boolean}
+   * @returns true if read-only mode is supported
    */
   static get isReadOnlySupported() {
     return !0;
   }
   /**
-   * Allow to use native Enter behaviour
-   *
-   * @returns {boolean}
-   * @public
+   * Allows pressing Enter key to create line breaks inside the CodeTool textarea
+   * This enables multi-line input within the code editor.
+   * @returns true if line breaks are allowed in the textarea
    */
   static get enableLineBreaks() {
     return !0;
+  }
+  /**
+   * Render plugin`s main Element and fill it with saved data
+   * @param options - tool constricting options
+   * @param options.data — previously saved plugin code
+   * @param options.config - user config for Tool
+   * @param options.api - Editor.js API
+   * @param options.readOnly - read only mode flag
+   */
+  constructor({ data: t, config: e, api: a, readOnly: r }) {
+    this.api = a, this.readOnly = r, this.placeholder = this.api.i18n.t(e.placeholder || d.DEFAULT_PLACEHOLDER), this.CSS = {
+      baseClass: this.api.styles.block,
+      input: this.api.styles.input,
+      wrapper: "ce-code",
+      textarea: "ce-code__textarea"
+    }, this.nodes = {
+      holder: null,
+      textarea: null
+    }, this.data = {
+      code: t.code ?? ""
+    }, this.nodes.holder = this.drawView();
+  }
+  /**
+   * Return Tool's view
+   * @returns this.nodes.holder - Code's wrapper
+   */
+  render() {
+    return this.nodes.holder;
+  }
+  /**
+   * Extract Tool's data from the view
+   * @param codeWrapper - CodeTool's wrapper, containing textarea with code
+   * @returns - saved plugin code
+   */
+  save(t) {
+    return {
+      code: t.querySelector("textarea").value
+    };
+  }
+  /**
+   * onPaste callback fired from Editor`s core
+   * @param event - event with pasted content
+   */
+  onPaste(t) {
+    const e = t.detail;
+    if ("data" in e) {
+      const a = e.data;
+      this.data = {
+        code: a || ""
+      };
+    }
+  }
+  /**
+   * Returns Tool`s data from private property
+   * @returns
+   */
+  get data() {
+    return this._data;
+  }
+  /**
+   * Set Tool`s data to private property and update view
+   * @param data - saved tool data
+   */
+  set data(t) {
+    this._data = t, this.nodes.textarea && (this.nodes.textarea.value = t.code);
+  }
+  /**
+   * Get Tool toolbox settings.
+   * Provides the icon and title to display in the toolbox for the CodeTool.
+   * @returns An object containing:
+   * - icon: SVG representation of the Tool's icon
+   * - title: Title to show in the toolbox
+   */
+  static get toolbox() {
+    return {
+      icon: h,
+      title: "Code"
+    };
+  }
+  /**
+   * Default placeholder for CodeTool's textarea
+   * @returns
+   */
+  static get DEFAULT_PLACEHOLDER() {
+    return "Enter a code";
+  }
+  /**
+   *  Used by Editor.js paste handling API.
+   *  Provides configuration to handle CODE tag.
+   * @returns
+   */
+  static get pasteConfig() {
+    return {
+      tags: ["pre"]
+    };
+  }
+  /**
+   * Automatic sanitize config
+   * @returns
+   */
+  static get sanitize() {
+    return {
+      code: !0
+      // Allow HTML tags
+    };
+  }
+  /**
+   * Handles Tab key pressing (adds/removes indentations)
+   * @param event - keydown
+   */
+  tabHandler(t) {
+    t.stopPropagation(), t.preventDefault();
+    const e = t.target, a = t.shiftKey, r = e.selectionStart, s = e.value, n = "  ";
+    let i;
+    if (!a)
+      i = r + n.length, e.value = s.substring(0, r) + n + s.substring(r);
+    else {
+      const o = c(s, r);
+      if (s.substr(o, n.length) !== n)
+        return;
+      e.value = s.substring(0, o) + s.substring(o + n.length), i = r - n.length;
+    }
+    e.setSelectionRange(i, i);
+  }
+  /**
+   * Create Tool's view
+   * @returns
+   */
+  drawView() {
+    const t = document.createElement("div"), e = document.createElement("textarea");
+    return t.classList.add(this.CSS.baseClass, this.CSS.wrapper), e.classList.add(this.CSS.textarea, this.CSS.input), e.value = this.data.code, e.placeholder = this.placeholder, this.readOnly && (e.disabled = !0), t.appendChild(e), e.addEventListener("keydown", (a) => {
+      switch (a.code) {
+        case "Tab":
+          this.tabHandler(a);
+          break;
+      }
+    }), this.nodes.textarea = e, t;
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@editorjs/delimiter/dist/delimiter.mjs":
+/*!*************************************************************!*\
+  !*** ./node_modules/@editorjs/delimiter/dist/delimiter.mjs ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ n)
+/* harmony export */ });
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode('.ce-delimiter{line-height:1.6em;width:100%;text-align:center}.ce-delimiter:before{display:inline-block;content:"***";font-size:30px;line-height:65px;height:30px;letter-spacing:.2em}')),document.head.appendChild(e)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();
+const r = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="6" x2="10" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="14" x2="18" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>';
+/**
+ * Delimiter Block for the Editor.js.
+ *
+ * @author CodeX (team@ifmo.su)
+ * @copyright CodeX 2018
+ * @license The MIT License (MIT)
+ * @version 2.0.0
+ */
+class n {
+  /**
+   * Notify core that read-only mode is supported
+   * @return {boolean}
+   */
+  static get isReadOnlySupported() {
+    return !0;
+  }
+  /**
+   * Allow Tool to have no content
+   * @return {boolean}
+   */
+  static get contentless() {
+    return !0;
+  }
+  /**
+   * Render plugin`s main Element and fill it with saved data
+   *
+   * @param {{data: DelimiterData, config: object, api: object}}
+   *   data — previously saved data
+   *   config - user config for Tool
+   *   api - Editor.js API
+   */
+  constructor({ data: t, config: s, api: e }) {
+    this.api = e, this._CSS = {
+      block: this.api.styles.block,
+      wrapper: "ce-delimiter"
+    }, this._element = this.drawView(), this.data = t;
+  }
+  /**
+   * Create Tool's view
+   * @return {HTMLDivElement}
+   * @private
+   */
+  drawView() {
+    let t = document.createElement("div");
+    return t.classList.add(this._CSS.wrapper, this._CSS.block), t;
+  }
+  /**
+   * Return Tool's view
+   * @returns {HTMLDivElement}
+   * @public
+   */
+  render() {
+    return this._element;
+  }
+  /**
+   * Extract Tool's data from the view
+   * @param {HTMLDivElement} toolsContent - Paragraph tools rendered view
+   * @returns {DelimiterData} - saved data
+   * @public
+   */
+  save(t) {
+    return {};
   }
   /**
    * Get Tool toolbox settings
    * icon - Tool icon's SVG
    * title - title to show in toolbox
    *
-   * @returns {{icon: string, title: string}}
+   * @return {{icon: string, title: string}}
    */
   static get toolbox() {
     return {
-      icon: g,
-      title: "Checklist"
+      icon: r,
+      title: "Delimiter"
     };
   }
   /**
-   * Allow Checkbox Tool to be converted to/from other block
+   * Delimiter onPaste configuration
    *
-   * @returns {{export: Function, import: Function}}
-   */
-  static get conversionConfig() {
-    return {
-      /**
-       * To create exported string from the checkbox, concatenate items by dot-symbol.
-       *
-       * @param {ChecklistData} data - checklist data to create a string from that
-       * @returns {string}
-       */
-      export: (e) => e.items.map(({ text: t }) => t).join(". "),
-      /**
-       * To create a checklist from other block's string, just put it at the first item
-       *
-       * @param {string} string - string to create list tool data from that
-       * @returns {ChecklistData}
-       */
-      import: (e) => ({
-        items: [
-          {
-            text: e,
-            checked: !1
-          }
-        ]
-      })
-    };
-  }
-  /**
-   * Render plugin`s main Element and fill it with saved data
-   *
-   * @param {object} options - block constructor options
-   * @param {ChecklistData} options.data - previously saved data
-   * @param {object} options.config - user config for Tool
-   * @param {object} options.api - Editor.js API
-   * @param {boolean} options.readOnly - read only mode flag
-   */
-  constructor({ data: e, config: t, api: n, readOnly: i }) {
-    this._elements = {
-      wrapper: null,
-      items: []
-    }, this.readOnly = i, this.api = n, this.data = e || {};
-  }
-  /**
-   * Returns checklist tag with items
-   *
-   * @returns {Element}
-   */
-  render() {
-    return this._elements.wrapper = c("div", [this.CSS.baseBlock, this.CSS.wrapper]), this.data.items || (this.data.items = [
-      {
-        text: "",
-        checked: !1
-      }
-    ]), this.data.items.forEach((e) => {
-      const t = this.createChecklistItem(e);
-      this._elements.wrapper.appendChild(t);
-    }), this.readOnly ? this._elements.wrapper : (this._elements.wrapper.addEventListener("keydown", (e) => {
-      const [t, n] = [13, 8];
-      switch (e.keyCode) {
-        case t:
-          this.enterPressed(e);
-          break;
-        case n:
-          this.backspace(e);
-          break;
-      }
-    }, !1), this._elements.wrapper.addEventListener("click", (e) => {
-      this.toggleCheckbox(e);
-    }), this._elements.wrapper);
-  }
-  /**
-   * Return Checklist data
-   *
-   * @returns {ChecklistData}
-   */
-  save() {
-    let e = this.items.map((t) => {
-      const n = this.getItemInput(t);
-      return {
-        text: m(n),
-        checked: t.classList.contains(this.CSS.itemChecked)
-      };
-    });
-    return e = e.filter((t) => t.text.trim().length !== 0), {
-      items: e
-    };
-  }
-  /**
-   * Validate data: check if Checklist has items
-   *
-   * @param {ChecklistData} savedData — data received after saving
-   * @returns {boolean} false if saved data is not correct, otherwise true
    * @public
    */
-  validate(e) {
-    return !!e.items.length;
+  static get pasteConfig() {
+    return { tags: ["HR"] };
   }
   /**
-   * Toggle checklist item state
+   * On paste callback that is fired from Editor
    *
-   * @param {MouseEvent} event - click
-   * @returns {void}
+   * @param {PasteEvent} event - event with pasted data
    */
-  toggleCheckbox(e) {
-    const t = e.target.closest(`.${this.CSS.item}`), n = t.querySelector(`.${this.CSS.checkboxContainer}`);
-    n.contains(e.target) && (t.classList.toggle(this.CSS.itemChecked), n.classList.add(this.CSS.noHover), n.addEventListener("mouseleave", () => this.removeSpecialHoverBehavior(n), { once: !0 }));
-  }
-  /**
-   * Create Checklist items
-   *
-   * @param {ChecklistItem} item - data.item
-   * @returns {Element} checkListItem - new element of checklist
-   */
-  createChecklistItem(e = {}) {
-    const t = c("div", this.CSS.item), n = c("span", this.CSS.checkbox), i = c("div", this.CSS.checkboxContainer), o = c("div", this.CSS.textField, {
-      innerHTML: e.text ? e.text : "",
-      contentEditable: !this.readOnly
-    });
-    return e.checked && t.classList.add(this.CSS.itemChecked), n.innerHTML = k, i.appendChild(n), t.appendChild(i), t.appendChild(o), t;
-  }
-  /**
-   * Append new elements to the list by pressing Enter
-   *
-   * @param {KeyboardEvent} event - keyboard event
-   */
-  enterPressed(e) {
-    e.preventDefault();
-    const t = this.items, n = document.activeElement.closest(`.${this.CSS.item}`);
-    if (t.indexOf(n) === t.length - 1 && m(this.getItemInput(n)).length === 0) {
-      const u = this.api.blocks.getCurrentBlockIndex();
-      n.remove(), this.api.blocks.insert(), this.api.caret.setToBlock(u + 1);
-      return;
-    }
-    const a = d(), l = C(a), r = this.createChecklistItem({
-      text: l,
-      checked: !1
-    });
-    this._elements.wrapper.insertBefore(r, n.nextSibling), p(this.getItemInput(r), !0);
-  }
-  /**
-   * Handle backspace
-   *
-   * @param {KeyboardEvent} event - keyboard event
-   */
-  backspace(e) {
-    const t = e.target.closest(`.${this.CSS.item}`), n = this.items.indexOf(t), i = this.items[n - 1];
-    if (!i || !(window.getSelection().focusOffset === 0))
-      return;
-    e.preventDefault();
-    const l = d(), r = this.getItemInput(i), h = r.childNodes.length;
-    r.appendChild(l), p(r, void 0, h), t.remove();
-  }
-  /**
-   * Styles
-   *
-   * @private
-   * @returns {object<string>}
-   */
-  get CSS() {
-    return {
-      baseBlock: this.api.styles.block,
-      wrapper: "cdx-checklist",
-      item: "cdx-checklist__item",
-      itemChecked: "cdx-checklist__item--checked",
-      noHover: "cdx-checklist__item-checkbox--no-hover",
-      checkbox: "cdx-checklist__item-checkbox-check",
-      textField: "cdx-checklist__item-text",
-      checkboxContainer: "cdx-checklist__item-checkbox"
-    };
-  }
-  /**
-   * Return all items elements
-   *
-   * @returns {Element[]}
-   */
-  get items() {
-    return Array.from(this._elements.wrapper.querySelectorAll(`.${this.CSS.item}`));
-  }
-  /**
-   * Removes class responsible for special hover behavior on an item
-   * 
-   * @private
-   * @param {Element} el - item wrapper
-   * @returns {Element}
-   */
-  removeSpecialHoverBehavior(e) {
-    e.classList.remove(this.CSS.noHover);
-  }
-  /**
-   * Find and return item's content editable element
-   *
-   * @private
-   * @param {Element} el - item wrapper
-   * @returns {Element}
-   */
-  getItemInput(e) {
-    return e.querySelector(`.${this.CSS.textField}`);
+  onPaste(t) {
+    this.data = {};
   }
 }
 
@@ -11788,6 +11798,3223 @@ class v {
 
 /***/ }),
 
+/***/ "./node_modules/@editorjs/image/dist/image.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/@editorjs/image/dist/image.mjs ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ P)
+/* harmony export */ });
+(function(){"use strict";try{if(typeof document<"u"){var o=document.createElement("style");o.appendChild(document.createTextNode('.image-tool{--bg-color: #cdd1e0;--front-color: #388ae5;--border-color: #e8e8eb}.image-tool__image{border-radius:3px;overflow:hidden;margin-bottom:10px;padding-bottom:0}.image-tool__image-picture{max-width:100%;vertical-align:bottom;display:block}.image-tool__image-preloader{width:50px;height:50px;border-radius:50%;background-size:cover;margin:auto;position:relative;background-color:var(--bg-color);background-position:center center}.image-tool__image-preloader:after{content:"";position:absolute;z-index:3;width:60px;height:60px;border-radius:50%;border:2px solid var(--bg-color);border-top-color:var(--front-color);left:50%;top:50%;margin-top:-30px;margin-left:-30px;animation:image-preloader-spin 2s infinite linear;box-sizing:border-box}.image-tool__caption{visibility:hidden;position:absolute;bottom:0;left:0;margin-bottom:10px}.image-tool__caption[contentEditable=true][data-placeholder]:before{position:absolute!important;content:attr(data-placeholder);color:#707684;font-weight:400;display:none}.image-tool__caption[contentEditable=true][data-placeholder]:empty:before{display:block}.image-tool__caption[contentEditable=true][data-placeholder]:empty:focus:before{display:none}.image-tool--empty .image-tool__image,.image-tool--empty .image-tool__image-preloader{display:none}.image-tool--empty .image-tool__caption,.image-tool--uploading .image-tool__caption{visibility:hidden!important}.image-tool .cdx-button{display:flex;align-items:center;justify-content:center}.image-tool .cdx-button svg{height:auto;margin:0 6px 0 0}.image-tool--filled .cdx-button,.image-tool--filled .image-tool__image-preloader{display:none}.image-tool--uploading .image-tool__image{min-height:200px;display:flex;border:1px solid var(--border-color);background-color:#fff}.image-tool--uploading .image-tool__image-picture,.image-tool--uploading .cdx-button{display:none}.image-tool--withBorder .image-tool__image{border:1px solid var(--border-color)}.image-tool--withBackground .image-tool__image{padding:15px;background:var(--bg-color)}.image-tool--withBackground .image-tool__image-picture{max-width:60%;margin:0 auto}.image-tool--stretched .image-tool__image-picture{width:100%}.image-tool--caption .image-tool__caption{visibility:visible}.image-tool--caption{padding-bottom:50px}@keyframes image-preloader-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}')),document.head.appendChild(o)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+const R = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19V19C9.13623 19 8.20435 19 7.46927 18.6955C6.48915 18.2895 5.71046 17.5108 5.30448 16.5307C5 15.7956 5 14.8638 5 13V12C5 9.19108 5 7.78661 5.67412 6.77772C5.96596 6.34096 6.34096 5.96596 6.77772 5.67412C7.78661 5 9.19108 5 12 5H13.5C14.8956 5 15.5933 5 16.1611 5.17224C17.4395 5.56004 18.44 6.56046 18.8278 7.83886C19 8.40666 19 9.10444 19 10.5V10.5"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 13V16M16 19V16M19 16H16M16 16H13"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.5 17.5L17.5 6.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.9919 10.5H19.0015"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.9919 19H11.0015"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13L13 5"/></svg>', I = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.9919 9.5H19.0015"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.5 5H14.5096"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M14.625 5H15C17.2091 5 19 6.79086 19 9V9.375"/><path stroke="currentColor" stroke-width="2" d="M9.375 5L9 5C6.79086 5 5 6.79086 5 9V9.375"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.3725 5H9.38207"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 9.5H5.00957"/><path stroke="currentColor" stroke-width="2" d="M9.375 19H9C6.79086 19 5 17.2091 5 15V14.625"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.3725 19H9.38207"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 14.55H5.00957"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 13V16M16 19V16M19 16H16M16 16H13"/></svg>', L = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="14" height="14" x="5" y="5" stroke="currentColor" stroke-width="2" rx="4"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.13968 15.32L8.69058 11.5661C9.02934 11.2036 9.48873 11 9.96774 11C10.4467 11 10.9061 11.2036 11.2449 11.5661L15.3871 16M13.5806 14.0664L15.0132 12.533C15.3519 12.1705 15.8113 11.9668 16.2903 11.9668C16.7693 11.9668 17.2287 12.1705 17.5675 12.533L18.841 13.9634"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.7778 9.33331H13.7867"/></svg>', x = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9L20 12L17 15"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 12H20"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 9L4 12L7 15"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12H10"/></svg>', B = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 9V7.2C8 7.08954 8.08954 7 8.2 7L12 7M16 9V7.2C16 7.08954 15.9105 7 15.8 7L12 7M12 7L12 17M12 17H10M12 17H14"/></svg>';
+function S(C, i = null, a = {}) {
+  const s = document.createElement(C);
+  Array.isArray(i) ? s.classList.add(...i) : i !== null && s.classList.add(i);
+  for (const r in a)
+    a.hasOwnProperty(r) && (s[r] = a[r]);
+  return s;
+}
+var _ = /* @__PURE__ */ ((C) => (C.Empty = "empty", C.Uploading = "uploading", C.Filled = "filled", C))(_ || {});
+class D {
+  /**
+   * @param ui - image tool Ui module
+   * @param ui.api - Editor.js API
+   * @param ui.config - user config
+   * @param ui.onSelectFile - callback for clicks on Select file button
+   * @param ui.readOnly - read-only mode flag
+   */
+  constructor({ api: i, config: a, onSelectFile: s, readOnly: r }) {
+    this.api = i, this.config = a, this.onSelectFile = s, this.readOnly = r, this.nodes = {
+      wrapper: S("div", [this.CSS.baseClass, this.CSS.wrapper]),
+      imageContainer: S("div", [this.CSS.imageContainer]),
+      fileButton: this.createFileButton(),
+      imageEl: void 0,
+      imagePreloader: S("div", this.CSS.imagePreloader),
+      caption: S("div", [this.CSS.input, this.CSS.caption], {
+        contentEditable: !this.readOnly
+      })
+    }, this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder, this.nodes.imageContainer.appendChild(this.nodes.imagePreloader), this.nodes.wrapper.appendChild(this.nodes.imageContainer), this.nodes.wrapper.appendChild(this.nodes.caption), this.nodes.wrapper.appendChild(this.nodes.fileButton);
+  }
+  /**
+   * Apply visual representation of activated tune
+   * @param tuneName - one of available tunes {@link Tunes.tunes}
+   * @param status - true for enable, false for disable
+   */
+  applyTune(i, a) {
+    this.nodes.wrapper.classList.toggle(`${this.CSS.wrapper}--${i}`, a);
+  }
+  /**
+   * Renders tool UI
+   */
+  render() {
+    return this.toggleStatus(
+      "empty"
+      /* Empty */
+    ), this.nodes.wrapper;
+  }
+  /**
+   * Shows uploading preloader
+   * @param src - preview source
+   */
+  showPreloader(i) {
+    this.nodes.imagePreloader.style.backgroundImage = `url(${i})`, this.toggleStatus(
+      "uploading"
+      /* Uploading */
+    );
+  }
+  /**
+   * Hide uploading preloader
+   */
+  hidePreloader() {
+    this.nodes.imagePreloader.style.backgroundImage = "", this.toggleStatus(
+      "empty"
+      /* Empty */
+    );
+  }
+  /**
+   * Shows an image
+   * @param url - image source
+   */
+  fillImage(i) {
+    const a = /\.mp4$/.test(i) ? "VIDEO" : "IMG", s = {
+      src: i
+    };
+    let r = "load";
+    a === "VIDEO" && (s.autoplay = !0, s.loop = !0, s.muted = !0, s.playsinline = !0, r = "loadeddata"), this.nodes.imageEl = S(a, this.CSS.imageEl, s), this.nodes.imageEl.addEventListener(r, () => {
+      this.toggleStatus(
+        "filled"
+        /* Filled */
+      ), this.nodes.imagePreloader !== void 0 && (this.nodes.imagePreloader.style.backgroundImage = "");
+    }), this.nodes.imageContainer.appendChild(this.nodes.imageEl);
+  }
+  /**
+   * Shows caption input
+   * @param text - caption content text
+   */
+  fillCaption(i) {
+    this.nodes.caption !== void 0 && (this.nodes.caption.innerHTML = i);
+  }
+  /**
+   * Changes UI status
+   * @param status - see {@link Ui.status} constants
+   */
+  toggleStatus(i) {
+    for (const a in _)
+      if (Object.prototype.hasOwnProperty.call(_, a)) {
+        const s = _[a];
+        this.nodes.wrapper.classList.toggle(`${this.CSS.wrapper}--${s}`, s === i);
+      }
+  }
+  /**
+   * CSS classes
+   */
+  get CSS() {
+    return {
+      baseClass: this.api.styles.block,
+      loading: this.api.styles.loader,
+      input: this.api.styles.input,
+      button: this.api.styles.button,
+      /**
+       * Tool's classes
+       */
+      wrapper: "image-tool",
+      imageContainer: "image-tool__image",
+      imagePreloader: "image-tool__image-preloader",
+      imageEl: "image-tool__image-picture",
+      caption: "image-tool__caption"
+    };
+  }
+  /**
+   * Creates upload-file button
+   */
+  createFileButton() {
+    const i = S("div", [this.CSS.button]);
+    return i.innerHTML = this.config.buttonContent ?? `${L} ${this.api.i18n.t("Select an Image")}`, i.addEventListener("click", () => {
+      this.onSelectFile();
+    }), i;
+  }
+}
+function U(C) {
+  return C && C.__esModule && Object.prototype.hasOwnProperty.call(C, "default") ? C.default : C;
+}
+var H = { exports: {} };
+(function(C, i) {
+  (function(a, s) {
+    C.exports = s();
+  })(window, function() {
+    return function(a) {
+      var s = {};
+      function r(o) {
+        if (s[o]) return s[o].exports;
+        var e = s[o] = { i: o, l: !1, exports: {} };
+        return a[o].call(e.exports, e, e.exports, r), e.l = !0, e.exports;
+      }
+      return r.m = a, r.c = s, r.d = function(o, e, d) {
+        r.o(o, e) || Object.defineProperty(o, e, { enumerable: !0, get: d });
+      }, r.r = function(o) {
+        typeof Symbol < "u" && Symbol.toStringTag && Object.defineProperty(o, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(o, "__esModule", { value: !0 });
+      }, r.t = function(o, e) {
+        if (1 & e && (o = r(o)), 8 & e || 4 & e && typeof o == "object" && o && o.__esModule) return o;
+        var d = /* @__PURE__ */ Object.create(null);
+        if (r.r(d), Object.defineProperty(d, "default", { enumerable: !0, value: o }), 2 & e && typeof o != "string") for (var v in o) r.d(d, v, (function(l) {
+          return o[l];
+        }).bind(null, v));
+        return d;
+      }, r.n = function(o) {
+        var e = o && o.__esModule ? function() {
+          return o.default;
+        } : function() {
+          return o;
+        };
+        return r.d(e, "a", e), e;
+      }, r.o = function(o, e) {
+        return Object.prototype.hasOwnProperty.call(o, e);
+      }, r.p = "", r(r.s = 3);
+    }([function(a, s) {
+      var r;
+      r = /* @__PURE__ */ function() {
+        return this;
+      }();
+      try {
+        r = r || new Function("return this")();
+      } catch {
+        typeof window == "object" && (r = window);
+      }
+      a.exports = r;
+    }, function(a, s, r) {
+      (function(o) {
+        var e = r(2), d = setTimeout;
+        function v() {
+        }
+        function l(n) {
+          if (!(this instanceof l)) throw new TypeError("Promises must be constructed via new");
+          if (typeof n != "function") throw new TypeError("not a function");
+          this._state = 0, this._handled = !1, this._value = void 0, this._deferreds = [], t(n, this);
+        }
+        function f(n, c) {
+          for (; n._state === 3; ) n = n._value;
+          n._state !== 0 ? (n._handled = !0, l._immediateFn(function() {
+            var u = n._state === 1 ? c.onFulfilled : c.onRejected;
+            if (u !== null) {
+              var g;
+              try {
+                g = u(n._value);
+              } catch (m) {
+                return void y(c.promise, m);
+              }
+              p(c.promise, g);
+            } else (n._state === 1 ? p : y)(c.promise, n._value);
+          })) : n._deferreds.push(c);
+        }
+        function p(n, c) {
+          try {
+            if (c === n) throw new TypeError("A promise cannot be resolved with itself.");
+            if (c && (typeof c == "object" || typeof c == "function")) {
+              var u = c.then;
+              if (c instanceof l) return n._state = 3, n._value = c, void w(n);
+              if (typeof u == "function") return void t((g = u, m = c, function() {
+                g.apply(m, arguments);
+              }), n);
+            }
+            n._state = 1, n._value = c, w(n);
+          } catch (h) {
+            y(n, h);
+          }
+          var g, m;
+        }
+        function y(n, c) {
+          n._state = 2, n._value = c, w(n);
+        }
+        function w(n) {
+          n._state === 2 && n._deferreds.length === 0 && l._immediateFn(function() {
+            n._handled || l._unhandledRejectionFn(n._value);
+          });
+          for (var c = 0, u = n._deferreds.length; c < u; c++) f(n, n._deferreds[c]);
+          n._deferreds = null;
+        }
+        function b(n, c, u) {
+          this.onFulfilled = typeof n == "function" ? n : null, this.onRejected = typeof c == "function" ? c : null, this.promise = u;
+        }
+        function t(n, c) {
+          var u = !1;
+          try {
+            n(function(g) {
+              u || (u = !0, p(c, g));
+            }, function(g) {
+              u || (u = !0, y(c, g));
+            });
+          } catch (g) {
+            if (u) return;
+            u = !0, y(c, g);
+          }
+        }
+        l.prototype.catch = function(n) {
+          return this.then(null, n);
+        }, l.prototype.then = function(n, c) {
+          var u = new this.constructor(v);
+          return f(this, new b(n, c, u)), u;
+        }, l.prototype.finally = e.a, l.all = function(n) {
+          return new l(function(c, u) {
+            if (!n || n.length === void 0) throw new TypeError("Promise.all accepts an array");
+            var g = Array.prototype.slice.call(n);
+            if (g.length === 0) return c([]);
+            var m = g.length;
+            function h(T, E) {
+              try {
+                if (E && (typeof E == "object" || typeof E == "function")) {
+                  var M = E.then;
+                  if (typeof M == "function") return void M.call(E, function(F) {
+                    h(T, F);
+                  }, u);
+                }
+                g[T] = E, --m == 0 && c(g);
+              } catch (F) {
+                u(F);
+              }
+            }
+            for (var k = 0; k < g.length; k++) h(k, g[k]);
+          });
+        }, l.resolve = function(n) {
+          return n && typeof n == "object" && n.constructor === l ? n : new l(function(c) {
+            c(n);
+          });
+        }, l.reject = function(n) {
+          return new l(function(c, u) {
+            u(n);
+          });
+        }, l.race = function(n) {
+          return new l(function(c, u) {
+            for (var g = 0, m = n.length; g < m; g++) n[g].then(c, u);
+          });
+        }, l._immediateFn = typeof o == "function" && function(n) {
+          o(n);
+        } || function(n) {
+          d(n, 0);
+        }, l._unhandledRejectionFn = function(n) {
+          typeof console < "u" && console && console.warn("Possible Unhandled Promise Rejection:", n);
+        }, s.a = l;
+      }).call(this, r(5).setImmediate);
+    }, function(a, s, r) {
+      s.a = function(o) {
+        var e = this.constructor;
+        return this.then(function(d) {
+          return e.resolve(o()).then(function() {
+            return d;
+          });
+        }, function(d) {
+          return e.resolve(o()).then(function() {
+            return e.reject(d);
+          });
+        });
+      };
+    }, function(a, s, r) {
+      function o(t) {
+        return (o = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(n) {
+          return typeof n;
+        } : function(n) {
+          return n && typeof Symbol == "function" && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : typeof n;
+        })(t);
+      }
+      r(4);
+      var e, d, v, l, f, p, y, w = r(8), b = (d = function(t) {
+        return new Promise(function(n, c) {
+          t = l(t), (t = f(t)).beforeSend && t.beforeSend();
+          var u = window.XMLHttpRequest ? new window.XMLHttpRequest() : new window.ActiveXObject("Microsoft.XMLHTTP");
+          u.open(t.method, t.url), u.setRequestHeader("X-Requested-With", "XMLHttpRequest"), Object.keys(t.headers).forEach(function(m) {
+            var h = t.headers[m];
+            u.setRequestHeader(m, h);
+          });
+          var g = t.ratio;
+          u.upload.addEventListener("progress", function(m) {
+            var h = Math.round(m.loaded / m.total * 100), k = Math.ceil(h * g / 100);
+            t.progress(Math.min(k, 100));
+          }, !1), u.addEventListener("progress", function(m) {
+            var h = Math.round(m.loaded / m.total * 100), k = Math.ceil(h * (100 - g) / 100) + g;
+            t.progress(Math.min(k, 100));
+          }, !1), u.onreadystatechange = function() {
+            if (u.readyState === 4) {
+              var m = u.response;
+              try {
+                m = JSON.parse(m);
+              } catch {
+              }
+              var h = w.parseHeaders(u.getAllResponseHeaders()), k = { body: m, code: u.status, headers: h };
+              y(u.status) ? n(k) : c(k);
+            }
+          }, u.send(t.data);
+        });
+      }, v = function(t) {
+        return t.method = "POST", d(t);
+      }, l = function() {
+        var t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+        if (t.url && typeof t.url != "string") throw new Error("Url must be a string");
+        if (t.url = t.url || "", t.method && typeof t.method != "string") throw new Error("`method` must be a string or null");
+        if (t.method = t.method ? t.method.toUpperCase() : "GET", t.headers && o(t.headers) !== "object") throw new Error("`headers` must be an object or null");
+        if (t.headers = t.headers || {}, t.type && (typeof t.type != "string" || !Object.values(e).includes(t.type))) throw new Error("`type` must be taken from module's «contentType» library");
+        if (t.progress && typeof t.progress != "function") throw new Error("`progress` must be a function or null");
+        if (t.progress = t.progress || function(n) {
+        }, t.beforeSend = t.beforeSend || function(n) {
+        }, t.ratio && typeof t.ratio != "number") throw new Error("`ratio` must be a number");
+        if (t.ratio < 0 || t.ratio > 100) throw new Error("`ratio` must be in a 0-100 interval");
+        if (t.ratio = t.ratio || 90, t.accept && typeof t.accept != "string") throw new Error("`accept` must be a string with a list of allowed mime-types");
+        if (t.accept = t.accept || "*/*", t.multiple && typeof t.multiple != "boolean") throw new Error("`multiple` must be a true or false");
+        if (t.multiple = t.multiple || !1, t.fieldName && typeof t.fieldName != "string") throw new Error("`fieldName` must be a string");
+        return t.fieldName = t.fieldName || "files", t;
+      }, f = function(t) {
+        switch (t.method) {
+          case "GET":
+            var n = p(t.data, e.URLENCODED);
+            delete t.data, t.url = /\?/.test(t.url) ? t.url + "&" + n : t.url + "?" + n;
+            break;
+          case "POST":
+          case "PUT":
+          case "DELETE":
+          case "UPDATE":
+            var c = function() {
+              return (arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}).type || e.JSON;
+            }(t);
+            (w.isFormData(t.data) || w.isFormElement(t.data)) && (c = e.FORM), t.data = p(t.data, c), c !== b.contentType.FORM && (t.headers["content-type"] = c);
+        }
+        return t;
+      }, p = function() {
+        var t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+        switch (arguments.length > 1 ? arguments[1] : void 0) {
+          case e.URLENCODED:
+            return w.urlEncode(t);
+          case e.JSON:
+            return w.jsonEncode(t);
+          case e.FORM:
+            return w.formEncode(t);
+          default:
+            return t;
+        }
+      }, y = function(t) {
+        return t >= 200 && t < 300;
+      }, { contentType: e = { URLENCODED: "application/x-www-form-urlencoded; charset=utf-8", FORM: "multipart/form-data", JSON: "application/json; charset=utf-8" }, request: d, get: function(t) {
+        return t.method = "GET", d(t);
+      }, post: v, transport: function(t) {
+        return t = l(t), w.selectFiles(t).then(function(n) {
+          for (var c = new FormData(), u = 0; u < n.length; u++) c.append(t.fieldName, n[u], n[u].name);
+          w.isObject(t.data) && Object.keys(t.data).forEach(function(m) {
+            var h = t.data[m];
+            c.append(m, h);
+          });
+          var g = t.beforeSend;
+          return t.beforeSend = function() {
+            return g(n);
+          }, t.data = c, v(t);
+        });
+      }, selectFiles: function(t) {
+        return delete (t = l(t)).beforeSend, w.selectFiles(t);
+      } });
+      a.exports = b;
+    }, function(a, s, r) {
+      r.r(s);
+      var o = r(1);
+      window.Promise = window.Promise || o.a;
+    }, function(a, s, r) {
+      (function(o) {
+        var e = o !== void 0 && o || typeof self < "u" && self || window, d = Function.prototype.apply;
+        function v(l, f) {
+          this._id = l, this._clearFn = f;
+        }
+        s.setTimeout = function() {
+          return new v(d.call(setTimeout, e, arguments), clearTimeout);
+        }, s.setInterval = function() {
+          return new v(d.call(setInterval, e, arguments), clearInterval);
+        }, s.clearTimeout = s.clearInterval = function(l) {
+          l && l.close();
+        }, v.prototype.unref = v.prototype.ref = function() {
+        }, v.prototype.close = function() {
+          this._clearFn.call(e, this._id);
+        }, s.enroll = function(l, f) {
+          clearTimeout(l._idleTimeoutId), l._idleTimeout = f;
+        }, s.unenroll = function(l) {
+          clearTimeout(l._idleTimeoutId), l._idleTimeout = -1;
+        }, s._unrefActive = s.active = function(l) {
+          clearTimeout(l._idleTimeoutId);
+          var f = l._idleTimeout;
+          f >= 0 && (l._idleTimeoutId = setTimeout(function() {
+            l._onTimeout && l._onTimeout();
+          }, f));
+        }, r(6), s.setImmediate = typeof self < "u" && self.setImmediate || o !== void 0 && o.setImmediate || this && this.setImmediate, s.clearImmediate = typeof self < "u" && self.clearImmediate || o !== void 0 && o.clearImmediate || this && this.clearImmediate;
+      }).call(this, r(0));
+    }, function(a, s, r) {
+      (function(o, e) {
+        (function(d, v) {
+          if (!d.setImmediate) {
+            var l, f, p, y, w, b = 1, t = {}, n = !1, c = d.document, u = Object.getPrototypeOf && Object.getPrototypeOf(d);
+            u = u && u.setTimeout ? u : d, {}.toString.call(d.process) === "[object process]" ? l = function(h) {
+              e.nextTick(function() {
+                m(h);
+              });
+            } : function() {
+              if (d.postMessage && !d.importScripts) {
+                var h = !0, k = d.onmessage;
+                return d.onmessage = function() {
+                  h = !1;
+                }, d.postMessage("", "*"), d.onmessage = k, h;
+              }
+            }() ? (y = "setImmediate$" + Math.random() + "$", w = function(h) {
+              h.source === d && typeof h.data == "string" && h.data.indexOf(y) === 0 && m(+h.data.slice(y.length));
+            }, d.addEventListener ? d.addEventListener("message", w, !1) : d.attachEvent("onmessage", w), l = function(h) {
+              d.postMessage(y + h, "*");
+            }) : d.MessageChannel ? ((p = new MessageChannel()).port1.onmessage = function(h) {
+              m(h.data);
+            }, l = function(h) {
+              p.port2.postMessage(h);
+            }) : c && "onreadystatechange" in c.createElement("script") ? (f = c.documentElement, l = function(h) {
+              var k = c.createElement("script");
+              k.onreadystatechange = function() {
+                m(h), k.onreadystatechange = null, f.removeChild(k), k = null;
+              }, f.appendChild(k);
+            }) : l = function(h) {
+              setTimeout(m, 0, h);
+            }, u.setImmediate = function(h) {
+              typeof h != "function" && (h = new Function("" + h));
+              for (var k = new Array(arguments.length - 1), T = 0; T < k.length; T++) k[T] = arguments[T + 1];
+              var E = { callback: h, args: k };
+              return t[b] = E, l(b), b++;
+            }, u.clearImmediate = g;
+          }
+          function g(h) {
+            delete t[h];
+          }
+          function m(h) {
+            if (n) setTimeout(m, 0, h);
+            else {
+              var k = t[h];
+              if (k) {
+                n = !0;
+                try {
+                  (function(T) {
+                    var E = T.callback, M = T.args;
+                    switch (M.length) {
+                      case 0:
+                        E();
+                        break;
+                      case 1:
+                        E(M[0]);
+                        break;
+                      case 2:
+                        E(M[0], M[1]);
+                        break;
+                      case 3:
+                        E(M[0], M[1], M[2]);
+                        break;
+                      default:
+                        E.apply(v, M);
+                    }
+                  })(k);
+                } finally {
+                  g(h), n = !1;
+                }
+              }
+            }
+          }
+        })(typeof self > "u" ? o === void 0 ? this : o : self);
+      }).call(this, r(0), r(7));
+    }, function(a, s) {
+      var r, o, e = a.exports = {};
+      function d() {
+        throw new Error("setTimeout has not been defined");
+      }
+      function v() {
+        throw new Error("clearTimeout has not been defined");
+      }
+      function l(u) {
+        if (r === setTimeout) return setTimeout(u, 0);
+        if ((r === d || !r) && setTimeout) return r = setTimeout, setTimeout(u, 0);
+        try {
+          return r(u, 0);
+        } catch {
+          try {
+            return r.call(null, u, 0);
+          } catch {
+            return r.call(this, u, 0);
+          }
+        }
+      }
+      (function() {
+        try {
+          r = typeof setTimeout == "function" ? setTimeout : d;
+        } catch {
+          r = d;
+        }
+        try {
+          o = typeof clearTimeout == "function" ? clearTimeout : v;
+        } catch {
+          o = v;
+        }
+      })();
+      var f, p = [], y = !1, w = -1;
+      function b() {
+        y && f && (y = !1, f.length ? p = f.concat(p) : w = -1, p.length && t());
+      }
+      function t() {
+        if (!y) {
+          var u = l(b);
+          y = !0;
+          for (var g = p.length; g; ) {
+            for (f = p, p = []; ++w < g; ) f && f[w].run();
+            w = -1, g = p.length;
+          }
+          f = null, y = !1, function(m) {
+            if (o === clearTimeout) return clearTimeout(m);
+            if ((o === v || !o) && clearTimeout) return o = clearTimeout, clearTimeout(m);
+            try {
+              o(m);
+            } catch {
+              try {
+                return o.call(null, m);
+              } catch {
+                return o.call(this, m);
+              }
+            }
+          }(u);
+        }
+      }
+      function n(u, g) {
+        this.fun = u, this.array = g;
+      }
+      function c() {
+      }
+      e.nextTick = function(u) {
+        var g = new Array(arguments.length - 1);
+        if (arguments.length > 1) for (var m = 1; m < arguments.length; m++) g[m - 1] = arguments[m];
+        p.push(new n(u, g)), p.length !== 1 || y || l(t);
+      }, n.prototype.run = function() {
+        this.fun.apply(null, this.array);
+      }, e.title = "browser", e.browser = !0, e.env = {}, e.argv = [], e.version = "", e.versions = {}, e.on = c, e.addListener = c, e.once = c, e.off = c, e.removeListener = c, e.removeAllListeners = c, e.emit = c, e.prependListener = c, e.prependOnceListener = c, e.listeners = function(u) {
+        return [];
+      }, e.binding = function(u) {
+        throw new Error("process.binding is not supported");
+      }, e.cwd = function() {
+        return "/";
+      }, e.chdir = function(u) {
+        throw new Error("process.chdir is not supported");
+      }, e.umask = function() {
+        return 0;
+      };
+    }, function(a, s, r) {
+      function o(d, v) {
+        for (var l = 0; l < v.length; l++) {
+          var f = v[l];
+          f.enumerable = f.enumerable || !1, f.configurable = !0, "value" in f && (f.writable = !0), Object.defineProperty(d, f.key, f);
+        }
+      }
+      var e = r(9);
+      a.exports = function() {
+        function d() {
+          (function(p, y) {
+            if (!(p instanceof y)) throw new TypeError("Cannot call a class as a function");
+          })(this, d);
+        }
+        var v, l, f;
+        return v = d, f = [{ key: "urlEncode", value: function(p) {
+          return e(p);
+        } }, { key: "jsonEncode", value: function(p) {
+          return JSON.stringify(p);
+        } }, { key: "formEncode", value: function(p) {
+          if (this.isFormData(p)) return p;
+          if (this.isFormElement(p)) return new FormData(p);
+          if (this.isObject(p)) {
+            var y = new FormData();
+            return Object.keys(p).forEach(function(w) {
+              var b = p[w];
+              y.append(w, b);
+            }), y;
+          }
+          throw new Error("`data` must be an instance of Object, FormData or <FORM> HTMLElement");
+        } }, { key: "isObject", value: function(p) {
+          return Object.prototype.toString.call(p) === "[object Object]";
+        } }, { key: "isFormData", value: function(p) {
+          return p instanceof FormData;
+        } }, { key: "isFormElement", value: function(p) {
+          return p instanceof HTMLFormElement;
+        } }, { key: "selectFiles", value: function() {
+          var p = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+          return new Promise(function(y, w) {
+            var b = document.createElement("INPUT");
+            b.type = "file", p.multiple && b.setAttribute("multiple", "multiple"), p.accept && b.setAttribute("accept", p.accept), b.style.display = "none", document.body.appendChild(b), b.addEventListener("change", function(t) {
+              var n = t.target.files;
+              y(n), document.body.removeChild(b);
+            }, !1), b.click();
+          });
+        } }, { key: "parseHeaders", value: function(p) {
+          var y = p.trim().split(/[\r\n]+/), w = {};
+          return y.forEach(function(b) {
+            var t = b.split(": "), n = t.shift(), c = t.join(": ");
+            n && (w[n] = c);
+          }), w;
+        } }], (l = null) && o(v.prototype, l), f && o(v, f), d;
+      }();
+    }, function(a, s) {
+      var r = function(e) {
+        return encodeURIComponent(e).replace(/[!'()*]/g, escape).replace(/%20/g, "+");
+      }, o = function(e, d, v, l) {
+        return d = d || null, v = v || "&", l = l || null, e ? function(f) {
+          for (var p = new Array(), y = 0; y < f.length; y++) f[y] && p.push(f[y]);
+          return p;
+        }(Object.keys(e).map(function(f) {
+          var p, y, w = f;
+          if (l && (w = l + "[" + w + "]"), typeof e[f] == "object" && e[f] !== null) p = o(e[f], null, v, w);
+          else {
+            d && (y = w, w = !isNaN(parseFloat(y)) && isFinite(y) ? d + Number(w) : w);
+            var b = e[f];
+            b = (b = (b = (b = b === !0 ? "1" : b) === !1 ? "0" : b) === 0 ? "0" : b) || "", p = r(w) + "=" + r(b);
+          }
+          return p;
+        })).join(v).replace(/[!'()*]/g, "") : "";
+      };
+      a.exports = o;
+    }]);
+  });
+})(H);
+var q = H.exports;
+const j = /* @__PURE__ */ U(q);
+function O(C) {
+  return C !== void 0 && typeof C.then == "function";
+}
+class A {
+  /**
+   * @param params - uploader module params
+   * @param params.config - image tool config
+   * @param params.onUpload - one callback for all uploading (file, url, d-n-d, pasting)
+   * @param params.onError - callback for uploading errors
+   */
+  constructor({ config: i, onUpload: a, onError: s }) {
+    this.config = i, this.onUpload = a, this.onError = s;
+  }
+  /**
+   * Handle clicks on the upload file button
+   * Fires ajax.transport()
+   * @param onPreview - callback fired when preview is ready
+   */
+  uploadSelectedFile({ onPreview: i }) {
+    const a = function(r) {
+      const o = new FileReader();
+      o.readAsDataURL(r), o.onload = (e) => {
+        i(e.target.result);
+      };
+    };
+    let s;
+    if (this.config.uploader && typeof this.config.uploader.uploadByFile == "function") {
+      const r = this.config.uploader.uploadByFile;
+      s = j.selectFiles({ accept: this.config.types ?? "image/*" }).then((o) => {
+        a(o[0]);
+        const e = r(o[0]);
+        return O(e) || console.warn("Custom uploader method uploadByFile should return a Promise"), e;
+      });
+    } else
+      s = j.transport({
+        url: this.config.endpoints.byFile,
+        data: this.config.additionalRequestData,
+        accept: this.config.types ?? "image/*",
+        headers: this.config.additionalRequestHeaders,
+        beforeSend: (r) => {
+          a(r[0]);
+        },
+        fieldName: this.config.field ?? "image"
+      }).then((r) => r.body);
+    s.then((r) => {
+      this.onUpload(r);
+    }).catch((r) => {
+      this.onError(r);
+    });
+  }
+  /**
+   * Handle clicks on the upload file button
+   * Fires ajax.post()
+   * @param url - image source url
+   */
+  uploadByUrl(i) {
+    let a;
+    this.config.uploader && typeof this.config.uploader.uploadByUrl == "function" ? (a = this.config.uploader.uploadByUrl(i), O(a) || console.warn("Custom uploader method uploadByUrl should return a Promise")) : a = j.post({
+      url: this.config.endpoints.byUrl,
+      data: Object.assign({
+        url: i
+      }, this.config.additionalRequestData),
+      type: j.contentType.JSON,
+      headers: this.config.additionalRequestHeaders
+    }).then((s) => s.body), a.then((s) => {
+      this.onUpload(s);
+    }).catch((s) => {
+      this.onError(s);
+    });
+  }
+  /**
+   * Handle clicks on the upload file button
+   * Fires ajax.post()
+   * @param file - file pasted by drag-n-drop
+   * @param onPreview - file pasted by drag-n-drop
+   */
+  uploadByFile(i, { onPreview: a }) {
+    const s = new FileReader();
+    s.readAsDataURL(i), s.onload = (o) => {
+      a(o.target.result);
+    };
+    let r;
+    if (this.config.uploader && typeof this.config.uploader.uploadByFile == "function")
+      r = this.config.uploader.uploadByFile(i), O(r) || console.warn("Custom uploader method uploadByFile should return a Promise");
+    else {
+      const o = new FormData();
+      o.append(this.config.field ?? "image", i), this.config.additionalRequestData && Object.keys(this.config.additionalRequestData).length && Object.entries(this.config.additionalRequestData).forEach(([e, d]) => {
+        o.append(e, d);
+      }), r = j.post({
+        url: this.config.endpoints.byFile,
+        data: o,
+        type: j.contentType.JSON,
+        headers: this.config.additionalRequestHeaders
+      }).then((e) => e.body);
+    }
+    r.then((o) => {
+      this.onUpload(o);
+    }).catch((o) => {
+      this.onError(o);
+    });
+  }
+}
+/**
+ * Image Tool for the Editor.js
+ * @author CodeX <team@codex.so>
+ * @license MIT
+ * @see {@link https://github.com/editor-js/image}
+ *
+ * To developers.
+ * To simplify Tool structure, we split it to 4 parts:
+ *  1) index.ts — main Tool's interface, public API and methods for working with data
+ *  2) uploader.ts — module that has methods for sending files via AJAX: from device, by URL or File pasting
+ *  3) ui.ts — module for UI manipulations: render, showing preloader, etc
+ *
+ * For debug purposes there is a testing server
+ * that can save uploaded files and return a Response {@link UploadResponseFormat}
+ *
+ *       $ node dev/server.js
+ *
+ * It will expose 8008 port, so you can pass http://localhost:8008 with the Tools config:
+ *
+ * image: {
+ *   class: ImageTool,
+ *   config: {
+ *     endpoints: {
+ *       byFile: 'http://localhost:8008/uploadFile',
+ *       byUrl: 'http://localhost:8008/fetchUrl',
+ *     }
+ *   },
+ * },
+ */
+class P {
+  /**
+   * @param tool - tool properties got from editor.js
+   * @param tool.data - previously saved data
+   * @param tool.config - user config for Tool
+   * @param tool.api - Editor.js API
+   * @param tool.readOnly - read-only mode flag
+   * @param tool.block - current Block API
+   */
+  constructor({ data: i, config: a, api: s, readOnly: r, block: o }) {
+    this.isCaptionEnabled = null, this.api = s, this.block = o, this.config = {
+      endpoints: a.endpoints,
+      additionalRequestData: a.additionalRequestData,
+      additionalRequestHeaders: a.additionalRequestHeaders,
+      field: a.field,
+      types: a.types,
+      captionPlaceholder: this.api.i18n.t(a.captionPlaceholder ?? "Caption"),
+      buttonContent: a.buttonContent,
+      uploader: a.uploader,
+      actions: a.actions,
+      features: a.features || {}
+    }, this.uploader = new A({
+      config: this.config,
+      onUpload: (e) => this.onUpload(e),
+      onError: (e) => this.uploadingFailed(e)
+    }), this.ui = new D({
+      api: s,
+      config: this.config,
+      onSelectFile: () => {
+        this.uploader.uploadSelectedFile({
+          onPreview: (e) => {
+            this.ui.showPreloader(e);
+          }
+        });
+      },
+      readOnly: r
+    }), this._data = {
+      caption: "",
+      withBorder: !1,
+      withBackground: !1,
+      stretched: !1,
+      file: {
+        url: ""
+      }
+    }, this.data = i;
+  }
+  /**
+   * Notify core that read-only mode is supported
+   */
+  static get isReadOnlySupported() {
+    return !0;
+  }
+  /**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   */
+  static get toolbox() {
+    return {
+      icon: L,
+      title: "Image"
+    };
+  }
+  /**
+   * Available image tools
+   */
+  static get tunes() {
+    return [
+      {
+        name: "withBorder",
+        icon: I,
+        title: "With border",
+        toggle: !0
+      },
+      {
+        name: "stretched",
+        icon: x,
+        title: "Stretch image",
+        toggle: !0
+      },
+      {
+        name: "withBackground",
+        icon: R,
+        title: "With background",
+        toggle: !0
+      }
+    ];
+  }
+  /**
+   * Renders Block content
+   */
+  render() {
+    var i, a, s;
+    return (((i = this.config.features) == null ? void 0 : i.caption) === !0 || ((a = this.config.features) == null ? void 0 : a.caption) === void 0 || ((s = this.config.features) == null ? void 0 : s.caption) === "optional" && this.data.caption) && (this.isCaptionEnabled = !0, this.ui.applyTune("caption", !0)), this.ui.render();
+  }
+  /**
+   * Validate data: check if Image exists
+   * @param savedData — data received after saving
+   * @returns false if saved data is not correct, otherwise true
+   */
+  validate(i) {
+    return !!i.file.url;
+  }
+  /**
+   * Return Block data
+   */
+  save() {
+    const i = this.ui.nodes.caption;
+    return this._data.caption = i.innerHTML, this.data;
+  }
+  /**
+   * Returns configuration for block tunes: add background, add border, stretch image
+   * @returns TunesMenuConfig
+   */
+  renderSettings() {
+    var o;
+    const i = P.tunes.concat(this.config.actions || []), a = {
+      border: "withBorder",
+      background: "withBackground",
+      stretch: "stretched",
+      caption: "caption"
+    };
+    ((o = this.config.features) == null ? void 0 : o.caption) === "optional" && i.push({
+      name: "caption",
+      icon: B,
+      title: "With caption",
+      toggle: !0
+    });
+    const s = i.filter((e) => {
+      var v, l;
+      const d = Object.keys(a).find((f) => a[f] === e.name);
+      return d === "caption" ? ((v = this.config.features) == null ? void 0 : v.caption) !== !1 : d == null || ((l = this.config.features) == null ? void 0 : l[d]) !== !1;
+    }), r = (e) => {
+      let d = this.data[e.name];
+      return e.name === "caption" && (d = this.isCaptionEnabled ?? d), d;
+    };
+    return s.map((e) => ({
+      icon: e.icon,
+      label: this.api.i18n.t(e.title),
+      name: e.name,
+      toggle: e.toggle,
+      isActive: r(e),
+      onActivate: () => {
+        if (typeof e.action == "function") {
+          e.action(e.name);
+          return;
+        }
+        let d = !r(e);
+        e.name === "caption" && (this.isCaptionEnabled = !(this.isCaptionEnabled ?? !1), d = this.isCaptionEnabled), this.tuneToggled(e.name, d);
+      }
+    }));
+  }
+  /**
+   * Fires after clicks on the Toolbox Image Icon
+   * Initiates click on the Select File button
+   */
+  appendCallback() {
+    this.ui.nodes.fileButton.click();
+  }
+  /**
+   * Specify paste substitutes
+   * @see {@link https://github.com/codex-team/editor.js/blob/master/docs/tools.md#paste-handling}
+   */
+  static get pasteConfig() {
+    return {
+      /**
+       * Paste HTML into Editor
+       */
+      tags: [
+        {
+          img: { src: !0 }
+        }
+      ],
+      /**
+       * Paste URL of image into the Editor
+       */
+      patterns: {
+        image: /https?:\/\/\S+\.(gif|jpe?g|tiff|png|svg|webp)(\?[a-z0-9=]*)?$/i
+      },
+      /**
+       * Drag n drop file from into the Editor
+       */
+      files: {
+        mimeTypes: ["image/*"]
+      }
+    };
+  }
+  /**
+   * Specify paste handlers
+   * @see {@link https://github.com/codex-team/editor.js/blob/master/docs/tools.md#paste-handling}
+   * @param event - editor.js custom paste event
+   *                              {@link https://github.com/codex-team/editor.js/blob/master/types/tools/paste-events.d.ts}
+   */
+  async onPaste(i) {
+    switch (i.type) {
+      case "tag": {
+        const a = i.detail.data;
+        if (/^blob:/.test(a.src)) {
+          const r = await (await fetch(a.src)).blob();
+          this.uploadFile(r);
+          break;
+        }
+        this.uploadUrl(a.src);
+        break;
+      }
+      case "pattern": {
+        const a = i.detail.data;
+        this.uploadUrl(a);
+        break;
+      }
+      case "file": {
+        const a = i.detail.file;
+        this.uploadFile(a);
+        break;
+      }
+    }
+  }
+  /**
+   * Private methods
+   * ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
+   */
+  /**
+   * Stores all Tool's data
+   * @param data - data in Image Tool format
+   */
+  set data(i) {
+    var a;
+    this.image = i.file, this._data.caption = i.caption || "", this.ui.fillCaption(this._data.caption), P.tunes.forEach(({ name: s }) => {
+      const r = typeof i[s] < "u" ? i[s] === !0 || i[s] === "true" : !1;
+      this.setTune(s, r);
+    }), i.caption ? this.setTune("caption", !0) : ((a = this.config.features) == null ? void 0 : a.caption) === !0 && this.setTune("caption", !0);
+  }
+  /**
+   * Return Tool data
+   */
+  get data() {
+    return this._data;
+  }
+  /**
+   * Set new image file
+   * @param file - uploaded file data
+   */
+  set image(i) {
+    this._data.file = i || { url: "" }, i && i.url && this.ui.fillImage(i.url);
+  }
+  /**
+   * File uploading callback
+   * @param response - uploading server response
+   */
+  onUpload(i) {
+    i.success && i.file ? this.image = i.file : this.uploadingFailed("incorrect response: " + JSON.stringify(i));
+  }
+  /**
+   * Handle uploader errors
+   * @param errorText - uploading error info
+   */
+  uploadingFailed(i) {
+    console.log("Image Tool: uploading failed because of", i), this.api.notifier.show({
+      message: this.api.i18n.t("Couldn’t upload image. Please try another."),
+      style: "error"
+    }), this.ui.hidePreloader();
+  }
+  /**
+   * Callback fired when Block Tune is activated
+   * @param tuneName - tune that has been clicked
+   * @param state - new state
+   */
+  tuneToggled(i, a) {
+    i === "caption" ? (this.ui.applyTune(i, a), a == !1 && (this._data.caption = "", this.ui.fillCaption(""))) : this.setTune(i, a);
+  }
+  /**
+   * Set one tune
+   * @param tuneName - {@link Tunes.tunes}
+   * @param value - tune state
+   */
+  setTune(i, a) {
+    this._data[i] = a, this.ui.applyTune(i, a), i === "stretched" && Promise.resolve().then(() => {
+      this.block.stretched = a;
+    }).catch((s) => {
+      console.error(s);
+    });
+  }
+  /**
+   * Show preloader and upload image file
+   * @param file - file that is currently uploading (from paste)
+   */
+  uploadFile(i) {
+    this.uploader.uploadByFile(i, {
+      onPreview: (a) => {
+        this.ui.showPreloader(a);
+      }
+    });
+  }
+  /**
+   * Show preloader and upload image by target url
+   * @param url - url pasted
+   */
+  uploadUrl(i) {
+    this.ui.showPreloader(i), this.uploader.uploadByUrl(i);
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@editorjs/list/dist/editorjs-list.mjs":
+/*!************************************************************!*\
+  !*** ./node_modules/@editorjs/list/dist/editorjs-list.mjs ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ G)
+/* harmony export */ });
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode('.cdx-list{margin:0;padding:0;outline:none;display:grid;counter-reset:item;gap:var(--spacing-s);padding:var(--spacing-xs);--spacing-s: 8px;--spacing-xs: 6px;--list-counter-type: numeric;--radius-border: 5px;--checkbox-background: #fff;--color-border: #C9C9C9;--color-bg-checked: #369FFF;--line-height: 1.45em;--color-bg-checked-hover: #0059AB;--color-tick: #fff;--size-checkbox: 1.2em}.cdx-list__item{line-height:var(--line-height);display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;grid-template-areas:"checkbox content" ". child"}.cdx-list__item-children{display:grid;grid-area:child;gap:var(--spacing-s);padding-top:var(--spacing-s)}.cdx-list__item [contenteditable]{outline:none}.cdx-list__item-content{word-break:break-word;white-space:pre-wrap;grid-area:content;padding-left:var(--spacing-s)}.cdx-list__item:before{counter-increment:item;white-space:nowrap}.cdx-list-ordered .cdx-list__item:before{content:counters(item,".",var(--list-counter-type)) "."}.cdx-list-ordered{counter-reset:item}.cdx-list-unordered .cdx-list__item:before{content:"•"}.cdx-list-checklist .cdx-list__item:before{content:""}.cdx-list__settings .cdx-settings-button{width:50%}.cdx-list__checkbox{padding-top:calc((var(--line-height) - var(--size-checkbox)) / 2);grid-area:checkbox;width:var(--size-checkbox);height:var(--size-checkbox);display:flex;cursor:pointer}.cdx-list__checkbox svg{opacity:0;height:var(--size-checkbox);width:var(--size-checkbox);left:-1px;top:-1px;position:absolute}@media (hover: hover){.cdx-list__checkbox:not(.cdx-list__checkbox--no-hover):hover .cdx-list__checkbox-check svg{opacity:1}}.cdx-list__checkbox--checked{line-height:var(--line-height)}@media (hover: hover){.cdx-list__checkbox--checked:not(.cdx-list__checkbox--checked--no-hover):hover .cdx-checklist__checkbox-check{background:var(--color-bg-checked-hover);border-color:var(--color-bg-checked-hover)}}.cdx-list__checkbox--checked .cdx-list__checkbox-check{background:var(--color-bg-checked);border-color:var(--color-bg-checked)}.cdx-list__checkbox--checked .cdx-list__checkbox-check svg{opacity:1}.cdx-list__checkbox--checked .cdx-list__checkbox-check svg path{stroke:var(--color-tick)}.cdx-list__checkbox--checked .cdx-list__checkbox-check:before{opacity:0;visibility:visible;transform:scale(2.5)}.cdx-list__checkbox-check{cursor:pointer;display:inline-block;position:relative;margin:0 auto;width:var(--size-checkbox);height:var(--size-checkbox);box-sizing:border-box;border-radius:var(--radius-border);border:1px solid var(--color-border);background:var(--checkbox-background)}.cdx-list__checkbox-check:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:100%;background-color:var(--color-bg-checked);visibility:hidden;pointer-events:none;transform:scale(1);transition:transform .4s ease-out,opacity .4s}.cdx-list-start-with-field{background:#F8F8F8;border:1px solid rgba(226,226,229,.2);border-radius:6px;padding:2px;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto}.cdx-list-start-with-field--invalid{background:#FFECED;border:1px solid #E13F3F}.cdx-list-start-with-field--invalid .cdx-list-start-with-field__input{color:#e13f3f}.cdx-list-start-with-field__input{font-size:14px;outline:none;font-weight:500;font-family:inherit;border:0;background:transparent;margin:0;padding:0;line-height:22px;min-width:calc(100% - var(--toolbox-buttons-size) - var(--icon-margin-right))}.cdx-list-start-with-field__input::placeholder{color:var(--grayText);font-weight:500}')),document.head.appendChild(e)}}catch(c){console.error("vite-plugin-css-injected-by-js",c)}})();
+const Ct = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 12L10.4884 15.8372C10.5677 15.9245 10.705 15.9245 10.7844 15.8372L17 9"/></svg>', Ae = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9.2 12L11.0586 13.8586C11.1367 13.9367 11.2633 13.9367 11.3414 13.8586L14.7 10.5"/><rect width="14" height="14" x="5" y="5" stroke="currentColor" stroke-width="2" rx="4"/></svg>', $e = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="9" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 17H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 12H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 7H4.99002"/></svg>', Be = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="12" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.79999 14L7.79999 7.2135C7.79999 7.12872 7.7011 7.0824 7.63597 7.13668L4.79999 9.5"/></svg>', St = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 14.2L10 7.4135C10 7.32872 9.90111 7.28241 9.83598 7.33668L7 9.7" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M13.2087 14.2H13.2" stroke="black" stroke-width="1.6" stroke-linecap="round"/></svg>', Ot = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2087 14.2H13.2" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M10 14.2L10 9.5" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7.01L10 7" stroke="black" stroke-width="1.8" stroke-linecap="round"/></svg>', kt = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2087 14.2H13.2" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M10 14.2L10 7.2" stroke="black" stroke-width="1.6" stroke-linecap="round"/></svg>', _t = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.0087 14.2H16" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M7 14.2L7.78865 12M13 14.2L12.1377 12M7.78865 12C7.78865 12 9.68362 7 10 7C10.3065 7 12.1377 12 12.1377 12M7.78865 12L12.1377 12" stroke="black" stroke-width="1.6" stroke-linecap="round"/></svg>', Et = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2087 14.2H14.2" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M11.5 14.5C11.5 14.5 11 13.281 11 12.5M7 9.5C7 9.5 7.5 8.5 9 8.5C10.5 8.5 11 9.5 11 10.5L11 11.5M11 11.5L11 12.5M11 11.5C11 11.5 7 11 7 13C7 15.3031 11 15 11 12.5" stroke="black" stroke-width="1.6" stroke-linecap="round"/></svg>', It = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 14.2L8 7.4135C8 7.32872 7.90111 7.28241 7.83598 7.33668L5 9.7" stroke="black" stroke-width="1.6" stroke-linecap="round"/><path d="M14 13L16.4167 10.7778M16.4167 10.7778L14 8.5M16.4167 10.7778H11.6562" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var A = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
+function wt(e) {
+  if (e.__esModule)
+    return e;
+  var t = e.default;
+  if (typeof t == "function") {
+    var n = function r() {
+      return this instanceof r ? Reflect.construct(t, arguments, this.constructor) : t.apply(this, arguments);
+    };
+    n.prototype = t.prototype;
+  } else
+    n = {};
+  return Object.defineProperty(n, "__esModule", { value: !0 }), Object.keys(e).forEach(function(r) {
+    var i = Object.getOwnPropertyDescriptor(e, r);
+    Object.defineProperty(n, r, i.get ? i : {
+      enumerable: !0,
+      get: function() {
+        return e[r];
+      }
+    });
+  }), n;
+}
+var c = {}, V = {}, Y = {};
+Object.defineProperty(Y, "__esModule", { value: !0 });
+Y.allInputsSelector = Pt;
+function Pt() {
+  var e = ["text", "password", "email", "number", "search", "tel", "url"];
+  return "[contenteditable=true], textarea, input:not([type]), " + e.map(function(t) {
+    return 'input[type="'.concat(t, '"]');
+  }).join(", ");
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.allInputsSelector = void 0;
+  var t = Y;
+  Object.defineProperty(e, "allInputsSelector", { enumerable: !0, get: function() {
+    return t.allInputsSelector;
+  } });
+})(V);
+var k = {}, J = {};
+Object.defineProperty(J, "__esModule", { value: !0 });
+J.isNativeInput = jt;
+function jt(e) {
+  var t = [
+    "INPUT",
+    "TEXTAREA"
+  ];
+  return e && e.tagName ? t.includes(e.tagName) : !1;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isNativeInput = void 0;
+  var t = J;
+  Object.defineProperty(e, "isNativeInput", { enumerable: !0, get: function() {
+    return t.isNativeInput;
+  } });
+})(k);
+var Fe = {}, Q = {};
+Object.defineProperty(Q, "__esModule", { value: !0 });
+Q.append = Tt;
+function Tt(e, t) {
+  Array.isArray(t) ? t.forEach(function(n) {
+    e.appendChild(n);
+  }) : e.appendChild(t);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.append = void 0;
+  var t = Q;
+  Object.defineProperty(e, "append", { enumerable: !0, get: function() {
+    return t.append;
+  } });
+})(Fe);
+var Z = {}, x = {};
+Object.defineProperty(x, "__esModule", { value: !0 });
+x.blockElements = Lt;
+function Lt() {
+  return [
+    "address",
+    "article",
+    "aside",
+    "blockquote",
+    "canvas",
+    "div",
+    "dl",
+    "dt",
+    "fieldset",
+    "figcaption",
+    "figure",
+    "footer",
+    "form",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "header",
+    "hgroup",
+    "hr",
+    "li",
+    "main",
+    "nav",
+    "noscript",
+    "ol",
+    "output",
+    "p",
+    "pre",
+    "ruby",
+    "section",
+    "table",
+    "tbody",
+    "thead",
+    "tr",
+    "tfoot",
+    "ul",
+    "video"
+  ];
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.blockElements = void 0;
+  var t = x;
+  Object.defineProperty(e, "blockElements", { enumerable: !0, get: function() {
+    return t.blockElements;
+  } });
+})(Z);
+var Re = {}, ee = {};
+Object.defineProperty(ee, "__esModule", { value: !0 });
+ee.calculateBaseline = Mt;
+function Mt(e) {
+  var t = window.getComputedStyle(e), n = parseFloat(t.fontSize), r = parseFloat(t.lineHeight) || n * 1.2, i = parseFloat(t.paddingTop), a = parseFloat(t.borderTopWidth), l = parseFloat(t.marginTop), s = n * 0.8, o = (r - n) / 2, d = l + a + i + o + s;
+  return d;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.calculateBaseline = void 0;
+  var t = ee;
+  Object.defineProperty(e, "calculateBaseline", { enumerable: !0, get: function() {
+    return t.calculateBaseline;
+  } });
+})(Re);
+var qe = {}, te = {}, ne = {}, re = {};
+Object.defineProperty(re, "__esModule", { value: !0 });
+re.isContentEditable = Nt;
+function Nt(e) {
+  return e.contentEditable === "true";
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isContentEditable = void 0;
+  var t = re;
+  Object.defineProperty(e, "isContentEditable", { enumerable: !0, get: function() {
+    return t.isContentEditable;
+  } });
+})(ne);
+Object.defineProperty(te, "__esModule", { value: !0 });
+te.canSetCaret = Bt;
+var At = k, $t = ne;
+function Bt(e) {
+  var t = !0;
+  if ((0, At.isNativeInput)(e))
+    switch (e.type) {
+      case "file":
+      case "checkbox":
+      case "radio":
+      case "hidden":
+      case "submit":
+      case "button":
+      case "image":
+      case "reset":
+        t = !1;
+        break;
+    }
+  else
+    t = (0, $t.isContentEditable)(e);
+  return t;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.canSetCaret = void 0;
+  var t = te;
+  Object.defineProperty(e, "canSetCaret", { enumerable: !0, get: function() {
+    return t.canSetCaret;
+  } });
+})(qe);
+var $ = {}, ie = {};
+function Wt(e, t, n) {
+  const r = n.value !== void 0 ? "value" : "get", i = n[r], a = `#${t}Cache`;
+  if (n[r] = function(...l) {
+    return this[a] === void 0 && (this[a] = i.apply(this, l)), this[a];
+  }, r === "get" && n.set) {
+    const l = n.set;
+    n.set = function(s) {
+      delete e[a], l.apply(this, s);
+    };
+  }
+  return n;
+}
+function Ue() {
+  const e = {
+    win: !1,
+    mac: !1,
+    x11: !1,
+    linux: !1
+  }, t = Object.keys(e).find((n) => window.navigator.appVersion.toLowerCase().indexOf(n) !== -1);
+  return t !== void 0 && (e[t] = !0), e;
+}
+function ae(e) {
+  return e != null && e !== "" && (typeof e != "object" || Object.keys(e).length > 0);
+}
+function Dt(e) {
+  return !ae(e);
+}
+const Ht = () => typeof window < "u" && window.navigator !== null && ae(window.navigator.platform) && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+function Ft(e) {
+  const t = Ue();
+  return e = e.replace(/shift/gi, "⇧").replace(/backspace/gi, "⌫").replace(/enter/gi, "⏎").replace(/up/gi, "↑").replace(/left/gi, "→").replace(/down/gi, "↓").replace(/right/gi, "←").replace(/escape/gi, "⎋").replace(/insert/gi, "Ins").replace(/delete/gi, "␡").replace(/\+/gi, "+"), t.mac ? e = e.replace(/ctrl|cmd/gi, "⌘").replace(/alt/gi, "⌥") : e = e.replace(/cmd/gi, "Ctrl").replace(/windows/gi, "WIN"), e;
+}
+function Rt(e) {
+  return e[0].toUpperCase() + e.slice(1);
+}
+function qt(e) {
+  const t = document.createElement("div");
+  t.style.position = "absolute", t.style.left = "-999px", t.style.bottom = "-999px", t.innerHTML = e, document.body.appendChild(t);
+  const n = window.getSelection(), r = document.createRange();
+  if (r.selectNode(t), n === null)
+    throw new Error("Cannot copy text to clipboard");
+  n.removeAllRanges(), n.addRange(r), document.execCommand("copy"), document.body.removeChild(t);
+}
+function Ut(e, t, n) {
+  let r;
+  return (...i) => {
+    const a = this, l = () => {
+      r = void 0, n !== !0 && e.apply(a, i);
+    }, s = n === !0 && r !== void 0;
+    window.clearTimeout(r), r = window.setTimeout(l, t), s && e.apply(a, i);
+  };
+}
+function S(e) {
+  return Object.prototype.toString.call(e).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+}
+function Kt(e) {
+  return S(e) === "boolean";
+}
+function Ke(e) {
+  return S(e) === "function" || S(e) === "asyncfunction";
+}
+function zt(e) {
+  return Ke(e) && /^\s*class\s+/.test(e.toString());
+}
+function Xt(e) {
+  return S(e) === "number";
+}
+function M(e) {
+  return S(e) === "object";
+}
+function Gt(e) {
+  return Promise.resolve(e) === e;
+}
+function Vt(e) {
+  return S(e) === "string";
+}
+function Yt(e) {
+  return S(e) === "undefined";
+}
+function X(e, ...t) {
+  if (!t.length)
+    return e;
+  const n = t.shift();
+  if (M(e) && M(n))
+    for (const r in n)
+      M(n[r]) ? (e[r] === void 0 && Object.assign(e, { [r]: {} }), X(e[r], n[r])) : Object.assign(e, { [r]: n[r] });
+  return X(e, ...t);
+}
+function Jt(e, t, n) {
+  const r = `«${t}» is deprecated and will be removed in the next major release. Please use the «${n}» instead.`;
+  e && console.warn(r);
+}
+function Qt(e) {
+  try {
+    return new URL(e).href;
+  } catch {
+  }
+  return e.substring(0, 2) === "//" ? window.location.protocol + e : window.location.origin + e;
+}
+function Zt(e) {
+  return e > 47 && e < 58 || e === 32 || e === 13 || e === 229 || e > 64 && e < 91 || e > 95 && e < 112 || e > 185 && e < 193 || e > 218 && e < 223;
+}
+const xt = {
+  BACKSPACE: 8,
+  TAB: 9,
+  ENTER: 13,
+  SHIFT: 16,
+  CTRL: 17,
+  ALT: 18,
+  ESC: 27,
+  SPACE: 32,
+  LEFT: 37,
+  UP: 38,
+  DOWN: 40,
+  RIGHT: 39,
+  DELETE: 46,
+  META: 91,
+  SLASH: 191
+}, en = {
+  LEFT: 0,
+  WHEEL: 1,
+  RIGHT: 2,
+  BACKWARD: 3,
+  FORWARD: 4
+};
+class tn {
+  constructor() {
+    this.completed = Promise.resolve();
+  }
+  /**
+   * Add new promise to queue
+   * @param operation - promise should be added to queue
+   */
+  add(t) {
+    return new Promise((n, r) => {
+      this.completed = this.completed.then(t).then(n).catch(r);
+    });
+  }
+}
+function nn(e, t, n = void 0) {
+  let r, i, a, l = null, s = 0;
+  n || (n = {});
+  const o = function() {
+    s = n.leading === !1 ? 0 : Date.now(), l = null, a = e.apply(r, i), l === null && (r = i = null);
+  };
+  return function() {
+    const d = Date.now();
+    !s && n.leading === !1 && (s = d);
+    const u = t - (d - s);
+    return r = this, i = arguments, u <= 0 || u > t ? (l && (clearTimeout(l), l = null), s = d, a = e.apply(r, i), l === null && (r = i = null)) : !l && n.trailing !== !1 && (l = setTimeout(o, u)), a;
+  };
+}
+const rn = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  PromiseQueue: tn,
+  beautifyShortcut: Ft,
+  cacheable: Wt,
+  capitalize: Rt,
+  copyTextToClipboard: qt,
+  debounce: Ut,
+  deepMerge: X,
+  deprecationAssert: Jt,
+  getUserOS: Ue,
+  getValidUrl: Qt,
+  isBoolean: Kt,
+  isClass: zt,
+  isEmpty: Dt,
+  isFunction: Ke,
+  isIosDevice: Ht,
+  isNumber: Xt,
+  isObject: M,
+  isPrintableKey: Zt,
+  isPromise: Gt,
+  isString: Vt,
+  isUndefined: Yt,
+  keyCodes: xt,
+  mouseButtons: en,
+  notEmpty: ae,
+  throttle: nn,
+  typeOf: S
+}, Symbol.toStringTag, { value: "Module" })), le = /* @__PURE__ */ wt(rn);
+Object.defineProperty(ie, "__esModule", { value: !0 });
+ie.containsOnlyInlineElements = sn;
+var an = le, ln = Z;
+function sn(e) {
+  var t;
+  (0, an.isString)(e) ? (t = document.createElement("div"), t.innerHTML = e) : t = e;
+  var n = function(r) {
+    return !(0, ln.blockElements)().includes(r.tagName.toLowerCase()) && Array.from(r.children).every(n);
+  };
+  return Array.from(t.children).every(n);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.containsOnlyInlineElements = void 0;
+  var t = ie;
+  Object.defineProperty(e, "containsOnlyInlineElements", { enumerable: !0, get: function() {
+    return t.containsOnlyInlineElements;
+  } });
+})($);
+var ze = {}, se = {}, B = {}, oe = {};
+Object.defineProperty(oe, "__esModule", { value: !0 });
+oe.make = on;
+function on(e, t, n) {
+  var r;
+  t === void 0 && (t = null), n === void 0 && (n = {});
+  var i = document.createElement(e);
+  if (Array.isArray(t)) {
+    var a = t.filter(function(s) {
+      return s !== void 0;
+    });
+    (r = i.classList).add.apply(r, a);
+  } else
+    t !== null && i.classList.add(t);
+  for (var l in n)
+    Object.prototype.hasOwnProperty.call(n, l) && (i[l] = n[l]);
+  return i;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.make = void 0;
+  var t = oe;
+  Object.defineProperty(e, "make", { enumerable: !0, get: function() {
+    return t.make;
+  } });
+})(B);
+Object.defineProperty(se, "__esModule", { value: !0 });
+se.fragmentToString = cn;
+var un = B;
+function cn(e) {
+  var t = (0, un.make)("div");
+  return t.appendChild(e), t.innerHTML;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.fragmentToString = void 0;
+  var t = se;
+  Object.defineProperty(e, "fragmentToString", { enumerable: !0, get: function() {
+    return t.fragmentToString;
+  } });
+})(ze);
+var Xe = {}, ue = {};
+Object.defineProperty(ue, "__esModule", { value: !0 });
+ue.getContentLength = fn;
+var dn = k;
+function fn(e) {
+  var t, n;
+  return (0, dn.isNativeInput)(e) ? e.value.length : e.nodeType === Node.TEXT_NODE ? e.length : (n = (t = e.textContent) === null || t === void 0 ? void 0 : t.length) !== null && n !== void 0 ? n : 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getContentLength = void 0;
+  var t = ue;
+  Object.defineProperty(e, "getContentLength", { enumerable: !0, get: function() {
+    return t.getContentLength;
+  } });
+})(Xe);
+var ce = {}, de = {}, We = A && A.__spreadArray || function(e, t, n) {
+  if (n || arguments.length === 2)
+    for (var r = 0, i = t.length, a; r < i; r++)
+      (a || !(r in t)) && (a || (a = Array.prototype.slice.call(t, 0, r)), a[r] = t[r]);
+  return e.concat(a || Array.prototype.slice.call(t));
+};
+Object.defineProperty(de, "__esModule", { value: !0 });
+de.getDeepestBlockElements = Ge;
+var pn = $;
+function Ge(e) {
+  return (0, pn.containsOnlyInlineElements)(e) ? [e] : Array.from(e.children).reduce(function(t, n) {
+    return We(We([], t, !0), Ge(n), !0);
+  }, []);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getDeepestBlockElements = void 0;
+  var t = de;
+  Object.defineProperty(e, "getDeepestBlockElements", { enumerable: !0, get: function() {
+    return t.getDeepestBlockElements;
+  } });
+})(ce);
+var Ve = {}, fe = {}, W = {}, pe = {};
+Object.defineProperty(pe, "__esModule", { value: !0 });
+pe.isLineBreakTag = hn;
+function hn(e) {
+  return [
+    "BR",
+    "WBR"
+  ].includes(e.tagName);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isLineBreakTag = void 0;
+  var t = pe;
+  Object.defineProperty(e, "isLineBreakTag", { enumerable: !0, get: function() {
+    return t.isLineBreakTag;
+  } });
+})(W);
+var D = {}, he = {};
+Object.defineProperty(he, "__esModule", { value: !0 });
+he.isSingleTag = mn;
+function mn(e) {
+  return [
+    "AREA",
+    "BASE",
+    "BR",
+    "COL",
+    "COMMAND",
+    "EMBED",
+    "HR",
+    "IMG",
+    "INPUT",
+    "KEYGEN",
+    "LINK",
+    "META",
+    "PARAM",
+    "SOURCE",
+    "TRACK",
+    "WBR"
+  ].includes(e.tagName);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isSingleTag = void 0;
+  var t = he;
+  Object.defineProperty(e, "isSingleTag", { enumerable: !0, get: function() {
+    return t.isSingleTag;
+  } });
+})(D);
+Object.defineProperty(fe, "__esModule", { value: !0 });
+fe.getDeepestNode = Ye;
+var gn = k, vn = W, bn = D;
+function Ye(e, t) {
+  t === void 0 && (t = !1);
+  var n = t ? "lastChild" : "firstChild", r = t ? "previousSibling" : "nextSibling";
+  if (e.nodeType === Node.ELEMENT_NODE && e[n]) {
+    var i = e[n];
+    if ((0, bn.isSingleTag)(i) && !(0, gn.isNativeInput)(i) && !(0, vn.isLineBreakTag)(i))
+      if (i[r])
+        i = i[r];
+      else if (i.parentNode !== null && i.parentNode[r])
+        i = i.parentNode[r];
+      else
+        return i.parentNode;
+    return Ye(i, t);
+  }
+  return e;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getDeepestNode = void 0;
+  var t = fe;
+  Object.defineProperty(e, "getDeepestNode", { enumerable: !0, get: function() {
+    return t.getDeepestNode;
+  } });
+})(Ve);
+var Je = {}, me = {}, T = A && A.__spreadArray || function(e, t, n) {
+  if (n || arguments.length === 2)
+    for (var r = 0, i = t.length, a; r < i; r++)
+      (a || !(r in t)) && (a || (a = Array.prototype.slice.call(t, 0, r)), a[r] = t[r]);
+  return e.concat(a || Array.prototype.slice.call(t));
+};
+Object.defineProperty(me, "__esModule", { value: !0 });
+me.findAllInputs = kn;
+var yn = $, Cn = ce, Sn = V, On = k;
+function kn(e) {
+  return Array.from(e.querySelectorAll((0, Sn.allInputsSelector)())).reduce(function(t, n) {
+    return (0, On.isNativeInput)(n) || (0, yn.containsOnlyInlineElements)(n) ? T(T([], t, !0), [n], !1) : T(T([], t, !0), (0, Cn.getDeepestBlockElements)(n), !0);
+  }, []);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.findAllInputs = void 0;
+  var t = me;
+  Object.defineProperty(e, "findAllInputs", { enumerable: !0, get: function() {
+    return t.findAllInputs;
+  } });
+})(Je);
+var Qe = {}, ge = {};
+Object.defineProperty(ge, "__esModule", { value: !0 });
+ge.isCollapsedWhitespaces = _n;
+function _n(e) {
+  return !/[^\t\n\r ]/.test(e);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isCollapsedWhitespaces = void 0;
+  var t = ge;
+  Object.defineProperty(e, "isCollapsedWhitespaces", { enumerable: !0, get: function() {
+    return t.isCollapsedWhitespaces;
+  } });
+})(Qe);
+var ve = {}, be = {};
+Object.defineProperty(be, "__esModule", { value: !0 });
+be.isElement = In;
+var En = le;
+function In(e) {
+  return (0, En.isNumber)(e) ? !1 : !!e && !!e.nodeType && e.nodeType === Node.ELEMENT_NODE;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isElement = void 0;
+  var t = be;
+  Object.defineProperty(e, "isElement", { enumerable: !0, get: function() {
+    return t.isElement;
+  } });
+})(ve);
+var Ze = {}, ye = {}, Ce = {}, Se = {};
+Object.defineProperty(Se, "__esModule", { value: !0 });
+Se.isLeaf = wn;
+function wn(e) {
+  return e === null ? !1 : e.childNodes.length === 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isLeaf = void 0;
+  var t = Se;
+  Object.defineProperty(e, "isLeaf", { enumerable: !0, get: function() {
+    return t.isLeaf;
+  } });
+})(Ce);
+var Oe = {}, ke = {};
+Object.defineProperty(ke, "__esModule", { value: !0 });
+ke.isNodeEmpty = Mn;
+var Pn = W, jn = ve, Tn = k, Ln = D;
+function Mn(e, t) {
+  var n = "";
+  return (0, Ln.isSingleTag)(e) && !(0, Pn.isLineBreakTag)(e) ? !1 : ((0, jn.isElement)(e) && (0, Tn.isNativeInput)(e) ? n = e.value : e.textContent !== null && (n = e.textContent.replace("​", "")), t !== void 0 && (n = n.replace(new RegExp(t, "g"), "")), n.trim().length === 0);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isNodeEmpty = void 0;
+  var t = ke;
+  Object.defineProperty(e, "isNodeEmpty", { enumerable: !0, get: function() {
+    return t.isNodeEmpty;
+  } });
+})(Oe);
+Object.defineProperty(ye, "__esModule", { value: !0 });
+ye.isEmpty = $n;
+var Nn = Ce, An = Oe;
+function $n(e, t) {
+  e.normalize();
+  for (var n = [e]; n.length > 0; ) {
+    var r = n.shift();
+    if (r) {
+      if (e = r, (0, Nn.isLeaf)(e) && !(0, An.isNodeEmpty)(e, t))
+        return !1;
+      n.push.apply(n, Array.from(e.childNodes));
+    }
+  }
+  return !0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isEmpty = void 0;
+  var t = ye;
+  Object.defineProperty(e, "isEmpty", { enumerable: !0, get: function() {
+    return t.isEmpty;
+  } });
+})(Ze);
+var xe = {}, _e = {};
+Object.defineProperty(_e, "__esModule", { value: !0 });
+_e.isFragment = Wn;
+var Bn = le;
+function Wn(e) {
+  return (0, Bn.isNumber)(e) ? !1 : !!e && !!e.nodeType && e.nodeType === Node.DOCUMENT_FRAGMENT_NODE;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isFragment = void 0;
+  var t = _e;
+  Object.defineProperty(e, "isFragment", { enumerable: !0, get: function() {
+    return t.isFragment;
+  } });
+})(xe);
+var et = {}, Ee = {};
+Object.defineProperty(Ee, "__esModule", { value: !0 });
+Ee.isHTMLString = Hn;
+var Dn = B;
+function Hn(e) {
+  var t = (0, Dn.make)("div");
+  return t.innerHTML = e, t.childElementCount > 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isHTMLString = void 0;
+  var t = Ee;
+  Object.defineProperty(e, "isHTMLString", { enumerable: !0, get: function() {
+    return t.isHTMLString;
+  } });
+})(et);
+var tt = {}, Ie = {};
+Object.defineProperty(Ie, "__esModule", { value: !0 });
+Ie.offset = Fn;
+function Fn(e) {
+  var t = e.getBoundingClientRect(), n = window.pageXOffset || document.documentElement.scrollLeft, r = window.pageYOffset || document.documentElement.scrollTop, i = t.top + r, a = t.left + n;
+  return {
+    top: i,
+    left: a,
+    bottom: i + t.height,
+    right: a + t.width
+  };
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.offset = void 0;
+  var t = Ie;
+  Object.defineProperty(e, "offset", { enumerable: !0, get: function() {
+    return t.offset;
+  } });
+})(tt);
+var nt = {}, we = {};
+Object.defineProperty(we, "__esModule", { value: !0 });
+we.prepend = Rn;
+function Rn(e, t) {
+  Array.isArray(t) ? (t = t.reverse(), t.forEach(function(n) {
+    return e.prepend(n);
+  })) : e.prepend(t);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.prepend = void 0;
+  var t = we;
+  Object.defineProperty(e, "prepend", { enumerable: !0, get: function() {
+    return t.prepend;
+  } });
+})(nt);
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.prepend = e.offset = e.make = e.isLineBreakTag = e.isSingleTag = e.isNodeEmpty = e.isLeaf = e.isHTMLString = e.isFragment = e.isEmpty = e.isElement = e.isContentEditable = e.isCollapsedWhitespaces = e.findAllInputs = e.isNativeInput = e.allInputsSelector = e.getDeepestNode = e.getDeepestBlockElements = e.getContentLength = e.fragmentToString = e.containsOnlyInlineElements = e.canSetCaret = e.calculateBaseline = e.blockElements = e.append = void 0;
+  var t = V;
+  Object.defineProperty(e, "allInputsSelector", { enumerable: !0, get: function() {
+    return t.allInputsSelector;
+  } });
+  var n = k;
+  Object.defineProperty(e, "isNativeInput", { enumerable: !0, get: function() {
+    return n.isNativeInput;
+  } });
+  var r = Fe;
+  Object.defineProperty(e, "append", { enumerable: !0, get: function() {
+    return r.append;
+  } });
+  var i = Z;
+  Object.defineProperty(e, "blockElements", { enumerable: !0, get: function() {
+    return i.blockElements;
+  } });
+  var a = Re;
+  Object.defineProperty(e, "calculateBaseline", { enumerable: !0, get: function() {
+    return a.calculateBaseline;
+  } });
+  var l = qe;
+  Object.defineProperty(e, "canSetCaret", { enumerable: !0, get: function() {
+    return l.canSetCaret;
+  } });
+  var s = $;
+  Object.defineProperty(e, "containsOnlyInlineElements", { enumerable: !0, get: function() {
+    return s.containsOnlyInlineElements;
+  } });
+  var o = ze;
+  Object.defineProperty(e, "fragmentToString", { enumerable: !0, get: function() {
+    return o.fragmentToString;
+  } });
+  var d = Xe;
+  Object.defineProperty(e, "getContentLength", { enumerable: !0, get: function() {
+    return d.getContentLength;
+  } });
+  var u = ce;
+  Object.defineProperty(e, "getDeepestBlockElements", { enumerable: !0, get: function() {
+    return u.getDeepestBlockElements;
+  } });
+  var p = Ve;
+  Object.defineProperty(e, "getDeepestNode", { enumerable: !0, get: function() {
+    return p.getDeepestNode;
+  } });
+  var g = Je;
+  Object.defineProperty(e, "findAllInputs", { enumerable: !0, get: function() {
+    return g.findAllInputs;
+  } });
+  var w = Qe;
+  Object.defineProperty(e, "isCollapsedWhitespaces", { enumerable: !0, get: function() {
+    return w.isCollapsedWhitespaces;
+  } });
+  var _ = ne;
+  Object.defineProperty(e, "isContentEditable", { enumerable: !0, get: function() {
+    return _.isContentEditable;
+  } });
+  var ut = ve;
+  Object.defineProperty(e, "isElement", { enumerable: !0, get: function() {
+    return ut.isElement;
+  } });
+  var ct = Ze;
+  Object.defineProperty(e, "isEmpty", { enumerable: !0, get: function() {
+    return ct.isEmpty;
+  } });
+  var dt = xe;
+  Object.defineProperty(e, "isFragment", { enumerable: !0, get: function() {
+    return dt.isFragment;
+  } });
+  var ft = et;
+  Object.defineProperty(e, "isHTMLString", { enumerable: !0, get: function() {
+    return ft.isHTMLString;
+  } });
+  var pt = Ce;
+  Object.defineProperty(e, "isLeaf", { enumerable: !0, get: function() {
+    return pt.isLeaf;
+  } });
+  var ht = Oe;
+  Object.defineProperty(e, "isNodeEmpty", { enumerable: !0, get: function() {
+    return ht.isNodeEmpty;
+  } });
+  var mt = W;
+  Object.defineProperty(e, "isLineBreakTag", { enumerable: !0, get: function() {
+    return mt.isLineBreakTag;
+  } });
+  var gt = D;
+  Object.defineProperty(e, "isSingleTag", { enumerable: !0, get: function() {
+    return gt.isSingleTag;
+  } });
+  var vt = B;
+  Object.defineProperty(e, "make", { enumerable: !0, get: function() {
+    return vt.make;
+  } });
+  var bt = tt;
+  Object.defineProperty(e, "offset", { enumerable: !0, get: function() {
+    return bt.offset;
+  } });
+  var yt = nt;
+  Object.defineProperty(e, "prepend", { enumerable: !0, get: function() {
+    return yt.prepend;
+  } });
+})(c);
+const m = "cdx-list", h = {
+  wrapper: m,
+  item: `${m}__item`,
+  itemContent: `${m}__item-content`,
+  itemChildren: `${m}__item-children`
+};
+class v {
+  /**
+   * Getter for all CSS classes used in unordered list rendering
+   */
+  static get CSS() {
+    return {
+      ...h,
+      orderedList: `${m}-ordered`
+    };
+  }
+  /**
+   * Assign passed readonly mode and config to relevant class properties
+   * @param readonly - read-only mode flag
+   * @param config - user config for Tool
+   */
+  constructor(t, n) {
+    this.config = n, this.readOnly = t;
+  }
+  /**
+   * Renders ol wrapper for list
+   * @param isRoot - boolean variable that represents level of the wrappre (root or childList)
+   * @returns - created html ol element
+   */
+  renderWrapper(t) {
+    let n;
+    return t === !0 ? n = c.make("ol", [v.CSS.wrapper, v.CSS.orderedList]) : n = c.make("ol", [v.CSS.orderedList, v.CSS.itemChildren]), n;
+  }
+  /**
+   * Redners list item element
+   * @param content - content used in list item rendering
+   * @param _meta - meta of the list item unused in rendering of the ordered list
+   * @returns - created html list item element
+   */
+  renderItem(t, n) {
+    const r = c.make("li", v.CSS.item), i = c.make("div", v.CSS.itemContent, {
+      innerHTML: t,
+      contentEditable: (!this.readOnly).toString()
+    });
+    return r.appendChild(i), r;
+  }
+  /**
+   * Return the item content
+   * @param item - item wrapper (<li>)
+   * @returns - item content string
+   */
+  getItemContent(t) {
+    const n = t.querySelector(`.${v.CSS.itemContent}`);
+    return !n || c.isEmpty(n) ? "" : n.innerHTML;
+  }
+  /**
+   * Returns item meta, for ordered list
+   * @returns item meta object
+   */
+  getItemMeta() {
+    return {};
+  }
+  /**
+   * Returns default item meta used on creation of the new item
+   */
+  composeDefaultMeta() {
+    return {};
+  }
+}
+class b {
+  /**
+   * Getter for all CSS classes used in unordered list rendering
+   */
+  static get CSS() {
+    return {
+      ...h,
+      unorderedList: `${m}-unordered`
+    };
+  }
+  /**
+   * Assign passed readonly mode and config to relevant class properties
+   * @param readonly - read-only mode flag
+   * @param config - user config for Tool
+   */
+  constructor(t, n) {
+    this.config = n, this.readOnly = t;
+  }
+  /**
+   * Renders ol wrapper for list
+   * @param isRoot - boolean variable that represents level of the wrappre (root or childList)
+   * @returns - created html ul element
+   */
+  renderWrapper(t) {
+    let n;
+    return t === !0 ? n = c.make("ul", [b.CSS.wrapper, b.CSS.unorderedList]) : n = c.make("ul", [b.CSS.unorderedList, b.CSS.itemChildren]), n;
+  }
+  /**
+   * Redners list item element
+   * @param content - content used in list item rendering
+   * @param _meta - meta of the list item unused in rendering of the unordered list
+   * @returns - created html list item element
+   */
+  renderItem(t, n) {
+    const r = c.make("li", b.CSS.item), i = c.make("div", b.CSS.itemContent, {
+      innerHTML: t,
+      contentEditable: (!this.readOnly).toString()
+    });
+    return r.appendChild(i), r;
+  }
+  /**
+   * Return the item content
+   * @param item - item wrapper (<li>)
+   * @returns - item content string
+   */
+  getItemContent(t) {
+    const n = t.querySelector(`.${b.CSS.itemContent}`);
+    return !n || c.isEmpty(n) ? "" : n.innerHTML;
+  }
+  /**
+   * Returns item meta, for unordered list
+   * @returns Item meta object
+   */
+  getItemMeta() {
+    return {};
+  }
+  /**
+   * Returns default item meta used on creation of the new item
+   */
+  composeDefaultMeta() {
+    return {};
+  }
+}
+function O(e) {
+  return e.nodeType === Node.ELEMENT_NODE;
+}
+var j = {}, Pe = {}, H = {}, F = {};
+Object.defineProperty(F, "__esModule", { value: !0 });
+F.getContenteditableSlice = Un;
+var qn = c;
+function Un(e, t, n, r, i) {
+  var a;
+  i === void 0 && (i = !1);
+  var l = document.createRange();
+  if (r === "left" ? (l.setStart(e, 0), l.setEnd(t, n)) : (l.setStart(t, n), l.setEnd(e, e.childNodes.length)), i === !0) {
+    var s = l.extractContents();
+    return (0, qn.fragmentToString)(s);
+  }
+  var o = l.cloneContents(), d = document.createElement("div");
+  d.appendChild(o);
+  var u = (a = d.textContent) !== null && a !== void 0 ? a : "";
+  return u;
+}
+Object.defineProperty(H, "__esModule", { value: !0 });
+H.checkContenteditableSliceForEmptiness = Xn;
+var Kn = c, zn = F;
+function Xn(e, t, n, r) {
+  var i = (0, zn.getContenteditableSlice)(e, t, n, r);
+  return (0, Kn.isCollapsedWhitespaces)(i);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.checkContenteditableSliceForEmptiness = void 0;
+  var t = H;
+  Object.defineProperty(e, "checkContenteditableSliceForEmptiness", { enumerable: !0, get: function() {
+    return t.checkContenteditableSliceForEmptiness;
+  } });
+})(Pe);
+var rt = {};
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getContenteditableSlice = void 0;
+  var t = F;
+  Object.defineProperty(e, "getContenteditableSlice", { enumerable: !0, get: function() {
+    return t.getContenteditableSlice;
+  } });
+})(rt);
+var it = {}, je = {};
+Object.defineProperty(je, "__esModule", { value: !0 });
+je.focus = Vn;
+var Gn = c;
+function Vn(e, t) {
+  var n, r;
+  if (t === void 0 && (t = !0), (0, Gn.isNativeInput)(e)) {
+    e.focus();
+    var i = t ? 0 : e.value.length;
+    e.setSelectionRange(i, i);
+  } else {
+    var a = document.createRange(), l = window.getSelection();
+    if (!l)
+      return;
+    var s = function(g, w) {
+      w === void 0 && (w = !1);
+      var _ = document.createTextNode("");
+      w ? g.insertBefore(_, g.firstChild) : g.appendChild(_), a.setStart(_, 0), a.setEnd(_, 0);
+    }, o = function(g) {
+      return g != null;
+    }, d = e.childNodes, u = t ? d[0] : d[d.length - 1];
+    if (o(u)) {
+      for (; o(u) && u.nodeType !== Node.TEXT_NODE; )
+        u = t ? u.firstChild : u.lastChild;
+      if (o(u) && u.nodeType === Node.TEXT_NODE) {
+        var p = (r = (n = u.textContent) === null || n === void 0 ? void 0 : n.length) !== null && r !== void 0 ? r : 0, i = t ? 0 : p;
+        a.setStart(u, i), a.setEnd(u, i);
+      } else
+        s(e, t);
+    } else
+      s(e);
+    l.removeAllRanges(), l.addRange(a);
+  }
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.focus = void 0;
+  var t = je;
+  Object.defineProperty(e, "focus", { enumerable: !0, get: function() {
+    return t.focus;
+  } });
+})(it);
+var Te = {}, R = {};
+Object.defineProperty(R, "__esModule", { value: !0 });
+R.getCaretNodeAndOffset = Yn;
+function Yn() {
+  var e = window.getSelection();
+  if (e === null)
+    return [null, 0];
+  var t = e.focusNode, n = e.focusOffset;
+  return t === null ? [null, 0] : (t.nodeType !== Node.TEXT_NODE && t.childNodes.length > 0 && (t.childNodes[n] !== void 0 ? (t = t.childNodes[n], n = 0) : (t = t.childNodes[n - 1], t.textContent !== null && (n = t.textContent.length))), [t, n]);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getCaretNodeAndOffset = void 0;
+  var t = R;
+  Object.defineProperty(e, "getCaretNodeAndOffset", { enumerable: !0, get: function() {
+    return t.getCaretNodeAndOffset;
+  } });
+})(Te);
+var at = {}, q = {};
+Object.defineProperty(q, "__esModule", { value: !0 });
+q.getRange = Jn;
+function Jn() {
+  var e = window.getSelection();
+  return e && e.rangeCount ? e.getRangeAt(0) : null;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getRange = void 0;
+  var t = q;
+  Object.defineProperty(e, "getRange", { enumerable: !0, get: function() {
+    return t.getRange;
+  } });
+})(at);
+var lt = {}, Le = {};
+Object.defineProperty(Le, "__esModule", { value: !0 });
+Le.isCaretAtEndOfInput = xn;
+var De = c, Qn = Te, Zn = Pe;
+function xn(e) {
+  var t = (0, De.getDeepestNode)(e, !0);
+  if (t === null)
+    return !0;
+  if ((0, De.isNativeInput)(t))
+    return t.selectionEnd === t.value.length;
+  var n = (0, Qn.getCaretNodeAndOffset)(), r = n[0], i = n[1];
+  return r === null ? !1 : (0, Zn.checkContenteditableSliceForEmptiness)(e, r, i, "right");
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isCaretAtEndOfInput = void 0;
+  var t = Le;
+  Object.defineProperty(e, "isCaretAtEndOfInput", { enumerable: !0, get: function() {
+    return t.isCaretAtEndOfInput;
+  } });
+})(lt);
+var st = {}, Me = {};
+Object.defineProperty(Me, "__esModule", { value: !0 });
+Me.isCaretAtStartOfInput = nr;
+var L = c, er = R, tr = H;
+function nr(e) {
+  var t = (0, L.getDeepestNode)(e);
+  if (t === null || (0, L.isEmpty)(e))
+    return !0;
+  if ((0, L.isNativeInput)(t))
+    return t.selectionEnd === 0;
+  if ((0, L.isEmpty)(e))
+    return !0;
+  var n = (0, er.getCaretNodeAndOffset)(), r = n[0], i = n[1];
+  return r === null ? !1 : (0, tr.checkContenteditableSliceForEmptiness)(e, r, i, "left");
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isCaretAtStartOfInput = void 0;
+  var t = Me;
+  Object.defineProperty(e, "isCaretAtStartOfInput", { enumerable: !0, get: function() {
+    return t.isCaretAtStartOfInput;
+  } });
+})(st);
+var ot = {}, Ne = {};
+Object.defineProperty(Ne, "__esModule", { value: !0 });
+Ne.save = ar;
+var rr = c, ir = q;
+function ar() {
+  var e = (0, ir.getRange)(), t = (0, rr.make)("span");
+  if (t.id = "cursor", t.hidden = !0, !!e)
+    return e.insertNode(t), function() {
+      var r = window.getSelection();
+      r && (e.setStartAfter(t), e.setEndAfter(t), r.removeAllRanges(), r.addRange(e), setTimeout(function() {
+        t.remove();
+      }, 150));
+    };
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.save = void 0;
+  var t = Ne;
+  Object.defineProperty(e, "save", { enumerable: !0, get: function() {
+    return t.save;
+  } });
+})(ot);
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.save = e.isCaretAtStartOfInput = e.isCaretAtEndOfInput = e.getRange = e.getCaretNodeAndOffset = e.focus = e.getContenteditableSlice = e.checkContenteditableSliceForEmptiness = void 0;
+  var t = Pe;
+  Object.defineProperty(e, "checkContenteditableSliceForEmptiness", { enumerable: !0, get: function() {
+    return t.checkContenteditableSliceForEmptiness;
+  } });
+  var n = rt;
+  Object.defineProperty(e, "getContenteditableSlice", { enumerable: !0, get: function() {
+    return n.getContenteditableSlice;
+  } });
+  var r = it;
+  Object.defineProperty(e, "focus", { enumerable: !0, get: function() {
+    return r.focus;
+  } });
+  var i = Te;
+  Object.defineProperty(e, "getCaretNodeAndOffset", { enumerable: !0, get: function() {
+    return i.getCaretNodeAndOffset;
+  } });
+  var a = at;
+  Object.defineProperty(e, "getRange", { enumerable: !0, get: function() {
+    return a.getRange;
+  } });
+  var l = lt;
+  Object.defineProperty(e, "isCaretAtEndOfInput", { enumerable: !0, get: function() {
+    return l.isCaretAtEndOfInput;
+  } });
+  var s = st;
+  Object.defineProperty(e, "isCaretAtStartOfInput", { enumerable: !0, get: function() {
+    return s.isCaretAtStartOfInput;
+  } });
+  var o = ot;
+  Object.defineProperty(e, "save", { enumerable: !0, get: function() {
+    return o.save;
+  } });
+})(j);
+class f {
+  /**
+   * Getter for all CSS classes used in unordered list rendering
+   */
+  static get CSS() {
+    return {
+      ...h,
+      checklist: `${m}-checklist`,
+      itemChecked: `${m}__checkbox--checked`,
+      noHover: `${m}__checkbox--no-hover`,
+      checkbox: `${m}__checkbox-check`,
+      checkboxContainer: `${m}__checkbox`
+    };
+  }
+  /**
+   * Assign passed readonly mode and config to relevant class properties
+   * @param readonly - read-only mode flag
+   * @param config - user config for Tool
+   */
+  constructor(t, n) {
+    this.config = n, this.readOnly = t;
+  }
+  /**
+   * Renders ul wrapper for list
+   * @param isRoot - boolean variable that represents level of the wrappre (root or childList)
+   * @returns - created html ul element
+   */
+  renderWrapper(t) {
+    let n;
+    return t === !0 ? (n = c.make("ul", [f.CSS.wrapper, f.CSS.checklist]), n.addEventListener("click", (r) => {
+      const i = r.target;
+      if (i) {
+        const a = i.closest(`.${f.CSS.checkboxContainer}`);
+        a && a.contains(i) && this.toggleCheckbox(a);
+      }
+    })) : n = c.make("ul", [f.CSS.checklist, f.CSS.itemChildren]), n;
+  }
+  /**
+   * Redners list item element
+   * @param content - content used in list item rendering
+   * @param meta - meta of the list item used in rendering of the checklist
+   * @returns - created html list item element
+   */
+  renderItem(t, n) {
+    const r = c.make("li", [f.CSS.item, f.CSS.item]), i = c.make("div", f.CSS.itemContent, {
+      innerHTML: t,
+      contentEditable: (!this.readOnly).toString()
+    }), a = c.make("span", f.CSS.checkbox), l = c.make("div", f.CSS.checkboxContainer);
+    return n.checked === !0 && l.classList.add(f.CSS.itemChecked), a.innerHTML = Ct, l.appendChild(a), r.appendChild(l), r.appendChild(i), r;
+  }
+  /**
+   * Return the item content
+   * @param item - item wrapper (<li>)
+   * @returns - item content string
+   */
+  getItemContent(t) {
+    const n = t.querySelector(`.${f.CSS.itemContent}`);
+    return !n || c.isEmpty(n) ? "" : n.innerHTML;
+  }
+  /**
+   * Return meta object of certain element
+   * @param item - will be returned meta information of this item
+   * @returns Item meta object
+   */
+  getItemMeta(t) {
+    const n = t.querySelector(`.${f.CSS.checkboxContainer}`);
+    return {
+      checked: n ? n.classList.contains(f.CSS.itemChecked) : !1
+    };
+  }
+  /**
+   * Returns default item meta used on creation of the new item
+   */
+  composeDefaultMeta() {
+    return { checked: !1 };
+  }
+  /**
+   * Toggle checklist item state
+   * @param checkbox - checkbox element to be toggled
+   */
+  toggleCheckbox(t) {
+    t.classList.toggle(f.CSS.itemChecked), t.classList.add(f.CSS.noHover), t.addEventListener("mouseleave", () => this.removeSpecialHoverBehavior(t), { once: !0 });
+  }
+  /**
+   * Removes class responsible for special hover behavior on an item
+   * @param el - item wrapper
+   */
+  removeSpecialHoverBehavior(t) {
+    t.classList.remove(f.CSS.noHover);
+  }
+}
+function U(e, t = "after") {
+  const n = [];
+  let r;
+  function i(a) {
+    switch (t) {
+      case "after":
+        return a.nextElementSibling;
+      case "before":
+        return a.previousElementSibling;
+    }
+  }
+  for (r = i(e); r !== null; )
+    n.push(r), r = i(r);
+  return n.length !== 0 ? n : null;
+}
+function y(e, t = !0) {
+  let n = e;
+  return e.classList.contains(h.item) && (n = e.querySelector(`.${h.itemChildren}`)), n === null ? [] : t ? Array.from(n.querySelectorAll(`:scope > .${h.item}`)) : Array.from(n.querySelectorAll(`.${h.item}`));
+}
+function lr(e) {
+  return e.nextElementSibling === null;
+}
+function sr(e) {
+  return e.querySelector(`.${h.itemChildren}`) !== null;
+}
+function C(e) {
+  return e.querySelector(`.${h.itemChildren}`);
+}
+function K(e) {
+  let t = e;
+  e.classList.contains(h.item) && (t = C(e)), t !== null && y(t).length === 0 && t.remove();
+}
+function N(e) {
+  return e.querySelector(`.${h.itemContent}`);
+}
+function E(e, t = !0) {
+  const n = N(e);
+  n && j.focus(n, t);
+}
+class z {
+  /**
+   * Getter method to get current item
+   * @returns current list item or null if caret position is not undefined
+   */
+  get currentItem() {
+    const t = window.getSelection();
+    if (!t)
+      return null;
+    let n = t.anchorNode;
+    return !n || (O(n) || (n = n.parentNode), !n) || !O(n) ? null : n.closest(`.${h.item}`);
+  }
+  /**
+   * Method that returns nesting level of the current item, null if there is no selection
+   */
+  get currentItemLevel() {
+    const t = this.currentItem;
+    if (t === null)
+      return null;
+    let n = t.parentNode, r = 0;
+    for (; n !== null && n !== this.listWrapper; )
+      O(n) && n.classList.contains(h.item) && (r += 1), n = n.parentNode;
+    return r + 1;
+  }
+  /**
+   * Assign all passed params and renderer to relevant class properties
+   * @param params - tool constructor options
+   * @param params.data - previously saved data
+   * @param params.config - user config for Tool
+   * @param params.api - Editor.js API
+   * @param params.readOnly - read-only mode flag
+   * @param renderer - renderer instance initialized in tool class
+   */
+  constructor({ data: t, config: n, api: r, readOnly: i, block: a }, l) {
+    this.config = n, this.data = t, this.readOnly = i, this.api = r, this.block = a, this.renderer = l;
+  }
+  /**
+   * Function that is responsible for rendering list with contents
+   * @returns Filled with content wrapper element of the list
+   */
+  render() {
+    return this.listWrapper = this.renderer.renderWrapper(!0), this.data.items.length ? this.appendItems(this.data.items, this.listWrapper) : this.appendItems(
+      [
+        {
+          content: "",
+          meta: {},
+          items: []
+        }
+      ],
+      this.listWrapper
+    ), this.readOnly || this.listWrapper.addEventListener(
+      "keydown",
+      (t) => {
+        switch (t.key) {
+          case "Enter":
+            t.shiftKey || this.enterPressed(t);
+            break;
+          case "Backspace":
+            this.backspace(t);
+            break;
+          case "Tab":
+            t.shiftKey ? this.shiftTab(t) : this.addTab(t);
+            break;
+        }
+      },
+      !1
+    ), "start" in this.data.meta && this.data.meta.start !== void 0 && this.changeStartWith(this.data.meta.start), "counterType" in this.data.meta && this.data.meta.counterType !== void 0 && this.changeCounters(this.data.meta.counterType), this.listWrapper;
+  }
+  /**
+   * Function that is responsible for list content saving
+   * @param wrapper - optional argument wrapper
+   * @returns whole list saved data if wrapper not passes, otherwise will return data of the passed wrapper
+   */
+  save(t) {
+    const n = t ?? this.listWrapper, r = (l) => y(l).map((o) => {
+      const d = C(o), u = this.renderer.getItemContent(o), p = this.renderer.getItemMeta(o), g = d ? r(d) : [];
+      return {
+        content: u,
+        meta: p,
+        items: g
+      };
+    }), i = n ? r(n) : [];
+    let a = {
+      style: this.data.style,
+      meta: {},
+      items: i
+    };
+    return this.data.style === "ordered" && (a.meta = {
+      start: this.data.meta.start,
+      counterType: this.data.meta.counterType
+    }), a;
+  }
+  /**
+   * On paste sanitzation config. Allow only tags that are allowed in the Tool.
+   * @returns - config that determines tags supposted by paste handler
+   * @todo - refactor and move to list instance
+   */
+  static get pasteConfig() {
+    return {
+      tags: ["OL", "UL", "LI"]
+    };
+  }
+  /**
+   * Method that specified hot to merge two List blocks.
+   * Called by Editor.js by backspace at the beginning of the Block
+   *
+   * Content of the first item of the next List would be merged with deepest item in current list
+   * Other items of the next List would be appended to the current list without any changes in nesting levels
+   * @param data - data of the second list to be merged with current
+   */
+  merge(t) {
+    const n = this.block.holder.querySelectorAll(`.${h.item}`), r = n[n.length - 1], i = N(r);
+    if (r === null || i === null || (i.insertAdjacentHTML("beforeend", t.items[0].content), this.listWrapper === void 0))
+      return;
+    const a = y(this.listWrapper);
+    if (a.length === 0)
+      return;
+    const l = a[a.length - 1];
+    let s = C(l);
+    const o = t.items.shift();
+    o !== void 0 && (o.items.length !== 0 && (s === null && (s = this.renderer.renderWrapper(!1)), this.appendItems(o.items, s)), t.items.length > 0 && this.appendItems(t.items, this.listWrapper));
+  }
+  /**
+   * On paste callback that is fired from Editor.
+   * @param event - event with pasted data
+   * @todo - refactor and move to list instance
+   */
+  onPaste(t) {
+    const n = t.detail.data;
+    this.data = this.pasteHandler(n);
+    const r = this.listWrapper;
+    r && r.parentNode && r.parentNode.replaceChild(this.render(), r);
+  }
+  /**
+   * Handle UL, OL and LI tags paste and returns List data
+   * @param element - html element that contains whole list
+   * @todo - refactor and move to list instance
+   */
+  pasteHandler(t) {
+    const { tagName: n } = t;
+    let r = "unordered", i;
+    switch (n) {
+      case "OL":
+        r = "ordered", i = "ol";
+        break;
+      case "UL":
+      case "LI":
+        r = "unordered", i = "ul";
+    }
+    const a = {
+      style: r,
+      meta: {},
+      items: []
+    };
+    r === "ordered" && (this.data.meta.counterType = "numeric", this.data.meta.start = 1);
+    const l = (s) => Array.from(s.querySelectorAll(":scope > li")).map((d) => {
+      const u = d.querySelector(`:scope > ${i}`), p = u ? l(u) : [];
+      return {
+        content: d.innerHTML ?? "",
+        meta: {},
+        items: p
+      };
+    });
+    return a.items = l(t), a;
+  }
+  /**
+   * Changes ordered list start property value
+   * @param index - new value of the start property
+   */
+  changeStartWith(t) {
+    this.listWrapper.style.setProperty("counter-reset", `item ${t - 1}`), this.data.meta.start = t;
+  }
+  /**
+   * Changes ordered list counterType property value
+   * @param counterType - new value of the counterType value
+   */
+  changeCounters(t) {
+    this.listWrapper.style.setProperty("--list-counter-type", t), this.data.meta.counterType = t;
+  }
+  /**
+   * Handles Enter keypress
+   * @param event - keydown
+   */
+  enterPressed(t) {
+    var s;
+    const n = this.currentItem;
+    if (t.stopPropagation(), t.preventDefault(), t.isComposing || n === null)
+      return;
+    const r = ((s = this.renderer) == null ? void 0 : s.getItemContent(n).trim().length) === 0, i = n.parentNode === this.listWrapper, a = n.previousElementSibling === null, l = this.api.blocks.getCurrentBlockIndex();
+    if (i && r)
+      if (lr(n) && !sr(n)) {
+        a ? this.convertItemToDefaultBlock(l, !0) : this.convertItemToDefaultBlock();
+        return;
+      } else {
+        this.splitList(n);
+        return;
+      }
+    else if (r) {
+      this.unshiftItem(n);
+      return;
+    } else
+      this.splitItem(n);
+  }
+  /**
+   * Handle backspace
+   * @param event - keydown
+   */
+  backspace(t) {
+    var r;
+    const n = this.currentItem;
+    if (n !== null && j.isCaretAtStartOfInput(n) && ((r = window.getSelection()) == null ? void 0 : r.isCollapsed) !== !1) {
+      if (t.stopPropagation(), n.parentNode === this.listWrapper && n.previousElementSibling === null) {
+        this.convertFirstItemToDefaultBlock();
+        return;
+      }
+      t.preventDefault(), this.mergeItemWithPrevious(n);
+    }
+  }
+  /**
+   * Reduce indentation for current item
+   * @param event - keydown
+   */
+  shiftTab(t) {
+    t.stopPropagation(), t.preventDefault(), this.currentItem !== null && this.unshiftItem(this.currentItem);
+  }
+  /**
+   * Decrease indentation of the passed item
+   * @param item - list item to be unshifted
+   */
+  unshiftItem(t) {
+    if (!t.parentNode || !O(t.parentNode))
+      return;
+    const n = t.parentNode.closest(`.${h.item}`);
+    if (!n)
+      return;
+    let r = C(t);
+    if (t.parentElement === null)
+      return;
+    const i = U(t);
+    i !== null && (r === null && (r = this.renderer.renderWrapper(!1)), i.forEach((a) => {
+      r.appendChild(a);
+    }), t.appendChild(r)), n.after(t), E(t, !1), K(n);
+  }
+  /**
+   * Method that is used for list splitting and moving trailing items to the new separated list
+   * @param item - current item html element
+   */
+  splitList(t) {
+    const n = y(t), r = this.block, i = this.api.blocks.getCurrentBlockIndex();
+    if (n.length !== 0) {
+      const o = n[0];
+      this.unshiftItem(o), E(t, !1);
+    }
+    if (t.previousElementSibling === null && t.parentNode === this.listWrapper) {
+      this.convertItemToDefaultBlock(i);
+      return;
+    }
+    const a = U(t);
+    if (a === null)
+      return;
+    const l = this.renderer.renderWrapper(!0);
+    a.forEach((o) => {
+      l.appendChild(o);
+    });
+    const s = this.save(l);
+    s.meta.start = this.data.style == "ordered" ? 1 : void 0, this.api.blocks.insert(r == null ? void 0 : r.name, s, this.config, i + 1), this.convertItemToDefaultBlock(i + 1), l.remove();
+  }
+  /**
+   * Method that is used for splitting item content and moving trailing content to the new sibling item
+   * @param currentItem - current item html element
+   */
+  splitItem(t) {
+    const [n, r] = j.getCaretNodeAndOffset();
+    if (n === null)
+      return;
+    const i = N(t);
+    let a;
+    i === null ? a = "" : a = j.getContenteditableSlice(i, n, r, "right", !0);
+    const l = C(t), s = this.renderItem(a);
+    t == null || t.after(s), l && s.appendChild(l), E(s);
+  }
+  /**
+   * Method that is used for merging current item with previous one
+   * Content of the current item would be appended to the previous item
+   * Current item children would not change nesting level
+   * @param item - current item html element
+   */
+  mergeItemWithPrevious(t) {
+    const n = t.previousElementSibling, r = t.parentNode;
+    if (r === null || !O(r))
+      return;
+    const i = r.closest(`.${h.item}`);
+    if (!n && !i || n && !O(n))
+      return;
+    let a;
+    if (n) {
+      const p = y(n, !1);
+      p.length !== 0 && p.length !== 0 ? a = p[p.length - 1] : a = n;
+    } else
+      a = i;
+    const l = this.renderer.getItemContent(t);
+    if (!a)
+      return;
+    E(a, !1);
+    const s = N(a);
+    if (s === null)
+      return;
+    s.insertAdjacentHTML("beforeend", l);
+    const o = y(t);
+    if (o.length === 0) {
+      t.remove(), K(a);
+      return;
+    }
+    const d = n || i, u = C(d) ?? this.renderer.renderWrapper(!1);
+    n ? o.forEach((p) => {
+      u.appendChild(p);
+    }) : o.forEach((p) => {
+      u.prepend(p);
+    }), C(d) === null && a.appendChild(u), t.remove();
+  }
+  /**
+   * Add indentation to current item
+   * @param event - keydown
+   */
+  addTab(t) {
+    var a;
+    t.stopPropagation(), t.preventDefault();
+    const n = this.currentItem;
+    if (!n)
+      return;
+    if (((a = this.config) == null ? void 0 : a.maxLevel) !== void 0) {
+      const l = this.currentItemLevel;
+      if (l !== null && l === this.config.maxLevel)
+        return;
+    }
+    const r = n.previousSibling;
+    if (r === null || !O(r))
+      return;
+    const i = C(r);
+    if (i)
+      i.appendChild(n), y(n).forEach((s) => {
+        i.appendChild(s);
+      });
+    else {
+      const l = this.renderer.renderWrapper(!1);
+      l.appendChild(n), y(n).forEach((o) => {
+        l.appendChild(o);
+      }), r.appendChild(l);
+    }
+    K(n), E(n, !1);
+  }
+  /**
+   * Convert current item to default block with passed index
+   * @param newBloxkIndex - optional parameter represents index, where would be inseted default block
+   * @param removeList - optional parameter, that represents condition, if List should be removed
+   */
+  convertItemToDefaultBlock(t, n) {
+    let r;
+    const i = this.currentItem, a = i !== null ? this.renderer.getItemContent(i) : "";
+    n === !0 && this.api.blocks.delete(), t !== void 0 ? r = this.api.blocks.insert(void 0, { text: a }, void 0, t) : r = this.api.blocks.insert(), i == null || i.remove(), this.api.caret.setToBlock(r, "start");
+  }
+  /**
+   * Convert first item of the list to default block
+   * This method could be called when backspace button pressed at start of the first item of the list
+   * First item of the list would be converted to the paragraph and first item children would be unshifted
+   */
+  convertFirstItemToDefaultBlock() {
+    const t = this.currentItem;
+    if (t === null)
+      return;
+    const n = y(t);
+    if (n.length !== 0) {
+      const l = n[0];
+      this.unshiftItem(l), E(t);
+    }
+    const r = U(t), i = this.api.blocks.getCurrentBlockIndex(), a = r === null;
+    this.convertItemToDefaultBlock(i, a);
+  }
+  /**
+   * Method that calls render function of the renderer with a necessary item meta cast
+   * @param itemContent - content to be rendered in new item
+   * @param meta - meta used in list item rendering
+   * @returns html element of the rendered item
+   */
+  renderItem(t, n) {
+    const r = n ?? this.renderer.composeDefaultMeta();
+    switch (!0) {
+      case this.renderer instanceof v:
+        return this.renderer.renderItem(t, r);
+      case this.renderer instanceof b:
+        return this.renderer.renderItem(t, r);
+      default:
+        return this.renderer.renderItem(t, r);
+    }
+  }
+  /**
+   * Renders children list
+   * @param items - list data used in item rendering
+   * @param parentElement - where to append passed items
+   */
+  appendItems(t, n) {
+    t.forEach((r) => {
+      var a;
+      const i = this.renderItem(r.content, r.meta);
+      if (n.appendChild(i), r.items.length) {
+        const l = (a = this.renderer) == null ? void 0 : a.renderWrapper(!1);
+        this.appendItems(r.items, l), i.appendChild(l);
+      }
+    });
+  }
+}
+const I = {
+  wrapper: `${m}-start-with-field`,
+  input: `${m}-start-with-field__input`,
+  startWithElementWrapperInvalid: `${m}-start-with-field--invalid`
+};
+function or(e, { value: t, placeholder: n, attributes: r, sanitize: i }) {
+  const a = c.make("div", I.wrapper), l = c.make("input", I.input, {
+    placeholder: n,
+    /**
+     * Used to prevent focusing on the input by Tab key
+     * (Popover in the Toolbar lays below the blocks,
+     * so Tab in the last block will focus this hidden input if this property is not set)
+     */
+    tabIndex: -1,
+    /**
+     * Value of the start property, if it is not specified, then it is set to one
+     */
+    value: t
+  });
+  for (const s in r)
+    l.setAttribute(s, r[s]);
+  return a.appendChild(l), l.addEventListener("input", () => {
+    i !== void 0 && (l.value = i(l.value));
+    const s = l.checkValidity();
+    !s && !a.classList.contains(I.startWithElementWrapperInvalid) && a.classList.add(I.startWithElementWrapperInvalid), s && a.classList.contains(I.startWithElementWrapperInvalid) && a.classList.remove(I.startWithElementWrapperInvalid), s && e(l.value);
+  }), a;
+}
+const P = /* @__PURE__ */ new Map([
+  /**
+   * Value that represents default arabic numbers for counters
+   */
+  ["Numeric", "numeric"],
+  /**
+   * Value that represents lower roman numbers for counteres
+   */
+  ["Lower Roman", "lower-roman"],
+  /**
+   * Value that represents upper roman numbers for counters
+   */
+  ["Upper Roman", "upper-roman"],
+  /**
+   * Value that represents lower alpha characters for counters
+   */
+  ["Lower Alpha", "lower-alpha"],
+  /**
+   * Value that represents upper alpha characters for counters
+   */
+  ["Upper Alpha", "upper-alpha"]
+]), He = /* @__PURE__ */ new Map([
+  /**
+   * Value that represents Icon for Numeric counter type
+   */
+  ["numeric", St],
+  /**
+   * Value that represents Icon for Lower Roman counter type
+   */
+  ["lower-roman", Ot],
+  /**
+   * Value that represents Icon for Upper Roman counter type
+   */
+  ["upper-roman", kt],
+  /**
+   * Value that represents Icon for Lower Alpha counter type
+   */
+  ["lower-alpha", Et],
+  /**
+   * Value that represents Icon for Upper Alpha counter type
+   */
+  ["upper-alpha", _t]
+]);
+function ur(e) {
+  return e.replace(/\D+/g, "");
+}
+function cr(e) {
+  return typeof e.items[0] == "string";
+}
+function dr(e) {
+  return !("meta" in e);
+}
+function fr(e) {
+  return typeof e.items[0] != "string" && "text" in e.items[0] && "checked" in e.items[0] && typeof e.items[0].text == "string" && typeof e.items[0].checked == "boolean";
+}
+function pr(e) {
+  const t = [];
+  return cr(e) ? (e.items.forEach((n) => {
+    t.push({
+      content: n,
+      meta: {},
+      items: []
+    });
+  }), {
+    style: e.style,
+    meta: {},
+    items: t
+  }) : fr(e) ? (e.items.forEach((n) => {
+    t.push({
+      content: n.text,
+      meta: {
+        checked: n.checked
+      },
+      items: []
+    });
+  }), {
+    style: "checklist",
+    meta: {},
+    items: t
+  }) : dr(e) ? {
+    style: e.style,
+    meta: {},
+    items: e.items
+  } : structuredClone(e);
+}
+class G {
+  /**
+   * Notify core that read-only mode is supported
+   */
+  static get isReadOnlySupported() {
+    return !0;
+  }
+  /**
+   * Allow to use native Enter behaviour
+   */
+  static get enableLineBreaks() {
+    return !0;
+  }
+  /**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   */
+  static get toolbox() {
+    return [
+      {
+        icon: $e,
+        title: "Unordered List",
+        data: {
+          style: "unordered"
+        }
+      },
+      {
+        icon: Be,
+        title: "Ordered List",
+        data: {
+          style: "ordered"
+        }
+      },
+      {
+        icon: Ae,
+        title: "Checklist",
+        data: {
+          style: "checklist"
+        }
+      }
+    ];
+  }
+  /**
+   * On paste sanitzation config. Allow only tags that are allowed in the Tool.
+   * @returns - paste config object used in editor
+   */
+  static get pasteConfig() {
+    return {
+      tags: ["OL", "UL", "LI"]
+    };
+  }
+  /**
+   * Convert from text to list with import and export list to text
+   */
+  static get conversionConfig() {
+    return {
+      export: (t) => G.joinRecursive(t),
+      import: (t, n) => ({
+        meta: {},
+        items: [
+          {
+            content: t,
+            meta: {},
+            items: []
+          }
+        ],
+        style: (n == null ? void 0 : n.defaultStyle) !== void 0 ? n.defaultStyle : "unordered"
+      })
+    };
+  }
+  /**
+   * Get list style name
+   */
+  get listStyle() {
+    return this.data.style || this.defaultListStyle;
+  }
+  /**
+   * Set list style
+   * @param style - new style to set
+   */
+  set listStyle(t) {
+    var r;
+    this.data.style = t, this.changeTabulatorByStyle();
+    const n = this.list.render();
+    (r = this.listElement) == null || r.replaceWith(n), this.listElement = n;
+  }
+  /**
+   * Render plugin`s main Element and fill it with saved data
+   * @param params - tool constructor options
+   * @param params.data - previously saved data
+   * @param params.config - user config for Tool
+   * @param params.api - Editor.js API
+   * @param params.readOnly - read-only mode flag
+   */
+  constructor({ data: t, config: n, api: r, readOnly: i, block: a }) {
+    var s;
+    this.api = r, this.readOnly = i, this.config = n, this.block = a, this.defaultListStyle = ((s = this.config) == null ? void 0 : s.defaultStyle) || "unordered", this.defaultCounterTypes = this.config.counterTypes || Array.from(P.values());
+    const l = {
+      style: this.defaultListStyle,
+      meta: {},
+      items: []
+    };
+    this.data = Object.keys(t).length ? pr(t) : l, this.listStyle === "ordered" && this.data.meta.counterType === void 0 && (this.data.meta.counterType = "numeric"), this.changeTabulatorByStyle();
+  }
+  /**
+   * Convert from list to text for conversionConfig
+   * @param data - current data of the list
+   * @returns - string of the recursively merged contents of the items of the list
+   */
+  static joinRecursive(t) {
+    return t.items.map((n) => `${n.content} ${G.joinRecursive(n)}`).join("");
+  }
+  /**
+   * Function that is responsible for content rendering
+   * @returns rendered list wrapper with all contents
+   */
+  render() {
+    return this.listElement = this.list.render(), this.listElement;
+  }
+  /**
+   * Function that is responsible for content saving
+   * @returns formatted content used in editor
+   */
+  save() {
+    return this.data = this.list.save(), this.data;
+  }
+  /**
+   * Function that is responsible for mergind two lists into one
+   * @param data - data of the next standing list, that should be merged with current
+   */
+  merge(t) {
+    this.list.merge(t);
+  }
+  /**
+   * Creates Block Tune allowing to change the list style
+   * @returns array of tune configs
+   */
+  renderSettings() {
+    const t = [
+      {
+        label: this.api.i18n.t("Unordered"),
+        icon: $e,
+        closeOnActivate: !0,
+        isActive: this.listStyle == "unordered",
+        onActivate: () => {
+          this.listStyle = "unordered";
+        }
+      },
+      {
+        label: this.api.i18n.t("Ordered"),
+        icon: Be,
+        closeOnActivate: !0,
+        isActive: this.listStyle == "ordered",
+        onActivate: () => {
+          this.listStyle = "ordered";
+        }
+      },
+      {
+        label: this.api.i18n.t("Checklist"),
+        icon: Ae,
+        closeOnActivate: !0,
+        isActive: this.listStyle == "checklist",
+        onActivate: () => {
+          this.listStyle = "checklist";
+        }
+      }
+    ];
+    if (this.listStyle === "ordered") {
+      const n = or(
+        (a) => this.changeStartWith(Number(a)),
+        {
+          value: String(this.data.meta.start ?? 1),
+          placeholder: "",
+          attributes: {
+            required: "true"
+          },
+          sanitize: (a) => ur(a)
+        }
+      ), r = [
+        {
+          label: this.api.i18n.t("Start with"),
+          icon: It,
+          children: {
+            items: [
+              {
+                element: n,
+                // @ts-expect-error ts(2820) can not use PopoverItem enum from editor.js types
+                type: "html"
+              }
+            ]
+          }
+        }
+      ], i = {
+        label: this.api.i18n.t("Counter type"),
+        icon: He.get(this.data.meta.counterType),
+        children: {
+          items: []
+        }
+      };
+      P.forEach((a, l) => {
+        const s = P.get(l);
+        this.defaultCounterTypes.includes(s) && i.children.items.push({
+          title: this.api.i18n.t(l),
+          icon: He.get(s),
+          isActive: this.data.meta.counterType === P.get(l),
+          closeOnActivate: !0,
+          onActivate: () => {
+            this.changeCounters(P.get(l));
+          }
+        });
+      }), i.children.items.length > 1 && r.push(i), t.push({ type: "separator" }, ...r);
+    }
+    return t;
+  }
+  /**
+   * On paste callback that is fired from Editor.
+   * @param event - event with pasted data
+   */
+  onPaste(t) {
+    const { tagName: n } = t.detail.data;
+    switch (n) {
+      case "OL":
+        this.listStyle = "ordered";
+        break;
+      case "UL":
+      case "LI":
+        this.listStyle = "unordered";
+    }
+    this.list.onPaste(t);
+  }
+  /**
+   * Handle UL, OL and LI tags paste and returns List data
+   * @param element - html element that contains whole list
+   */
+  pasteHandler(t) {
+    return this.list.pasteHandler(t);
+  }
+  /**
+   * Changes ordered list counterType property value
+   * @param counterType - new value of the counterType value
+   */
+  changeCounters(t) {
+    var n;
+    (n = this.list) == null || n.changeCounters(t), this.data.meta.counterType = t;
+  }
+  /**
+   * Changes ordered list start property value
+   * @param index - new value of the start property
+   */
+  changeStartWith(t) {
+    var n;
+    (n = this.list) == null || n.changeStartWith(t), this.data.meta.start = t;
+  }
+  /**
+   * This method allows changing tabulator respectfully to passed style
+   */
+  changeTabulatorByStyle() {
+    switch (this.listStyle) {
+      case "ordered":
+        this.list = new z(
+          {
+            data: this.data,
+            readOnly: this.readOnly,
+            api: this.api,
+            config: this.config,
+            block: this.block
+          },
+          new v(this.readOnly, this.config)
+        );
+        break;
+      case "unordered":
+        this.list = new z(
+          {
+            data: this.data,
+            readOnly: this.readOnly,
+            api: this.api,
+            config: this.config,
+            block: this.block
+          },
+          new b(this.readOnly, this.config)
+        );
+        break;
+      case "checklist":
+        this.list = new z(
+          {
+            data: this.data,
+            readOnly: this.readOnly,
+            api: this.api,
+            config: this.config,
+            block: this.block
+          },
+          new f(this.readOnly, this.config)
+        );
+        break;
+    }
+  }
+}
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@editorjs/paragraph/dist/paragraph.mjs":
 /*!*************************************************************!*\
   !*** ./node_modules/@editorjs/paragraph/dist/paragraph.mjs ***!
@@ -11978,6 +15205,1118 @@ class n {
 
 /***/ }),
 
+/***/ "./node_modules/@editorjs/quote/dist/quote.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/@editorjs/quote/dist/quote.mjs ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ m)
+/* harmony export */ });
+(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(".cdx-quote-icon svg{transform:rotate(180deg)}.cdx-quote{margin:0}.cdx-quote__text{min-height:158px;margin-bottom:10px}.cdx-quote [contentEditable=true][data-placeholder]:before{position:absolute;content:attr(data-placeholder);color:#707684;font-weight:400;opacity:0}.cdx-quote [contentEditable=true][data-placeholder]:empty:before{opacity:1}.cdx-quote [contentEditable=true][data-placeholder]:empty:focus:before{opacity:0}.cdx-quote-settings{display:flex}.cdx-quote-settings .cdx-settings-button{width:50%}")),document.head.appendChild(t)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+const De = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 7L6 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 17H6"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 12L8 12"/></svg>', He = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 7L5 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 17H5"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13 12L5 12"/></svg>', Re = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 10.8182L9 10.8182C8.80222 10.8182 8.60888 10.7649 8.44443 10.665C8.27998 10.5651 8.15181 10.4231 8.07612 10.257C8.00043 10.0909 7.98063 9.90808 8.01922 9.73174C8.0578 9.55539 8.15304 9.39341 8.29289 9.26627C8.43275 9.13913 8.61093 9.05255 8.80491 9.01747C8.99889 8.98239 9.19996 9.00039 9.38268 9.0692C9.56541 9.13801 9.72159 9.25453 9.83147 9.40403C9.94135 9.55353 10 9.72929 10 9.90909L10 12.1818C10 12.664 9.78929 13.1265 9.41421 13.4675C9.03914 13.8084 8.53043 14 8 14"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 10.8182L15 10.8182C14.8022 10.8182 14.6089 10.7649 14.4444 10.665C14.28 10.5651 14.1518 10.4231 14.0761 10.257C14.0004 10.0909 13.9806 9.90808 14.0192 9.73174C14.0578 9.55539 14.153 9.39341 14.2929 9.26627C14.4327 9.13913 14.6109 9.05255 14.8049 9.01747C14.9989 8.98239 15.2 9.00039 15.3827 9.0692C15.5654 9.13801 15.7216 9.25453 15.8315 9.40403C15.9414 9.55353 16 9.72929 16 9.90909L16 12.1818C16 12.664 15.7893 13.1265 15.4142 13.4675C15.0391 13.8084 14.5304 14 14 14"/></svg>';
+var b = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
+function Fe(e) {
+  if (e.__esModule)
+    return e;
+  var t = e.default;
+  if (typeof t == "function") {
+    var n = function r() {
+      return this instanceof r ? Reflect.construct(t, arguments, this.constructor) : t.apply(this, arguments);
+    };
+    n.prototype = t.prototype;
+  } else
+    n = {};
+  return Object.defineProperty(n, "__esModule", { value: !0 }), Object.keys(e).forEach(function(r) {
+    var i = Object.getOwnPropertyDescriptor(e, r);
+    Object.defineProperty(n, r, i.get ? i : {
+      enumerable: !0,
+      get: function() {
+        return e[r];
+      }
+    });
+  }), n;
+}
+var v = {}, P = {}, j = {};
+Object.defineProperty(j, "__esModule", { value: !0 });
+j.allInputsSelector = We;
+function We() {
+  var e = ["text", "password", "email", "number", "search", "tel", "url"];
+  return "[contenteditable=true], textarea, input:not([type]), " + e.map(function(t) {
+    return 'input[type="'.concat(t, '"]');
+  }).join(", ");
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.allInputsSelector = void 0;
+  var t = j;
+  Object.defineProperty(e, "allInputsSelector", { enumerable: !0, get: function() {
+    return t.allInputsSelector;
+  } });
+})(P);
+var c = {}, T = {};
+Object.defineProperty(T, "__esModule", { value: !0 });
+T.isNativeInput = Ue;
+function Ue(e) {
+  var t = [
+    "INPUT",
+    "TEXTAREA"
+  ];
+  return e && e.tagName ? t.includes(e.tagName) : !1;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isNativeInput = void 0;
+  var t = T;
+  Object.defineProperty(e, "isNativeInput", { enumerable: !0, get: function() {
+    return t.isNativeInput;
+  } });
+})(c);
+var ie = {}, C = {};
+Object.defineProperty(C, "__esModule", { value: !0 });
+C.append = qe;
+function qe(e, t) {
+  Array.isArray(t) ? t.forEach(function(n) {
+    e.appendChild(n);
+  }) : e.appendChild(t);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.append = void 0;
+  var t = C;
+  Object.defineProperty(e, "append", { enumerable: !0, get: function() {
+    return t.append;
+  } });
+})(ie);
+var L = {}, S = {};
+Object.defineProperty(S, "__esModule", { value: !0 });
+S.blockElements = ze;
+function ze() {
+  return [
+    "address",
+    "article",
+    "aside",
+    "blockquote",
+    "canvas",
+    "div",
+    "dl",
+    "dt",
+    "fieldset",
+    "figcaption",
+    "figure",
+    "footer",
+    "form",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "header",
+    "hgroup",
+    "hr",
+    "li",
+    "main",
+    "nav",
+    "noscript",
+    "ol",
+    "output",
+    "p",
+    "pre",
+    "ruby",
+    "section",
+    "table",
+    "tbody",
+    "thead",
+    "tr",
+    "tfoot",
+    "ul",
+    "video"
+  ];
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.blockElements = void 0;
+  var t = S;
+  Object.defineProperty(e, "blockElements", { enumerable: !0, get: function() {
+    return t.blockElements;
+  } });
+})(L);
+var ae = {}, M = {};
+Object.defineProperty(M, "__esModule", { value: !0 });
+M.calculateBaseline = Ge;
+function Ge(e) {
+  var t = window.getComputedStyle(e), n = parseFloat(t.fontSize), r = parseFloat(t.lineHeight) || n * 1.2, i = parseFloat(t.paddingTop), a = parseFloat(t.borderTopWidth), l = parseFloat(t.marginTop), u = n * 0.8, d = (r - n) / 2, s = l + a + i + d + u;
+  return s;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.calculateBaseline = void 0;
+  var t = M;
+  Object.defineProperty(e, "calculateBaseline", { enumerable: !0, get: function() {
+    return t.calculateBaseline;
+  } });
+})(ae);
+var le = {}, k = {}, w = {}, N = {};
+Object.defineProperty(N, "__esModule", { value: !0 });
+N.isContentEditable = Ke;
+function Ke(e) {
+  return e.contentEditable === "true";
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isContentEditable = void 0;
+  var t = N;
+  Object.defineProperty(e, "isContentEditable", { enumerable: !0, get: function() {
+    return t.isContentEditable;
+  } });
+})(w);
+Object.defineProperty(k, "__esModule", { value: !0 });
+k.canSetCaret = Qe;
+var Xe = c, Ye = w;
+function Qe(e) {
+  var t = !0;
+  if ((0, Xe.isNativeInput)(e))
+    switch (e.type) {
+      case "file":
+      case "checkbox":
+      case "radio":
+      case "hidden":
+      case "submit":
+      case "button":
+      case "image":
+      case "reset":
+        t = !1;
+        break;
+    }
+  else
+    t = (0, Ye.isContentEditable)(e);
+  return t;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.canSetCaret = void 0;
+  var t = k;
+  Object.defineProperty(e, "canSetCaret", { enumerable: !0, get: function() {
+    return t.canSetCaret;
+  } });
+})(le);
+var y = {}, I = {};
+function Ve(e, t, n) {
+  const r = n.value !== void 0 ? "value" : "get", i = n[r], a = `#${t}Cache`;
+  if (n[r] = function(...l) {
+    return this[a] === void 0 && (this[a] = i.apply(this, l)), this[a];
+  }, r === "get" && n.set) {
+    const l = n.set;
+    n.set = function(u) {
+      delete e[a], l.apply(this, u);
+    };
+  }
+  return n;
+}
+function ue() {
+  const e = {
+    win: !1,
+    mac: !1,
+    x11: !1,
+    linux: !1
+  }, t = Object.keys(e).find((n) => window.navigator.appVersion.toLowerCase().indexOf(n) !== -1);
+  return t !== void 0 && (e[t] = !0), e;
+}
+function A(e) {
+  return e != null && e !== "" && (typeof e != "object" || Object.keys(e).length > 0);
+}
+function Ze(e) {
+  return !A(e);
+}
+const Je = () => typeof window < "u" && window.navigator !== null && A(window.navigator.platform) && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+function xe(e) {
+  const t = ue();
+  return e = e.replace(/shift/gi, "⇧").replace(/backspace/gi, "⌫").replace(/enter/gi, "⏎").replace(/up/gi, "↑").replace(/left/gi, "→").replace(/down/gi, "↓").replace(/right/gi, "←").replace(/escape/gi, "⎋").replace(/insert/gi, "Ins").replace(/delete/gi, "␡").replace(/\+/gi, "+"), t.mac ? e = e.replace(/ctrl|cmd/gi, "⌘").replace(/alt/gi, "⌥") : e = e.replace(/cmd/gi, "Ctrl").replace(/windows/gi, "WIN"), e;
+}
+function et(e) {
+  return e[0].toUpperCase() + e.slice(1);
+}
+function tt(e) {
+  const t = document.createElement("div");
+  t.style.position = "absolute", t.style.left = "-999px", t.style.bottom = "-999px", t.innerHTML = e, document.body.appendChild(t);
+  const n = window.getSelection(), r = document.createRange();
+  if (r.selectNode(t), n === null)
+    throw new Error("Cannot copy text to clipboard");
+  n.removeAllRanges(), n.addRange(r), document.execCommand("copy"), document.body.removeChild(t);
+}
+function nt(e, t, n) {
+  let r;
+  return (...i) => {
+    const a = this, l = () => {
+      r = void 0, n !== !0 && e.apply(a, i);
+    }, u = n === !0 && r !== void 0;
+    window.clearTimeout(r), r = window.setTimeout(l, t), u && e.apply(a, i);
+  };
+}
+function o(e) {
+  return Object.prototype.toString.call(e).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+}
+function rt(e) {
+  return o(e) === "boolean";
+}
+function oe(e) {
+  return o(e) === "function" || o(e) === "asyncfunction";
+}
+function it(e) {
+  return oe(e) && /^\s*class\s+/.test(e.toString());
+}
+function at(e) {
+  return o(e) === "number";
+}
+function g(e) {
+  return o(e) === "object";
+}
+function lt(e) {
+  return Promise.resolve(e) === e;
+}
+function ut(e) {
+  return o(e) === "string";
+}
+function ot(e) {
+  return o(e) === "undefined";
+}
+function O(e, ...t) {
+  if (!t.length)
+    return e;
+  const n = t.shift();
+  if (g(e) && g(n))
+    for (const r in n)
+      g(n[r]) ? (e[r] === void 0 && Object.assign(e, { [r]: {} }), O(e[r], n[r])) : Object.assign(e, { [r]: n[r] });
+  return O(e, ...t);
+}
+function st(e, t, n) {
+  const r = `«${t}» is deprecated and will be removed in the next major release. Please use the «${n}» instead.`;
+  e && console.warn(r);
+}
+function ct(e) {
+  try {
+    return new URL(e).href;
+  } catch {
+  }
+  return e.substring(0, 2) === "//" ? window.location.protocol + e : window.location.origin + e;
+}
+function dt(e) {
+  return e > 47 && e < 58 || e === 32 || e === 13 || e === 229 || e > 64 && e < 91 || e > 95 && e < 112 || e > 185 && e < 193 || e > 218 && e < 223;
+}
+const ft = {
+  BACKSPACE: 8,
+  TAB: 9,
+  ENTER: 13,
+  SHIFT: 16,
+  CTRL: 17,
+  ALT: 18,
+  ESC: 27,
+  SPACE: 32,
+  LEFT: 37,
+  UP: 38,
+  DOWN: 40,
+  RIGHT: 39,
+  DELETE: 46,
+  META: 91,
+  SLASH: 191
+}, pt = {
+  LEFT: 0,
+  WHEEL: 1,
+  RIGHT: 2,
+  BACKWARD: 3,
+  FORWARD: 4
+};
+class vt {
+  constructor() {
+    this.completed = Promise.resolve();
+  }
+  /**
+   * Add new promise to queue
+   * @param operation - promise should be added to queue
+   */
+  add(t) {
+    return new Promise((n, r) => {
+      this.completed = this.completed.then(t).then(n).catch(r);
+    });
+  }
+}
+function gt(e, t, n = void 0) {
+  let r, i, a, l = null, u = 0;
+  n || (n = {});
+  const d = function() {
+    u = n.leading === !1 ? 0 : Date.now(), l = null, a = e.apply(r, i), l === null && (r = i = null);
+  };
+  return function() {
+    const s = Date.now();
+    !u && n.leading === !1 && (u = s);
+    const f = t - (s - u);
+    return r = this, i = arguments, f <= 0 || f > t ? (l && (clearTimeout(l), l = null), u = s, a = e.apply(r, i), l === null && (r = i = null)) : !l && n.trailing !== !1 && (l = setTimeout(d, f)), a;
+  };
+}
+const mt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  PromiseQueue: vt,
+  beautifyShortcut: xe,
+  cacheable: Ve,
+  capitalize: et,
+  copyTextToClipboard: tt,
+  debounce: nt,
+  deepMerge: O,
+  deprecationAssert: st,
+  getUserOS: ue,
+  getValidUrl: ct,
+  isBoolean: rt,
+  isClass: it,
+  isEmpty: Ze,
+  isFunction: oe,
+  isIosDevice: Je,
+  isNumber: at,
+  isObject: g,
+  isPrintableKey: dt,
+  isPromise: lt,
+  isString: ut,
+  isUndefined: ot,
+  keyCodes: ft,
+  mouseButtons: pt,
+  notEmpty: A,
+  throttle: gt,
+  typeOf: o
+}, Symbol.toStringTag, { value: "Module" })), $ = /* @__PURE__ */ Fe(mt);
+Object.defineProperty(I, "__esModule", { value: !0 });
+I.containsOnlyInlineElements = _t;
+var bt = $, yt = L;
+function _t(e) {
+  var t;
+  (0, bt.isString)(e) ? (t = document.createElement("div"), t.innerHTML = e) : t = e;
+  var n = function(r) {
+    return !(0, yt.blockElements)().includes(r.tagName.toLowerCase()) && Array.from(r.children).every(n);
+  };
+  return Array.from(t.children).every(n);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.containsOnlyInlineElements = void 0;
+  var t = I;
+  Object.defineProperty(e, "containsOnlyInlineElements", { enumerable: !0, get: function() {
+    return t.containsOnlyInlineElements;
+  } });
+})(y);
+var se = {}, B = {}, _ = {}, D = {};
+Object.defineProperty(D, "__esModule", { value: !0 });
+D.make = ht;
+function ht(e, t, n) {
+  var r;
+  t === void 0 && (t = null), n === void 0 && (n = {});
+  var i = document.createElement(e);
+  if (Array.isArray(t)) {
+    var a = t.filter(function(u) {
+      return u !== void 0;
+    });
+    (r = i.classList).add.apply(r, a);
+  } else
+    t !== null && i.classList.add(t);
+  for (var l in n)
+    Object.prototype.hasOwnProperty.call(n, l) && (i[l] = n[l]);
+  return i;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.make = void 0;
+  var t = D;
+  Object.defineProperty(e, "make", { enumerable: !0, get: function() {
+    return t.make;
+  } });
+})(_);
+Object.defineProperty(B, "__esModule", { value: !0 });
+B.fragmentToString = Ot;
+var Et = _;
+function Ot(e) {
+  var t = (0, Et.make)("div");
+  return t.appendChild(e), t.innerHTML;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.fragmentToString = void 0;
+  var t = B;
+  Object.defineProperty(e, "fragmentToString", { enumerable: !0, get: function() {
+    return t.fragmentToString;
+  } });
+})(se);
+var ce = {}, H = {};
+Object.defineProperty(H, "__esModule", { value: !0 });
+H.getContentLength = jt;
+var Pt = c;
+function jt(e) {
+  var t, n;
+  return (0, Pt.isNativeInput)(e) ? e.value.length : e.nodeType === Node.TEXT_NODE ? e.length : (n = (t = e.textContent) === null || t === void 0 ? void 0 : t.length) !== null && n !== void 0 ? n : 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getContentLength = void 0;
+  var t = H;
+  Object.defineProperty(e, "getContentLength", { enumerable: !0, get: function() {
+    return t.getContentLength;
+  } });
+})(ce);
+var R = {}, F = {}, re = b && b.__spreadArray || function(e, t, n) {
+  if (n || arguments.length === 2)
+    for (var r = 0, i = t.length, a; r < i; r++)
+      (a || !(r in t)) && (a || (a = Array.prototype.slice.call(t, 0, r)), a[r] = t[r]);
+  return e.concat(a || Array.prototype.slice.call(t));
+};
+Object.defineProperty(F, "__esModule", { value: !0 });
+F.getDeepestBlockElements = de;
+var Tt = y;
+function de(e) {
+  return (0, Tt.containsOnlyInlineElements)(e) ? [e] : Array.from(e.children).reduce(function(t, n) {
+    return re(re([], t, !0), de(n), !0);
+  }, []);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getDeepestBlockElements = void 0;
+  var t = F;
+  Object.defineProperty(e, "getDeepestBlockElements", { enumerable: !0, get: function() {
+    return t.getDeepestBlockElements;
+  } });
+})(R);
+var fe = {}, W = {}, h = {}, U = {};
+Object.defineProperty(U, "__esModule", { value: !0 });
+U.isLineBreakTag = Ct;
+function Ct(e) {
+  return [
+    "BR",
+    "WBR"
+  ].includes(e.tagName);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isLineBreakTag = void 0;
+  var t = U;
+  Object.defineProperty(e, "isLineBreakTag", { enumerable: !0, get: function() {
+    return t.isLineBreakTag;
+  } });
+})(h);
+var E = {}, q = {};
+Object.defineProperty(q, "__esModule", { value: !0 });
+q.isSingleTag = Lt;
+function Lt(e) {
+  return [
+    "AREA",
+    "BASE",
+    "BR",
+    "COL",
+    "COMMAND",
+    "EMBED",
+    "HR",
+    "IMG",
+    "INPUT",
+    "KEYGEN",
+    "LINK",
+    "META",
+    "PARAM",
+    "SOURCE",
+    "TRACK",
+    "WBR"
+  ].includes(e.tagName);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isSingleTag = void 0;
+  var t = q;
+  Object.defineProperty(e, "isSingleTag", { enumerable: !0, get: function() {
+    return t.isSingleTag;
+  } });
+})(E);
+Object.defineProperty(W, "__esModule", { value: !0 });
+W.getDeepestNode = pe;
+var St = c, Mt = h, kt = E;
+function pe(e, t) {
+  t === void 0 && (t = !1);
+  var n = t ? "lastChild" : "firstChild", r = t ? "previousSibling" : "nextSibling";
+  if (e.nodeType === Node.ELEMENT_NODE && e[n]) {
+    var i = e[n];
+    if ((0, kt.isSingleTag)(i) && !(0, St.isNativeInput)(i) && !(0, Mt.isLineBreakTag)(i))
+      if (i[r])
+        i = i[r];
+      else if (i.parentNode !== null && i.parentNode[r])
+        i = i.parentNode[r];
+      else
+        return i.parentNode;
+    return pe(i, t);
+  }
+  return e;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.getDeepestNode = void 0;
+  var t = W;
+  Object.defineProperty(e, "getDeepestNode", { enumerable: !0, get: function() {
+    return t.getDeepestNode;
+  } });
+})(fe);
+var ve = {}, z = {}, p = b && b.__spreadArray || function(e, t, n) {
+  if (n || arguments.length === 2)
+    for (var r = 0, i = t.length, a; r < i; r++)
+      (a || !(r in t)) && (a || (a = Array.prototype.slice.call(t, 0, r)), a[r] = t[r]);
+  return e.concat(a || Array.prototype.slice.call(t));
+};
+Object.defineProperty(z, "__esModule", { value: !0 });
+z.findAllInputs = $t;
+var wt = y, Nt = R, It = P, At = c;
+function $t(e) {
+  return Array.from(e.querySelectorAll((0, It.allInputsSelector)())).reduce(function(t, n) {
+    return (0, At.isNativeInput)(n) || (0, wt.containsOnlyInlineElements)(n) ? p(p([], t, !0), [n], !1) : p(p([], t, !0), (0, Nt.getDeepestBlockElements)(n), !0);
+  }, []);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.findAllInputs = void 0;
+  var t = z;
+  Object.defineProperty(e, "findAllInputs", { enumerable: !0, get: function() {
+    return t.findAllInputs;
+  } });
+})(ve);
+var ge = {}, G = {};
+Object.defineProperty(G, "__esModule", { value: !0 });
+G.isCollapsedWhitespaces = Bt;
+function Bt(e) {
+  return !/[^\t\n\r ]/.test(e);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isCollapsedWhitespaces = void 0;
+  var t = G;
+  Object.defineProperty(e, "isCollapsedWhitespaces", { enumerable: !0, get: function() {
+    return t.isCollapsedWhitespaces;
+  } });
+})(ge);
+var K = {}, X = {};
+Object.defineProperty(X, "__esModule", { value: !0 });
+X.isElement = Ht;
+var Dt = $;
+function Ht(e) {
+  return (0, Dt.isNumber)(e) ? !1 : !!e && !!e.nodeType && e.nodeType === Node.ELEMENT_NODE;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isElement = void 0;
+  var t = X;
+  Object.defineProperty(e, "isElement", { enumerable: !0, get: function() {
+    return t.isElement;
+  } });
+})(K);
+var me = {}, Y = {}, Q = {}, V = {};
+Object.defineProperty(V, "__esModule", { value: !0 });
+V.isLeaf = Rt;
+function Rt(e) {
+  return e === null ? !1 : e.childNodes.length === 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isLeaf = void 0;
+  var t = V;
+  Object.defineProperty(e, "isLeaf", { enumerable: !0, get: function() {
+    return t.isLeaf;
+  } });
+})(Q);
+var Z = {}, J = {};
+Object.defineProperty(J, "__esModule", { value: !0 });
+J.isNodeEmpty = zt;
+var Ft = h, Wt = K, Ut = c, qt = E;
+function zt(e, t) {
+  var n = "";
+  return (0, qt.isSingleTag)(e) && !(0, Ft.isLineBreakTag)(e) ? !1 : ((0, Wt.isElement)(e) && (0, Ut.isNativeInput)(e) ? n = e.value : e.textContent !== null && (n = e.textContent.replace("​", "")), t !== void 0 && (n = n.replace(new RegExp(t, "g"), "")), n.trim().length === 0);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isNodeEmpty = void 0;
+  var t = J;
+  Object.defineProperty(e, "isNodeEmpty", { enumerable: !0, get: function() {
+    return t.isNodeEmpty;
+  } });
+})(Z);
+Object.defineProperty(Y, "__esModule", { value: !0 });
+Y.isEmpty = Xt;
+var Gt = Q, Kt = Z;
+function Xt(e, t) {
+  e.normalize();
+  for (var n = [e]; n.length > 0; ) {
+    var r = n.shift();
+    if (r) {
+      if (e = r, (0, Gt.isLeaf)(e) && !(0, Kt.isNodeEmpty)(e, t))
+        return !1;
+      n.push.apply(n, Array.from(e.childNodes));
+    }
+  }
+  return !0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isEmpty = void 0;
+  var t = Y;
+  Object.defineProperty(e, "isEmpty", { enumerable: !0, get: function() {
+    return t.isEmpty;
+  } });
+})(me);
+var be = {}, x = {};
+Object.defineProperty(x, "__esModule", { value: !0 });
+x.isFragment = Qt;
+var Yt = $;
+function Qt(e) {
+  return (0, Yt.isNumber)(e) ? !1 : !!e && !!e.nodeType && e.nodeType === Node.DOCUMENT_FRAGMENT_NODE;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isFragment = void 0;
+  var t = x;
+  Object.defineProperty(e, "isFragment", { enumerable: !0, get: function() {
+    return t.isFragment;
+  } });
+})(be);
+var ye = {}, ee = {};
+Object.defineProperty(ee, "__esModule", { value: !0 });
+ee.isHTMLString = Zt;
+var Vt = _;
+function Zt(e) {
+  var t = (0, Vt.make)("div");
+  return t.innerHTML = e, t.childElementCount > 0;
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.isHTMLString = void 0;
+  var t = ee;
+  Object.defineProperty(e, "isHTMLString", { enumerable: !0, get: function() {
+    return t.isHTMLString;
+  } });
+})(ye);
+var _e = {}, te = {};
+Object.defineProperty(te, "__esModule", { value: !0 });
+te.offset = Jt;
+function Jt(e) {
+  var t = e.getBoundingClientRect(), n = window.pageXOffset || document.documentElement.scrollLeft, r = window.pageYOffset || document.documentElement.scrollTop, i = t.top + r, a = t.left + n;
+  return {
+    top: i,
+    left: a,
+    bottom: i + t.height,
+    right: a + t.width
+  };
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.offset = void 0;
+  var t = te;
+  Object.defineProperty(e, "offset", { enumerable: !0, get: function() {
+    return t.offset;
+  } });
+})(_e);
+var he = {}, ne = {};
+Object.defineProperty(ne, "__esModule", { value: !0 });
+ne.prepend = xt;
+function xt(e, t) {
+  Array.isArray(t) ? (t = t.reverse(), t.forEach(function(n) {
+    return e.prepend(n);
+  })) : e.prepend(t);
+}
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.prepend = void 0;
+  var t = ne;
+  Object.defineProperty(e, "prepend", { enumerable: !0, get: function() {
+    return t.prepend;
+  } });
+})(he);
+(function(e) {
+  Object.defineProperty(e, "__esModule", { value: !0 }), e.prepend = e.offset = e.make = e.isLineBreakTag = e.isSingleTag = e.isNodeEmpty = e.isLeaf = e.isHTMLString = e.isFragment = e.isEmpty = e.isElement = e.isContentEditable = e.isCollapsedWhitespaces = e.findAllInputs = e.isNativeInput = e.allInputsSelector = e.getDeepestNode = e.getDeepestBlockElements = e.getContentLength = e.fragmentToString = e.containsOnlyInlineElements = e.canSetCaret = e.calculateBaseline = e.blockElements = e.append = void 0;
+  var t = P;
+  Object.defineProperty(e, "allInputsSelector", { enumerable: !0, get: function() {
+    return t.allInputsSelector;
+  } });
+  var n = c;
+  Object.defineProperty(e, "isNativeInput", { enumerable: !0, get: function() {
+    return n.isNativeInput;
+  } });
+  var r = ie;
+  Object.defineProperty(e, "append", { enumerable: !0, get: function() {
+    return r.append;
+  } });
+  var i = L;
+  Object.defineProperty(e, "blockElements", { enumerable: !0, get: function() {
+    return i.blockElements;
+  } });
+  var a = ae;
+  Object.defineProperty(e, "calculateBaseline", { enumerable: !0, get: function() {
+    return a.calculateBaseline;
+  } });
+  var l = le;
+  Object.defineProperty(e, "canSetCaret", { enumerable: !0, get: function() {
+    return l.canSetCaret;
+  } });
+  var u = y;
+  Object.defineProperty(e, "containsOnlyInlineElements", { enumerable: !0, get: function() {
+    return u.containsOnlyInlineElements;
+  } });
+  var d = se;
+  Object.defineProperty(e, "fragmentToString", { enumerable: !0, get: function() {
+    return d.fragmentToString;
+  } });
+  var s = ce;
+  Object.defineProperty(e, "getContentLength", { enumerable: !0, get: function() {
+    return s.getContentLength;
+  } });
+  var f = R;
+  Object.defineProperty(e, "getDeepestBlockElements", { enumerable: !0, get: function() {
+    return f.getDeepestBlockElements;
+  } });
+  var Oe = fe;
+  Object.defineProperty(e, "getDeepestNode", { enumerable: !0, get: function() {
+    return Oe.getDeepestNode;
+  } });
+  var Pe = ve;
+  Object.defineProperty(e, "findAllInputs", { enumerable: !0, get: function() {
+    return Pe.findAllInputs;
+  } });
+  var je = ge;
+  Object.defineProperty(e, "isCollapsedWhitespaces", { enumerable: !0, get: function() {
+    return je.isCollapsedWhitespaces;
+  } });
+  var Te = w;
+  Object.defineProperty(e, "isContentEditable", { enumerable: !0, get: function() {
+    return Te.isContentEditable;
+  } });
+  var Ce = K;
+  Object.defineProperty(e, "isElement", { enumerable: !0, get: function() {
+    return Ce.isElement;
+  } });
+  var Le = me;
+  Object.defineProperty(e, "isEmpty", { enumerable: !0, get: function() {
+    return Le.isEmpty;
+  } });
+  var Se = be;
+  Object.defineProperty(e, "isFragment", { enumerable: !0, get: function() {
+    return Se.isFragment;
+  } });
+  var Me = ye;
+  Object.defineProperty(e, "isHTMLString", { enumerable: !0, get: function() {
+    return Me.isHTMLString;
+  } });
+  var ke = Q;
+  Object.defineProperty(e, "isLeaf", { enumerable: !0, get: function() {
+    return ke.isLeaf;
+  } });
+  var we = Z;
+  Object.defineProperty(e, "isNodeEmpty", { enumerable: !0, get: function() {
+    return we.isNodeEmpty;
+  } });
+  var Ne = h;
+  Object.defineProperty(e, "isLineBreakTag", { enumerable: !0, get: function() {
+    return Ne.isLineBreakTag;
+  } });
+  var Ie = E;
+  Object.defineProperty(e, "isSingleTag", { enumerable: !0, get: function() {
+    return Ie.isSingleTag;
+  } });
+  var Ae = _;
+  Object.defineProperty(e, "make", { enumerable: !0, get: function() {
+    return Ae.make;
+  } });
+  var $e = _e;
+  Object.defineProperty(e, "offset", { enumerable: !0, get: function() {
+    return $e.offset;
+  } });
+  var Be = he;
+  Object.defineProperty(e, "prepend", { enumerable: !0, get: function() {
+    return Be.prepend;
+  } });
+})(v);
+var Ee = /* @__PURE__ */ ((e) => (e.Left = "left", e.Center = "center", e))(Ee || {});
+class m {
+  /**
+   * Render plugin`s main Element and fill it with saved data
+   * @param params - Quote Tool constructor params
+   * @param params.data - previously saved data
+   * @param params.config - user config for Tool
+   * @param params.api - editor.js api
+   * @param params.readOnly - read only mode flag
+   */
+  constructor({ data: t, config: n, api: r, readOnly: i, block: a }) {
+    const { DEFAULT_ALIGNMENT: l } = m;
+    this.api = r, this.readOnly = i, this.quotePlaceholder = r.i18n.t((n == null ? void 0 : n.quotePlaceholder) ?? m.DEFAULT_QUOTE_PLACEHOLDER), this.captionPlaceholder = r.i18n.t((n == null ? void 0 : n.captionPlaceholder) ?? m.DEFAULT_CAPTION_PLACEHOLDER), this.data = {
+      text: t.text || "",
+      caption: t.caption || "",
+      alignment: Object.values(Ee).includes(t.alignment) ? t.alignment : (n == null ? void 0 : n.defaultAlignment) ?? l
+    }, this.css = {
+      baseClass: this.api.styles.block,
+      wrapper: "cdx-quote",
+      text: "cdx-quote__text",
+      input: this.api.styles.input,
+      caption: "cdx-quote__caption"
+    }, this.block = a;
+  }
+  /**
+   * Notify core that read-only mode is supported
+   * @returns true
+   */
+  static get isReadOnlySupported() {
+    return !0;
+  }
+  /**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   * @returns icon and title of the toolbox
+   */
+  static get toolbox() {
+    return {
+      icon: Re,
+      title: "Quote"
+    };
+  }
+  /**
+   * Empty Quote is not empty Block
+   * @returns true
+   */
+  static get contentless() {
+    return !0;
+  }
+  /**
+   * Allow to press Enter inside the Quote
+   * @returns true
+   */
+  static get enableLineBreaks() {
+    return !0;
+  }
+  /**
+   * Default placeholder for quote text
+   * @returns 'Enter a quote'
+   */
+  static get DEFAULT_QUOTE_PLACEHOLDER() {
+    return "Enter a quote";
+  }
+  /**
+   * Default placeholder for quote caption
+   * @returns 'Enter a caption'
+   */
+  static get DEFAULT_CAPTION_PLACEHOLDER() {
+    return "Enter a caption";
+  }
+  /**
+   * Default quote alignment
+   * @returns Alignment.Left
+   */
+  static get DEFAULT_ALIGNMENT() {
+    return "left";
+  }
+  /**
+   * Allow Quote to be converted to/from other blocks
+   * @returns conversion config object
+   */
+  static get conversionConfig() {
+    return {
+      /**
+       * To create Quote data from string, simple fill 'text' property
+       */
+      import: "text",
+      /**
+       * To create string from Quote data, concatenate text and caption
+       * @param quoteData - Quote data object
+       * @returns string
+       */
+      export: function(t) {
+        return t.caption ? `${t.text} — ${t.caption}` : t.text;
+      }
+    };
+  }
+  /**
+   * Tool`s styles
+   * @returns CSS classes names
+   */
+  get CSS() {
+    return {
+      baseClass: this.api.styles.block,
+      wrapper: "cdx-quote",
+      text: "cdx-quote__text",
+      input: this.api.styles.input,
+      caption: "cdx-quote__caption"
+    };
+  }
+  /**
+   * Tool`s settings properties
+   * @returns settings properties
+   */
+  get settings() {
+    return [
+      {
+        name: "left",
+        icon: He
+      },
+      {
+        name: "center",
+        icon: De
+      }
+    ];
+  }
+  /**
+   * Create Quote Tool container with inputs
+   * @returns blockquote DOM element - Quote Tool container
+   */
+  render() {
+    const t = v.make("blockquote", [
+      this.css.baseClass,
+      this.css.wrapper
+    ]), n = v.make("div", [this.css.input, this.css.text], {
+      contentEditable: !this.readOnly,
+      innerHTML: this.data.text
+    }), r = v.make("div", [this.css.input, this.css.caption], {
+      contentEditable: !this.readOnly,
+      innerHTML: this.data.caption
+    });
+    return n.dataset.placeholder = this.quotePlaceholder, r.dataset.placeholder = this.captionPlaceholder, t.appendChild(n), t.appendChild(r), t;
+  }
+  /**
+   * Extract Quote data from Quote Tool element
+   * @param quoteElement - Quote DOM element to save
+   * @returns Quote data object
+   */
+  save(t) {
+    const n = t.querySelector(`.${this.css.text}`), r = t.querySelector(`.${this.css.caption}`);
+    return Object.assign(this.data, {
+      text: (n == null ? void 0 : n.innerHTML) ?? "",
+      caption: (r == null ? void 0 : r.innerHTML) ?? ""
+    });
+  }
+  /**
+   * Sanitizer rules
+   * @returns sanitizer rules
+   */
+  static get sanitize() {
+    return {
+      text: {
+        br: !0
+      },
+      caption: {
+        br: !0
+      },
+      alignment: {}
+    };
+  }
+  /**
+   * Create wrapper for Tool`s settings buttons:
+   * 1. Left alignment
+   * 2. Center alignment
+   * @returns settings menu
+   */
+  renderSettings() {
+    const t = (n) => n && n[0].toUpperCase() + n.slice(1);
+    return this.settings.map((n) => ({
+      icon: n.icon,
+      label: this.api.i18n.t(`Align ${t(n.name)}`),
+      onActivate: () => this._toggleTune(n.name),
+      isActive: this.data.alignment === n.name,
+      closeOnActivate: !0
+    }));
+  }
+  /**
+   * Toggle quote`s alignment
+   * @param tune - alignment
+   */
+  _toggleTune(t) {
+    this.data.alignment = t, this.block.dispatchChange();
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@editorjs/underline/dist/underline.mjs":
+/*!*************************************************************!*\
+  !*** ./node_modules/@editorjs/underline/dist/underline.mjs ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ a)
+/* harmony export */ });
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".cdx-underline{text-decoration:underline}")),document.head.appendChild(e)}}catch(n){console.error("vite-plugin-css-injected-by-js",n)}})();
+const r = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7.5V11.5C9 12.2956 9.31607 13.0587 9.87868 13.6213C10.4413 14.1839 11.2044 14.5 12 14.5C12.7956 14.5 13.5587 14.1839 14.1213 13.6213C14.6839 13.0587 15 12.2956 15 11.5V7.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.71429 18H16.2857"/></svg>', s = class s {
+  /**
+   * @param options InlineToolConstructorOptions
+   */
+  constructor(e) {
+    this.tag = "U", this.api = e.api, this.iconClasses = {
+      base: this.api.styles.inlineToolButton,
+      active: this.api.styles.inlineToolButtonActive
+    };
+  }
+  /**
+   * Class name for term-tag
+   *
+   * @type {string}
+   */
+  static get CSS() {
+    return "cdx-underline";
+  }
+  /**
+   * Create button element for Toolbar
+   *
+   * @returns {HTMLElement}
+   */
+  render() {
+    return this.button = document.createElement("button"), this.button.type = "button", this.button.classList.add(this.iconClasses.base), this.button.innerHTML = this.toolboxIcon, this.button;
+  }
+  /**
+   * Wrap/Unwrap selected fragment
+   *
+   * @param {Range} range - selected fragment
+   */
+  surround(e) {
+    if (!e)
+      return;
+    const t = this.api.selection.findParentTag(this.tag, s.CSS);
+    t ? this.unwrap(t) : this.wrap(e);
+  }
+  /**
+   * Wrap selection with term-tag
+   *
+   * @param {Range} range - selected fragment
+   */
+  wrap(e) {
+    const t = document.createElement(this.tag);
+    t.classList.add(s.CSS), t.appendChild(e.extractContents()), e.insertNode(t), this.api.selection.expandToTag(t);
+  }
+  /**
+   * Unwrap term-tag
+   *
+   * @param {HTMLElement} termWrapper - term wrapper tag
+   */
+  unwrap(e) {
+    var o;
+    this.api.selection.expandToTag(e);
+    const t = window.getSelection();
+    if (!t)
+      return;
+    const n = t.getRangeAt(0);
+    if (!n)
+      return;
+    const i = n.extractContents();
+    i && ((o = e.parentNode) == null || o.removeChild(e), n.insertNode(i), t.removeAllRanges(), t.addRange(n));
+  }
+  /**
+   * Check and change Term's state for current selection
+   */
+  checkState() {
+    var t;
+    const e = this.api.selection.findParentTag(this.tag, s.CSS);
+    return (t = this.button) == null || t.classList.toggle(this.iconClasses.active, !!e), !!e;
+  }
+  /**
+   * Get Tool icon's SVG
+   *
+   * @returns {string}
+   */
+  get toolboxIcon() {
+    return r;
+  }
+  /**
+   * Sanitizer rule
+   *
+   * @returns {{u: {class: string}}}
+   */
+  static get sanitize() {
+    return {
+      u: {
+        class: s.CSS
+      }
+    };
+  }
+};
+s.isInline = !0;
+let a = s;
+
+
+
+/***/ }),
+
 /***/ "./resources/css/auth.scss":
 /*!*********************************!*\
   !*** ./resources/css/auth.scss ***!
@@ -12013,9 +16352,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editorjs.mjs");
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/header.mjs");
-/* harmony import */ var _editorjs_paragraph__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/paragraph */ "./node_modules/@editorjs/paragraph/dist/paragraph.mjs");
-/* harmony import */ var _editorjs_checklist__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/checklist */ "./node_modules/@editorjs/checklist/dist/checklist.mjs");
+/* harmony import */ var _editorjs_delimiter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/delimiter */ "./node_modules/@editorjs/delimiter/dist/delimiter.mjs");
+/* harmony import */ var _editorjs_underline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/underline */ "./node_modules/@editorjs/underline/dist/underline.mjs");
+/* harmony import */ var _editorjs_code__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/code */ "./node_modules/@editorjs/code/dist/code.mjs");
+/* harmony import */ var _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Plugins/Config.js */ "./resources/js/Editor/Plugins/Config.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -12029,6 +16369,7 @@ function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = 
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
 
 
 
@@ -12047,9 +16388,14 @@ var BlockEditor = /*#__PURE__*/function () {
     _classCallCheck(this, BlockEditor);
     this.selector = selector;
     this.tools = _objectSpread({
-      header: _editorjs_header__WEBPACK_IMPORTED_MODULE_1__["default"],
-      paragraph: _editorjs_paragraph__WEBPACK_IMPORTED_MODULE_2__["default"],
-      checklist: _editorjs_checklist__WEBPACK_IMPORTED_MODULE_3__["default"]
+      header: _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__.header,
+      paragraph: _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__.paragraph,
+      quote: _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__.quote,
+      delimiter: _editorjs_delimiter__WEBPACK_IMPORTED_MODULE_1__["default"],
+      List: _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__.list,
+      underline: _editorjs_underline__WEBPACK_IMPORTED_MODULE_2__["default"],
+      code: _editorjs_code__WEBPACK_IMPORTED_MODULE_3__["default"],
+      image: _Plugins_Config_js__WEBPACK_IMPORTED_MODULE_4__.image
     }, tools);
     this.onChangeCallback = onChange;
     this.onSaveCallback = onSave;
@@ -12128,6 +16474,66 @@ var BlockEditor = /*#__PURE__*/function () {
   }]);
 }();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BlockEditor);
+
+/***/ }),
+
+/***/ "./resources/js/Editor/Plugins/Config.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Editor/Plugins/Config.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   header: () => (/* binding */ header),
+/* harmony export */   image: () => (/* binding */ image),
+/* harmony export */   list: () => (/* binding */ list),
+/* harmony export */   paragraph: () => (/* binding */ paragraph),
+/* harmony export */   quote: () => (/* binding */ quote)
+/* harmony export */ });
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/header.mjs");
+/* harmony import */ var _editorjs_paragraph__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/paragraph */ "./node_modules/@editorjs/paragraph/dist/paragraph.mjs");
+/* harmony import */ var _editorjs_quote__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/quote */ "./node_modules/@editorjs/quote/dist/quote.mjs");
+/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/list */ "./node_modules/@editorjs/list/dist/editorjs-list.mjs");
+/* harmony import */ var _editorjs_image__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @editorjs/image */ "./node_modules/@editorjs/image/dist/image.mjs");
+
+
+
+
+
+var header = {
+  "class": _editorjs_header__WEBPACK_IMPORTED_MODULE_0__["default"],
+  inlineToolbar: true,
+  levels: [1, 2, 3, 4, 5, 6],
+  defaultLevel: 2
+};
+var paragraph = {
+  "class": _editorjs_paragraph__WEBPACK_IMPORTED_MODULE_1__["default"],
+  inlineToolbar: true
+};
+var quote = {
+  "class": _editorjs_quote__WEBPACK_IMPORTED_MODULE_2__["default"],
+  inlineToolbar: true,
+  config: {
+    quotePlaceholder: "Enter a quote",
+    captionPlaceholder: "Quote's author"
+  }
+};
+var list = {
+  "class": _editorjs_list__WEBPACK_IMPORTED_MODULE_3__["default"],
+  inlineToolbar: true,
+  config: {
+    defaultStyle: 'unordered'
+  }
+};
+var image = {
+  "class": _editorjs_image__WEBPACK_IMPORTED_MODULE_4__["default"],
+  config: {
+    endpoints: {
+      byFile: ""
+    }
+  }
+};
 
 /***/ }),
 
@@ -12244,6 +16650,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Editor JS Setup
 var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_0__["default"]("editor-container");
+document.getElementById("clickb").addEventListener("click", function (e) {
+  console.log("Clicked");
+  editor.saveContent("outputHtml");
+});
 
 /***/ })
 
