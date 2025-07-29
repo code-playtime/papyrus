@@ -12158,7 +12158,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 10px;
+  gap: 15px;
   padding: 12px 20px;
   color: #bdc3c7;
   text-decoration: none;
@@ -12405,4 +12405,22 @@ body {
 
 .icon-arrow::before {
   content: "▶";
+}
+
+.layout {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.no-resize {
+  resize: none;
+}
+
+.section-header .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #447d9b;
 }

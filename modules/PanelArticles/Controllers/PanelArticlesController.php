@@ -7,6 +7,10 @@
     class PanelArticlesController extends Controller
     {
         public function index() {
-            echo "This is the PanelArticles module.";
+            return view("listing", ["module" => "PanelArticles"]);
+        }
+
+        public function create() {
+            return view("create", ["module" => "PanelArticles"]);
         }
     }

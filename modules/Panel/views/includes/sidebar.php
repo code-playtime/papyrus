@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= route("panel.articles") ?>" class="nav-link">
                         <i class="fa fa-pencil-square-o"></i>
                         Articles
                     </a>
