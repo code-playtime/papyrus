@@ -18,7 +18,7 @@
             $url = "";
             $success = false;
 
-            $storage = Storage::open($request->file("image"), "uploaded-image", "images");
+            $storage = Storage::open($_FILES["image"], "uploaded-image", "images");
             if($storage->upload()) {
                 $url = $storage->getUrl();
                 $success = true;
