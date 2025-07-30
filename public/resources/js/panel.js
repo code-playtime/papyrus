@@ -16536,6 +16536,102 @@ var image = {
 
 /***/ }),
 
+/***/ "./resources/js/Panel/default.js":
+/*!***************************************!*\
+  !*** ./resources/js/Panel/default.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   panel: () => (/* binding */ panel)
+/* harmony export */ });
+var panel = {
+  isMobile: function isMobile() {
+    return window.innerWidth <= 768;
+  },
+  toggleMenu: function toggleMenu() {
+    var isMobile = panel.isMobile;
+    panel.menuToggle.addEventListener('click', function () {
+      if (isMobile()) {
+        panel.sidebar.classList.toggle('mobile-open');
+        panel.sidebarOverlay.classList.toggle('active');
+      } else {
+        panel.sidebar.classList.toggle('collapsed');
+        panel.mainContent.classList.toggle('expanded');
+      }
+    });
+    panel.sidebarOverlay.addEventListener('click', function () {
+      panel.sidebar.classList.remove('mobile-open');
+      panel.sidebarOverlay.classList.remove('active');
+    });
+    window.addEventListener('resize', function () {
+      if (!isMobile()) {
+        panel.sidebar.classList.remove('mobile-open');
+        panel.sidebarOverlay.classList.remove('active');
+      }
+    });
+  },
+  setupUserDropdown: function setupUserDropdown() {
+    panel.userAvatar.addEventListener('click', function (e) {
+      e.stopPropagation();
+      panel.userDropdown.classList.toggle('active');
+    });
+    document.addEventListener('click', function () {
+      panel.userDropdown.classList.remove('active');
+    });
+    panel.userDropdown.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  },
+  setupSubmenus: function setupSubmenus() {
+    document.querySelectorAll('[data-submenu]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventpanel();
+        var submenuId = this.getAttribute('data-submenu') + '-submenu';
+        var submenu = document.getElementById(submenuId);
+        var parentItem = this.closest('.nav-item');
+        submenu.classList.toggle('active');
+        parentItem.classList.toggle('expanded');
+      });
+    });
+  },
+  setupActiveNavLinks: function setupActiveNavLinks() {
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        if (this.hasAttribute('data-submenu')) return;
+        document.querySelectorAll('.sidebar-nav .nav-link').forEach(function (l) {
+          l.classList.remove('active');
+        });
+        this.classList.add('active');
+        if (panel.isMobile()) {
+          panel.sidebar.classList.remove('mobile-open');
+          panel.sidebarOverlay.classList.remove('active');
+        }
+      });
+    });
+  },
+  init: function init() {
+    // DOM Elements
+    panel.menuToggle = document.getElementById('menuToggle');
+    panel.sidebar = document.getElementById('sidebar');
+    panel.mainContent = document.getElementById('mainContent');
+    panel.sidebarOverlay = document.getElementById('sidebarOverlay');
+    panel.userAvatar = document.getElementById('userAvatar');
+    panel.userDropdown = document.getElementById('userDropdown');
+    panel.toggleMenu();
+    panel.setupUserDropdown();
+    panel.setupSubmenus();
+    panel.setupActiveNavLinks();
+
+    // Set global scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    console.log('Custom Admin Panel Loaded Successfully!');
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/panel.js":
 /*!*******************************!*\
   !*** ./resources/js/panel.js ***!
@@ -16543,112 +16639,18 @@ var image = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Editor/BlockEditor */ "./resources/js/Editor/BlockEditor.js");
+/* harmony import */ var _Panel_default_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Panel/default.js */ "./resources/js/Panel/default.js");
+/* harmony import */ var _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Editor/BlockEditor */ "./resources/js/Editor/BlockEditor.js");
 // import { } from "module";
 
 
-// Mobile detection
-function isMobile() {
-  return window.innerWidth <= 768;
-}
 
-// DOM Elements
-var menuToggle = document.getElementById('menuToggle');
-var sidebar = document.getElementById('sidebar');
-var mainContent = document.getElementById('mainContent');
-var sidebarOverlay = document.getElementById('sidebarOverlay');
-var userAvatar = document.getElementById('userAvatar');
-var userDropdown = document.getElementById('userDropdown');
-
-// Menu Toggle Functionality
-menuToggle.addEventListener('click', function () {
-  if (isMobile()) {
-    sidebar.classList.toggle('mobile-open');
-    sidebarOverlay.classList.toggle('active');
-  } else {
-    sidebar.classList.toggle('collapsed');
-    mainContent.classList.toggle('expanded');
-  }
-});
-
-// Close sidebar when clicking overlay (mobile)
-sidebarOverlay.addEventListener('click', function () {
-  sidebar.classList.remove('mobile-open');
-  sidebarOverlay.classList.remove('active');
-});
-
-// Handle window resize
-window.addEventListener('resize', function () {
-  if (!isMobile()) {
-    sidebar.classList.remove('mobile-open');
-    sidebarOverlay.classList.remove('active');
-  }
-});
-
-// User Dropdown Functionality
-userAvatar.addEventListener('click', function (e) {
-  e.stopPropagation();
-  userDropdown.classList.toggle('active');
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function () {
-  userDropdown.classList.remove('active');
-});
-
-// Prevent dropdown from closing when clicking inside
-userDropdown.addEventListener('click', function (e) {
-  e.stopPropagation();
-});
-
-// Submenu Functionality
-document.querySelectorAll('[data-submenu]').forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    var submenuId = this.getAttribute('data-submenu') + '-submenu';
-    var submenu = document.getElementById(submenuId);
-    var parentItem = this.closest('.nav-item');
-
-    // Toggle submenu
-    submenu.classList.toggle('active');
-    parentItem.classList.toggle('expanded');
-  });
-});
-
-// Navigation Link Active State
-document.querySelectorAll('.sidebar-nav .nav-link').forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    // Don't handle if it's a submenu toggle
-    if (this.hasAttribute('data-submenu')) {
-      return;
-    }
-
-    // Remove active class from all links
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(function (l) {
-      l.classList.remove('active');
-    });
-
-    // Add active class to clicked link
-    this.classList.add('active');
-
-    // Close mobile sidebar
-    if (isMobile()) {
-      sidebar.classList.remove('mobile-open');
-      sidebarOverlay.classList.remove('active');
-    }
-  });
-});
-
-// Smooth scrolling for better UX
-document.documentElement.style.scrollBehavior = 'smooth';
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('Custom Admin Panel Loaded Successfully!');
-});
+// Initiate Panel
+// Run after DOM Loaded
+document.addEventListener("DOMContentLoaded", _Panel_default_js__WEBPACK_IMPORTED_MODULE_0__.panel.init);
 
 // Editor JS Setup
-var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_0__["default"]("editor-container", {
+var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_1__["default"]("editor-container", {
   onChange: function onChange(data) {
     var content = document.getElementById("editor-content");
     content.value = JSON.stringify(data);
