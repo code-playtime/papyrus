@@ -15,6 +15,13 @@
 
         public function uploadImage() {
             $request = new ImageUploadRequest();
+            if(!$request->validated()) {
+                return response()->json([
+                    "success" => false,
+                    "errors" => $request->errors()
+                ]);
+            }
+
             $url = "";
             $success = false;
 

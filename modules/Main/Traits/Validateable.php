@@ -17,6 +17,34 @@
                     $this->value = $value;
                 }
 
+                public function file($message = "This field must be a valid file") {
+                    if(!isset($this->value) || $this->value["error"] !== UPLOAD_ERR_OK || !is_uploaded_file($this->value["tmp_name"])) {
+                        $this->parent->error($this->key, $message);
+                    }
+
+                    return $this;
+                }
+
+                public function mimes($allowedTypes, $message = "The file type is not allowed") {
+                    $fifo = finfo_open(FILEINFO_MIME_TYPE);
+                    $mime = finfo_file($fifo, $this->value["tmp_name"]);
+                    finfo_close($fifo);
+
+                    if(!in_array($mime, $allowedTypes)) {
+                        $this->parent->error($this->key, $message);
+                    }
+
+                    return $this;
+                }
+
+                public function max_size($size, $message = "The file is exceeded allowed size") {
+                    $size = $size * 1024 * 1024;
+
+                    if($this->value["size"] > $size) {
+                        $this->parent->error($this->key, $message);
+                    }
+                }
+
                 public function required($message = "This field is required") {
                     if(!isset($this->value) || empty($this->value) || trim($this->value) === "") {
                         $this->parent->error($this->key, $message);
