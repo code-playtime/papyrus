@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Editor JS Setup
-const editor = new BlockEditor("editor-container");
-
-document.getElementById("clickb").addEventListener("click", function(e) {
-    console.log("Clicked")
-    editor.saveContent("outputHtml");
-})
+const editor = new BlockEditor("editor-container", {
+    onChange: function(data) {
+        let content = document.getElementById("editor-content");
+        content.value = JSON.stringify(data);
+    }
+});

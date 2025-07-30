@@ -16453,7 +16453,6 @@ var BlockEditor = /*#__PURE__*/function () {
               return this.editor.save();
             case 1:
               savedData = _context2.v;
-              console.log(savedData);
               document.getElementById(outputId).textContent = JSON.stringify(savedData, null, 2);
               _context2.n = 3;
               break;
@@ -16649,10 +16648,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Editor JS Setup
-var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_0__["default"]("editor-container");
-document.getElementById("clickb").addEventListener("click", function (e) {
-  console.log("Clicked");
-  editor.saveContent("outputHtml");
+var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_0__["default"]("editor-container", {
+  onChange: function onChange(data) {
+    var content = document.getElementById("editor-content");
+    content.value = JSON.stringify(data);
+  }
 });
 
 /***/ })

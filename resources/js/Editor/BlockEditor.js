@@ -55,7 +55,6 @@ class BlockEditor {
     async saveContent(outputId) {
         try {
             const savedData = await this.editor.save();
-            console.log(savedData);
             document.getElementById(outputId).textContent = JSON.stringify(savedData, null, 2);
         } catch (err) {
             console.error("Save failed :: ", err);
