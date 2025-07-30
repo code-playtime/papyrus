@@ -1,0 +1,16 @@
+@use "./_colors.scss" as colors;
+
+#article-form {
+    #banner-preview {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid colors.$border;
+      border-radius: 5px;
+      display: none;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+}

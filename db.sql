@@ -45,5 +45,7 @@ CREATE TABLE
     `banner` varchar(255) DEFAULT NULL,
     `tags` text DEFAULT NULL,
     `metadata` longtext DEFAULT NULL COMMENT 'Meta data of the article' CHECK (json_valid(`metadata`)),
-    PRIMARY KEY (`id`)
+    `slug` varchar(300) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `UNIQUE_SLUG` (`slug`)
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_bin

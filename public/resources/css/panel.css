@@ -12424,8 +12424,29 @@ body {
   border-radius: 0.375rem;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.label-xs {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
 .section-header .title {
   font-size: 18px;
   font-weight: 600;
   color: #447d9b;
+}
+
+#article-form #banner-preview {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  display: none;
+}
+#article-form #banner-preview img {
+  width: 100%;
+  height: auto;
 }
