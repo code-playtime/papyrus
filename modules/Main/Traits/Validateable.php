@@ -26,12 +26,14 @@
                 }
 
                 public function mimes($allowedTypes, $message = "The file type is not allowed") {
-                    $fifo = finfo_open(FILEINFO_MIME_TYPE);
-                    $mime = finfo_file($fifo, $this->value["tmp_name"]);
-                    finfo_close($fifo);
+                    if(is_array($this->value)) {
+                        $fifo = finfo_open(FILEINFO_MIME_TYPE);
+                        $mime = finfo_file($fifo, $this->value["tmp_name"]);
+                        finfo_close($fifo);
 
-                    if(!in_array($mime, $allowedTypes)) {
-                        $this->parent->error($this->key, $message);
+                        if(!in_array($mime, $allowedTypes)) {
+                            $this->parent->error($this->key, $message);
+                        }
                     }
 
                     return $this;
@@ -39,9 +41,10 @@
 
                 public function max_size($size, $message = "The file is exceeded allowed size") {
                     $size = $size * 1024 * 1024;
-
-                    if($this->value["size"] > $size) {
-                        $this->parent->error($this->key, $message);
+                    if(is_array($this->value)) {
+                        if($this->value["size"] > $size) {
+                            $this->parent->error($this->key, $message);
+                        }
                     }
                 }
 

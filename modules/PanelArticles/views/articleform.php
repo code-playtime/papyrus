@@ -1,19 +1,23 @@
     <form action="<?= route('panel.articles.add') ?>" id="article-form" method="POST">
         <?= csrf_field() ?>
+        <?php inject("includes/messages", ["module" => "Auth"]) ?>
         <div class="row">
             <div class="col-md-8">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" />
+                    <input type="text" class="form-control" name="title" id="title" value="<?= old('title') ?>" />
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="content">Content</label>
                     <div id="editor-container" class="editor-container"></div>
-                    <input type="hidden" name="content" id="editor-content" value="" />
+                    <input type="hidden" name="content" id="editor-content" value="<?= old('content') ?>" />
                 </div>
             </div>
             <div class="col-md-4">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
                 <div class="card accordion">
                     <div class="card-header accordion-header cursor-pointer">
                         <h6 class="card-title">Article Settings</h6>

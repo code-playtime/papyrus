@@ -19,3 +19,66 @@ Stack trace:
 #14 /var/www/html/public/index.php(11): Application->configure()
 #15 {main}
   thrown in /var/www/html/core/Http/Request.php on line 93
+[31-Jul-2025 05:26:25 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\ClassNotFoundHttpException: Method "addArticle" does not exist in class "Module\PanelArticles\Controllers\PanelArticlesController" in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php:112
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#3 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#4 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#5 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#6 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#7 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#8 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#9 /var/www/html/public/index.php(11): Application->configure()
+#10 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php on line 112
+[31-Jul-2025 05:27:10 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in /var/www/html/modules/PanelArticles/Requests/CreateArticleRequest.php on line 17
+[31-Jul-2025 05:28:02 UTC] PHP Warning:  Trying to access array offset on value of type null in /var/www/html/modules/Main/Traits/Validateable.php on line 30
+[31-Jul-2025 05:28:02 UTC] PHP Fatal error:  Uncaught ValueError: finfo_file(): Argument #1 ($finfo) cannot be empty in /var/www/html/modules/Main/Traits/Validateable.php:30
+Stack trace:
+#0 /var/www/html/modules/Main/Traits/Validateable.php(30): finfo_file(Resource id #90, '')
+#1 /var/www/html/modules/PanelArticles/Requests/CreateArticleRequest.php(34): class@anonymous->mimes(Array, 'Banner Image is...')
+#2 /var/www/html/modules/Main/Traits/Validateable.php(105): Module\PanelArticles\Requests\CreateArticleRequest->validate()
+#3 /var/www/html/modules/PanelArticles/Controllers/PanelArticlesController.php(22): Module\PanelArticles\Requests\CreateArticleRequest->validated()
+#4 [internal function]: Module\PanelArticles\Controllers\PanelArticlesController->addArticle()
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\PanelArticles\Controllers\PanelArticlesController), 'addArticle', Array)
+#7 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#8 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#9 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#10 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#11 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#12 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#13 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#14 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#15 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#16 /var/www/html/public/index.php(11): Application->configure()
+#17 {main}
+  thrown in /var/www/html/modules/Main/Traits/Validateable.php on line 30
+[31-Jul-2025 05:31:02 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\NotFoundHttpException: Route not found: "/public/resources/js/bootstrap.esm.js.map/" in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php:467
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#3 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#4 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#5 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#6 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#7 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#8 /var/www/html/public/index.php(11): Application->configure()
+#9 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php on line 467
+[31-Jul-2025 05:31:07 UTC] PHP Fatal error:  Uncaught Pecee\SimpleRouter\Exceptions\NotFoundHttpException: Route not found: "/public/resources/js/bootstrap.esm.js.map/" in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php:467
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#3 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#4 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#5 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#6 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#7 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#8 /var/www/html/public/index.php(11): Application->configure()
+#9 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php on line 467

@@ -23871,6 +23871,18 @@ var BlockEditor = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "attachContentHandler",
+    value: function attachContentHandler(element) {
+      var editor = this.editor;
+      editor.isReady.then(function () {
+        if (element.value.trim()) {
+          return editor.render(JSON.parse(element.value));
+        }
+      })["catch"](function (err) {
+        console.error("Error loading saved content: ", err);
+      });
+    }
+  }, {
     key: "saveContent",
     value: function () {
       var _saveContent = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(outputId) {
@@ -24228,12 +24240,13 @@ var accordion = new _Panel_Components_Accordion_js__WEBPACK_IMPORTED_MODULE_3__[
 accordion.init();
 
 // Editor JS Setup
+var content = document.getElementById("editor-content");
 var editor = new _Editor_BlockEditor__WEBPACK_IMPORTED_MODULE_1__["default"]("editor-container", {
   onChange: function onChange(data) {
-    var content = document.getElementById("editor-content");
     content.value = JSON.stringify(data);
   }
 });
+editor.attachContentHandler(content);
 
 // Initiate operations in article module
 var article = new _Panel_Article_js__WEBPACK_IMPORTED_MODULE_2__["default"]();

@@ -52,6 +52,19 @@ class BlockEditor {
         });
     }
 
+    attachContentHandler(element) {
+        let editor = this.editor;
+        editor.isReady
+            .then(() => {
+                if(element.value.trim()) {
+                    return editor.render(JSON.parse(element.value));
+                }
+            })
+            .catch((err) => {
+                console.error("Error loading saved content: ", err);
+            })
+    }
+
     async saveContent(outputId) {
         try {
             const savedData = await this.editor.save();

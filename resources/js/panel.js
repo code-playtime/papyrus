@@ -11,12 +11,13 @@ const accordion = new Accordion();
 accordion.init();
 
 // Editor JS Setup
+const content = document.getElementById("editor-content");
 const editor = new BlockEditor("editor-container", {
     onChange: function(data) {
-        let content = document.getElementById("editor-content");
         content.value = JSON.stringify(data);
     }
 });
+editor.attachContentHandler(content);
 
 // Initiate operations in article module
 const article = new Article();
