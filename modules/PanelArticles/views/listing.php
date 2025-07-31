@@ -17,7 +17,49 @@
                 </a>
             </div>
         </div>
-        <div class="section-body"></div>
+        <div class="section-body">
+            <?php inject("includes/messages", ["module" => "Auth"]) ?>
+
+            <?php
+                if(isset($articles) && $articles->count() > 0) {
+                    ?>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Created At</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                foreach($articles->getData() as $article) {
+                                ?>
+                                    <tr>
+                                        <td><?= $article["id"] ?? "" ?></td>
+                                        <td><?= $article["title"] ?? "" ?></td>
+                                        <td><?= $article["created_at"] ?? "" ?></td>
+                                        <td>
+                                            <a href="">
+                                                <button class="btn btn-sm btn-primary">Edit</button>
+                                            </a>
+                                            <a href="">
+                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php
+                }
+            ?>
+        </div>
     </div>
 
 <?php inject("includes/footer", ["module" => "Panel"]); ?>

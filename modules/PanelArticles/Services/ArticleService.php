@@ -10,6 +10,7 @@
     use Module\Main\ServiceResult;
     use Module\PanelArticles\Queries\InsertArticle;
     use Module\PanelArticles\Queries\PaginateArticles;
+    use Module\PanelArticles\Queries\GetArticleCount;
 
     class ArticleService {
         public function addArticle($request) {
@@ -55,12 +56,33 @@
             $result = new ServiceResult();
 
             try {
-                //
+                $totalRows = (int) $this->getArticleCount();
+                $limit = 10;
+                $currentPage = (int) $request->param("page") ?? 1;
+                $currentPage = max(1, $currentPage);
+                $totalPages = ceil($totalRows / $limit);
+                $offset = ($currentPage - 1) * $limit;
+                $query = Pdo::execute(new PaginateArticles([
+                    ":limit" => (int) $limit,
+                    ":offset" => (int) $offset
+                ]));
+
+                $result->setSuccess(true);
+                $result->setData([
+                    "articles" => $query
+                ]);
             } catch(Exception $e) {
                 $result->setSuccess(false);
                 $result->setMessage($e->getMessage());
             }
 
             return $result;
+        }
+
+        private function getArticleCount() {
+            $query = Pdo::execute(new GetArticleCount());
+            $count = $query->first()["count"] ?? 0;
+
+            return (int) $count;
         }
     }

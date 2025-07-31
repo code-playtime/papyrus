@@ -4,6 +4,7 @@
     use Pecee\Http\Request;
     use Pecee\Http\Response;
     use Pecee\Http\Url;
+    use Devyuha\Lunaris\Facades\Logger;
 
     // ? View methods
     function view($path, $options = []) {
@@ -223,4 +224,8 @@
         }
 
         return "";
+    }
+
+    function logger() {
+        return Logger::init();
     }

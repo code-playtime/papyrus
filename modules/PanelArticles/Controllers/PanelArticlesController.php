@@ -13,7 +13,17 @@
     {
         public function index() {
             $request = new Request();
-            return view("listing", ["module" => "PanelArticles"]);
+            $service = new ArticleService();
+            $response = $service->getArticleListing($request);
+
+            if(!$response->getSuccess()) {
+                Flash::make("error", $response->getMessage());
+            }
+
+            return view("listing", [
+                "module" => "PanelArticles",
+                "args" => $response->getData()
+            ]);
         }
 
         public function create() {
