@@ -16,7 +16,7 @@
                         <div class="col-12">
                             <div class="mb-3">
                                 <label class="control-label" for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required />
+                                <input type="email" class="form-control" name="email" id="email" value="<?= old('email') ?>" required />
                             </div>
                         </div>
 

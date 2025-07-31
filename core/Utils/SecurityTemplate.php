@@ -30,6 +30,12 @@
                 
                 class {$requestName} extends Request
                 {
+                    protected function secure() {
+                        return [
+                            // Inputs to be secured and should not be remembered.
+                        ];
+                    }
+
                     protected function handle() {
                         // add/modify request data
                     }

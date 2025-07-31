@@ -10,6 +10,12 @@
     {
         use Validateable;
 
+        protected function secure() {
+            return [
+                // Inputs need to be secure and will not be remembered
+            ]
+        }
+
         protected function handle() {
             // add/modify request data
         }

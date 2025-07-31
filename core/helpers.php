@@ -201,3 +201,14 @@
         }
         return $parsed;
     }
+
+    function old($key) {
+        if(isset($_SESSION["inputs"]) && !empty($_SESSION["inputs"][$key])) {
+            $input = $_SESSION["inputs"][$key];
+            unset($_SESSION["inputs"][$key]);
+
+            return $input;
+        }
+
+        return "";
+    }

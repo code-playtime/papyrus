@@ -87,6 +87,14 @@
             return htmlspecialchars(strip_tags($data), ENT_QUOTES, 'UTF-8');
         }
 
+        public function remember() {
+            $allPostData = $this->inputData;
+            $secureInputs = $this->secure();
+            $_SESSION["inputs"] = array_diff_key($allPostData, array_flip($secureInputs));
+        }
+
+        abstract protected function secure();
+
         abstract protected function validate();
 
         abstract protected function handle();

@@ -10,6 +10,10 @@
     {
         use Validateable;
 
+        protected function secure() {
+            return [];
+        }
+
         protected function handle() {
             // add/modify request data
         }
