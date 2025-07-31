@@ -9,6 +9,7 @@
 
     use Module\Main\ServiceResult;
     use Module\PanelArticles\Queries\InsertArticle;
+    use Module\PanelArticles\Queries\PaginateArticles;
 
     class ArticleService {
         public function addArticle($request) {
@@ -51,6 +52,15 @@
         }
 
         public function getArticleListing($request) {
-            //
+            $result = new ServiceResult();
+
+            try {
+                //
+            } catch(Exception $e) {
+                $result->setSuccess(false);
+                $result->setMessage($e->getMessage());
+            }
+
+            return $result;
         }
     }

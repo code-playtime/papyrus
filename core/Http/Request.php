@@ -2,7 +2,7 @@
 
     namespace Devyuha\Lunaris\Http;
 
-    abstract class Request
+    class Request
     {
         protected $inputData = [];
         protected $jsonData = [];
@@ -97,9 +97,15 @@
             $_SESSION["inputs"] = array_diff_key($allPostData, array_flip($secureInputs));
         }
 
-        abstract protected function secure();
+        protected function secure() {
+            return [];
+        }
 
-        abstract protected function validate();
+        protected function validate() {
+            //
+        }
 
-        abstract protected function handle();
+        protected function handle() {
+            //
+        }
     }
