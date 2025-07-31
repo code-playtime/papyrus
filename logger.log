@@ -181,3 +181,17 @@ Stack trace:
 #8 /var/www/html/public/index.php(11): Application->configure()
 #9 {main}
   thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php on line 109
+[31-Jul-2025 07:45:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function Devyuha\Lunaris\Http\url() in /var/www/html/core/Http/SessionTokenProvider.php:21
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php(115): Devyuha\Lunaris\Http\SessionTokenProvider->refresh()
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(347): Pecee\Http\Middleware\BaseCsrfVerifier->handle(Object(Pecee\Http\Request))
+#2 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#3 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#4 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#5 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#6 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#7 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#8 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#9 /var/www/html/public/index.php(11): Application->configure()
+#10 {main}
+  thrown in /var/www/html/core/Http/SessionTokenProvider.php on line 21

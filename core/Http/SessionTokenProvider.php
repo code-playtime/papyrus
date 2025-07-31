@@ -18,7 +18,9 @@
 
         public function refresh(): void {
             $this->startSession();
-            $_SESSION["csrf_token"] = $this->generateToken();
+            if(!str_starts_with(route(), "/api")) {
+                $_SESSION["csrf_token"] = $this->generateToken();
+            }
         }
 
         public function validate($token): bool {
