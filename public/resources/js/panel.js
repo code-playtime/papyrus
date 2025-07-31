@@ -23840,6 +23840,7 @@ var BlockEditor = /*#__PURE__*/function () {
         tools: this.tools,
         data: initialData,
         autofocus: true,
+        placeholder: "Start writing your content here...",
         onChange: function () {
           var _onChange = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
             var content, _t;

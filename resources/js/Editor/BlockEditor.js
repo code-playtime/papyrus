@@ -41,6 +41,7 @@ class BlockEditor {
             tools: this.tools,
             data: initialData,
             autofocus: true,
+            placeholder: "Start writing your content here...",
             onChange: async () => {
                 try {
                     const content = await this.editor.save();

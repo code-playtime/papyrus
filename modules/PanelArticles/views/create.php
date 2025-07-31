@@ -10,7 +10,12 @@
         </div>
     </div>
     <div class="section-body">
-        <?php inject("articleform", ["module" => "PanelArticles"]) ?>
+        <?php inject("articleform", [
+            "module" => "PanelArticles",
+            "args" => [
+                "formUrl" => route("panel.articles.add")
+            ]
+        ]) ?>
     </div>
 </div>
 
