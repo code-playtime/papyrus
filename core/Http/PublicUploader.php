@@ -62,6 +62,7 @@
 
             if(move_uploaded_file($tmpPath, $uploadDir . "/" . $newFileName)) {
                 $this->setUrl(storage_asset($this->path . "/" . $newFileName));
+                $this->setName($newFileName);
                 return true;
             }
 

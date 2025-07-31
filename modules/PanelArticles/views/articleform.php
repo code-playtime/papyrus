@@ -1,4 +1,4 @@
-    <form action="<?= $formUrl ?>" id="article-form" method="POST">
+    <form action="<?= $formUrl ?>" id="article-form" method="POST" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <?php inject("includes/messages", ["module" => "Auth"]) ?>
         <div class="row">
@@ -25,9 +25,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="tags">Tags</label>
-                            <textarea class="form-control no-resize" rows="2" name="tags" id="tags">
-                                <?= $tags ?? old("tags") ?>
-                            </textarea>
+                            <input type="text" class="form-control no-resize" rows="2" name="tags" id="tags" value="<?= $tags ?? old('tags') ?>" />
                             <span class="label-xs">Seperate tags with comma(,)</span>
                         </div>
                     </div>
@@ -59,16 +57,12 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="meta-description">Meta Description</label>
-                            <textarea class="form-control no-resize" rows="3" name="meta_description" id="meta-description">
-                                <?= $meta_description ?? old('meta_description') ?>
-                            </textarea>
+                            <textarea class="form-control no-resize" rows="3" name="meta_description" id="meta-description" value="<?= $meta_description ?? old('meta_description') ?>"></textarea>
                         </div>
 
                         <div class="md-3">
                             <label class="form-label" for="meta-tags">Meta Tags</label>
-                            <textarea class="form-control no-resize" rows="2" name="meta_tags" id="meta-tags">
-                                <?= $meta_tags ?? old('meta_tags') ?>
-                            </textarea>
+                            <input type="text" class="form-control no-resize" rows="2" name="meta_tags" id="meta-tags" value="<?= $meta_tags ?? old('meta_tags') ?>" />
                         </div>
                     </div>
                 </div>

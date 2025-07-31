@@ -6,6 +6,7 @@
     use Devyuha\Lunaris\Facades\Flash;
 
     use Module\PanelArticles\Requests\CreateArticleRequest;
+    use Module\PanelArticles\Services\ArticleService;
     
     class PanelArticlesController extends Controller
     {
@@ -22,10 +23,15 @@
             if(!$request->validated()) {
                 $request->remember();
                 Flash::make("error", $request->errors());
+                $request->remember();
                 return response()->redirect(route("panel.articles.create"));
             }
 
-            Flash::make("success", "Form success");
+            $service = new ArticleService();
+            $response = $service->addArticle($request);
+            $responseStatus = $response->getSuccess() ? "success" : "error";
+
+            Flash::make($responseStatus, $response->getMessage());
             return response()->redirect(route("panel.articles.create"));
         }
     }

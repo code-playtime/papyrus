@@ -31,7 +31,7 @@
 
             $this->field("banner", $this->file("banner"))
                 ->file("Banner Image is not a valid file")
-                ->mimes(["image/jpeg", "image/png", "image/gif"], "Banner Image is not a valid image")
+                ->mimes(["image/jpeg", "image/jpg", "image/png", "image/gif"], "Banner Image is not a valid image")
                 ->max_size(5);
         }
     }

@@ -155,3 +155,29 @@ Stack trace:
 #14 /var/www/html/public/index.php(11): Application->configure()
 #15 {main}
   thrown in /var/www/html/modules/PanelArticles/views/create.php on line 13
+[31-Jul-2025 06:49:11 UTC] PHP Fatal error:  Uncaught Pecee\Http\Middleware\Exceptions\TokenMismatchException: Invalid CSRF-token. in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php:109
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(347): Pecee\Http\Middleware\BaseCsrfVerifier->handle(Object(Pecee\Http\Request))
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#3 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#4 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#5 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#6 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#7 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#8 /var/www/html/public/index.php(11): Application->configure()
+#9 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php on line 109
+[31-Jul-2025 06:52:10 UTC] PHP Fatal error:  Uncaught Pecee\Http\Middleware\Exceptions\TokenMismatchException: Invalid CSRF-token. in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php:109
+Stack trace:
+#0 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(347): Pecee\Http\Middleware\BaseCsrfVerifier->handle(Object(Pecee\Http\Request))
+#1 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#2 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#3 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#4 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#5 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#6 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#7 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#8 /var/www/html/public/index.php(11): Application->configure()
+#9 {main}
+  thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/Http/Middleware/BaseCsrfVerifier.php on line 109
