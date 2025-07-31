@@ -16,15 +16,15 @@
 
             try {
                 $query = Pdo::execute(new InsertArticle([
-                    ":title" => $request->input("title"),
-                    ":content" => json_encode($request->input("content")),
+                    ":title" => $request->sanitizeInput("title"),
+                    ":content" => $request->input("content"),
                     ":banner" => $this->uploadBannerImage($request->file("banner")),
-                    ":tags" => $request->input("tags"),
-                    ":slug" => $request->input("slug"),
+                    ":tags" => $request->sanitizeInput("tags"),
+                    ":slug" => $request->sanitizeInput("slug"),
                     ":metadata" => json_encode([
-                        "title" => $request->input("meta_title") ?? "",
-                        "description" => $request->input("meta_description") ?? "",
-                        "tags" => $request->input("meta_tags") ?? ""
+                        "title" => $request->sanitizeInput("meta_title") ?? "",
+                        "description" => $request->sanitizeInput("meta_description") ?? "",
+                        "tags" => $request->sanitizeInput("meta_tags") ?? ""
                     ])
                 ]));
 
@@ -48,5 +48,9 @@
             }
 
             return null;
+        }
+
+        public function getArticleListing($request) {
+            //
         }
     }

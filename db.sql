@@ -46,6 +46,7 @@ CREATE TABLE
     `tags` text DEFAULT NULL,
     `metadata` longtext DEFAULT NULL COMMENT 'Meta data of the article' CHECK (json_valid(`metadata`)),
     `slug` varchar(300) NOT NULL,
+    `status` varchar(255) NOT NULL DEFAULT 'draft' COMMENT 'draft, published',
     PRIMARY KEY (`id`),
     UNIQUE KEY `UNIQUE_SLUG` (`slug`)
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_bin

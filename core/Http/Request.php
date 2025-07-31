@@ -14,7 +14,7 @@
 
         public function __construct()
         {
-            $this->inputData = $this->sanitize($_POST);
+            $this->inputData = $_POST;
             $this->queryParams = $this->sanitize($_GET);
             $this->jsonData = json_decode(file_get_contents('php://input'), true) ?? [];
 
@@ -85,6 +85,10 @@
             }
 
             return htmlspecialchars(strip_tags($data), ENT_QUOTES, 'UTF-8');
+        }
+
+        public function sanitizeInput(string $key, $default = null) {
+            return $this->sanitize($this->inputData[$key]) ?? $default;
         }
 
         public function remember() {
