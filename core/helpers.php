@@ -73,6 +73,18 @@
         return Router::request();
     }
 
+    function get_current_route() {
+        return request()->getLoadedRoute()->getName();
+    }
+
+    function route_is($route) {
+        return get_current_route() === $route;
+    }
+
+    function route_in($routes) {
+        return in_array(get_current_route(), $routes);
+    }
+
     function input($index = null, $defaultValue = null, ...$methods)
     {
         if ($index !== null) {

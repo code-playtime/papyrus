@@ -15,13 +15,13 @@
         <nav>
             <ul class="sidebar-nav">
                 <li class="nav-item">
-                    <a href="<?= route("panel.dashboard") ?>" class="nav-link active">
+                    <a href="<?= route("panel.dashboard") ?>" class="nav-link <?= route_is('panel.dashboard') ? 'active' : '' ?>">
                         <i class="fa fa-dashboard"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= route("panel.articles") ?>" class="nav-link">
+                    <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(['panel.articles', 'panel.articles.create']) ? 'active' : '' ?>">
                         <i class="fa fa-pencil-square-o"></i>
                         Articles
                     </a>

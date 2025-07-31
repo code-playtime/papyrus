@@ -97,3 +97,61 @@ Stack trace:
 #9 {main}
   thrown in /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php on line 467
 [31-Jul-2025 05:44:00 UTC] PHP Warning:  Undefined variable $formUrl in /var/www/html/modules/PanelArticles/views/articleform.php on line 1
+[31-Jul-2025 06:05:23 UTC] PHP Fatal error:  Uncaught Error: Object of class Pecee\SimpleRouter\Route\RouteUrl could not be converted to string in /var/www/html/modules/PanelArticles/views/create.php:13
+Stack trace:
+#0 /var/www/html/core/helpers.php(21): include()
+#1 /var/www/html/modules/PanelArticles/Controllers/PanelArticlesController.php(17): view('create', Array)
+#2 [internal function]: Module\PanelArticles\Controllers\PanelArticlesController->create()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\PanelArticles\Controllers\PanelArticlesController), 'create', Array)
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#7 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#8 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#9 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#10 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#11 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#12 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#13 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#14 /var/www/html/public/index.php(11): Application->configure()
+#15 {main}
+  thrown in /var/www/html/modules/PanelArticles/views/create.php on line 13
+[31-Jul-2025 06:06:39 UTC] PHP Parse error:  syntax error, unexpected token "print" in /var/www/html/modules/PanelArticles/views/create.php on line 13
+[31-Jul-2025 06:10:06 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type Pecee\SimpleRouter\Route\RouteUrl as array in /var/www/html/modules/PanelArticles/views/create.php:13
+Stack trace:
+#0 /var/www/html/core/helpers.php(21): include()
+#1 /var/www/html/modules/PanelArticles/Controllers/PanelArticlesController.php(17): view('create', Array)
+#2 [internal function]: Module\PanelArticles\Controllers\PanelArticlesController->create()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\PanelArticles\Controllers\PanelArticlesController), 'create', Array)
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#7 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#8 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#9 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#10 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#11 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#12 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#13 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#14 /var/www/html/public/index.php(11): Application->configure()
+#15 {main}
+  thrown in /var/www/html/modules/PanelArticles/views/create.php on line 13
+[31-Jul-2025 06:13:15 UTC] PHP Fatal error:  Uncaught Error: Cannot access protected property Pecee\SimpleRouter\Route\RouteUrl::$name in /var/www/html/modules/PanelArticles/views/create.php:13
+Stack trace:
+#0 /var/www/html/core/helpers.php(21): include()
+#1 /var/www/html/modules/PanelArticles/Controllers/PanelArticlesController.php(17): view('create', Array)
+#2 [internal function]: Module\PanelArticles\Controllers\PanelArticlesController->create()
+#3 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/ClassLoader/ClassLoader.php(34): call_user_func_array(Array, Array)
+#4 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Route/Route.php(117): Pecee\SimpleRouter\ClassLoader\ClassLoader->loadClassMethod(Object(Module\PanelArticles\Controllers\PanelArticlesController), 'create', Array)
+#5 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(427): Pecee\SimpleRouter\Route\Route->renderRoute(Object(Pecee\Http\Request), Object(Pecee\SimpleRouter\Router))
+#6 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/Router.php(353): Pecee\SimpleRouter\Router->routeRequest()
+#7 /var/www/html/vendor/pecee/simple-router/src/Pecee/SimpleRouter/SimpleRouter.php(69): Pecee\SimpleRouter\Router->start()
+#8 /var/www/html/core/Container.php(34): Pecee\SimpleRouter\SimpleRouter::start()
+#9 /var/www/html/core/Container.php(43): Devyuha\Lunaris\Container->loadRoutes(Array)
+#10 /var/www/html/core/Container.php(59): Devyuha\Lunaris\Container->loadModules()
+#11 /var/www/html/bootstrap/app.php(31): Devyuha\Lunaris\Container->init()
+#12 /var/www/html/bootstrap/app.php(21): Application->initiateProviders(Array)
+#13 /var/www/html/bootstrap/app.php(13): Application->loadProviders()
+#14 /var/www/html/public/index.php(11): Application->configure()
+#15 {main}
+  thrown in /var/www/html/modules/PanelArticles/views/create.php on line 13
