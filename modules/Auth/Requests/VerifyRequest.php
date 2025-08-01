@@ -10,6 +10,10 @@
     {
         use Validateable;
 
+        protected function secure() {
+            return ["answer_1", "answer_2", "answer_3"];
+        }
+
         protected function handle() {
             // add/modify request data
         }

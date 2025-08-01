@@ -2,7 +2,7 @@
 
     namespace Devyuha\Lunaris\Http;
 
-    abstract class Request
+    class Request
     {
         protected $inputData = [];
         protected $jsonData = [];
@@ -14,7 +14,7 @@
 
         public function __construct()
         {
-            $this->inputData = $this->sanitize($_POST);
+            $this->inputData = $_POST;
             $this->queryParams = $this->sanitize($_GET);
             $this->jsonData = json_decode(file_get_contents('php://input'), true) ?? [];
 
@@ -87,7 +87,25 @@
             return htmlspecialchars(strip_tags($data), ENT_QUOTES, 'UTF-8');
         }
 
-        abstract protected function validate();
+        public function sanitizeInput(string $key, $default = null) {
+            return $this->sanitize($this->inputData[$key]) ?? $default;
+        }
 
-        abstract protected function handle();
+        public function remember() {
+            $allPostData = $this->inputData;
+            $secureInputs = $this->secure();
+            $_SESSION["inputs"] = array_diff_key($allPostData, array_flip($secureInputs));
+        }
+
+        protected function secure() {
+            return [];
+        }
+
+        protected function validate() {
+            //
+        }
+
+        protected function handle() {
+            //
+        }
     }

@@ -4,6 +4,7 @@
     use Pecee\Http\Request;
     use Pecee\Http\Response;
     use Pecee\Http\Url;
+    use Devyuha\Lunaris\Facades\Logger;
 
     // ? View methods
     function view($path, $options = []) {
@@ -71,6 +72,18 @@
     function request(): Request
     {
         return Router::request();
+    }
+
+    function get_current_route() {
+        return request()->getLoadedRoute()->getName();
+    }
+
+    function route_is($route) {
+        return get_current_route() === $route;
+    }
+
+    function route_in($routes) {
+        return in_array(get_current_route(), $routes);
     }
 
     function input($index = null, $defaultValue = null, ...$methods)
@@ -200,4 +213,19 @@
             }
         }
         return $parsed;
+    }
+
+    function old($key) {
+        if(isset($_SESSION["inputs"]) && !empty($_SESSION["inputs"][$key])) {
+            $input = $_SESSION["inputs"][$key];
+            unset($_SESSION["inputs"][$key]);
+
+            return $input;
+        }
+
+        return "";
+    }
+
+    function logger() {
+        return Logger::init();
     }

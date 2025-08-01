@@ -1,2 +1,5 @@
 @use "~bootstrap/scss/bootstrap";
 @use "./panel/_default.scss";
+@use "./panel/_utils.scss";
+@use "./panel/_extend.scss";
+@use "./panel/_article.scss";

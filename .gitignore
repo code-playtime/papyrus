@@ -1,5 +1,6 @@
 .env
 composer.lock
 package-lock.json
+public/uploads/
 vendor/
 node_modules/

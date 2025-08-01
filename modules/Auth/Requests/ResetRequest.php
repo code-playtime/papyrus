@@ -9,6 +9,10 @@
     {
         use Validateable;
 
+        protected function secure() {
+            return ["password", "confirm_password"];
+        }
+
         protected function handle() {
             // add/modify request data
         }

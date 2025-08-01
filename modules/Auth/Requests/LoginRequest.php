@@ -10,6 +10,12 @@ class LoginRequest extends Request
 {
     use Validateable;
 
+    protected function secure() {
+        return [
+            "password"
+        ];
+    }
+
     protected function handle()
     {
         // add/modify request data
