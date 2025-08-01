@@ -20,10 +20,9 @@
                 Flash::make("error", $response->getMessage());
             }
 
-            return view("listing", [
-                "module" => "PanelArticles",
-                "args" => $response->getData()
-            ]);
+            return view("listing", $response->getData())
+                    ->module("PanelArticles")
+                    ->render();
         }
 
         public function create() {
