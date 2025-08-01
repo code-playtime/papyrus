@@ -27,15 +27,18 @@
             if(!file_exists($viewPath)) {
                 throw new Exception("View file not found :: " . $viewPath);
             }
-
+            
             $this->args["template"] = new View($this);
+            $args = $this->args;
 
-            extract($this->args);
             ob_start();
-            include($viewPath);
-            $var = ob_get_contents();
-            ob_end_clean();
-            return $var;
+
+            (function() use ($viewPath, $args) {
+                extract($args);
+                include $viewPath;
+            })();
+
+            return ob_get_clean();
         }
 
         public function includes(string $path, array|null $args = null, ?string $module = null) {
@@ -47,8 +50,11 @@
             }
             $args = $args ?? [];
             $args["template"] = $this->args["template"];
-            extract($args);
-            include($viewPath);
+            
+            (function() use($viewPath, $args) {
+                extract($args);
+                include $viewPath;
+            })();
         }
 
         private function getPath($path, $module) {
