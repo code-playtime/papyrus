@@ -26,7 +26,9 @@
         }
 
         public function create() {
-            return view("create", ["module" => "PanelArticles"]);
+            return view("create")
+                    ->module("PanelArticles")
+                    ->render();
         }
 
         public function addArticle() {

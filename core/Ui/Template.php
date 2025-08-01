@@ -20,7 +20,7 @@
         }
 
         public function render() {
-            $viewPath = base_path("modules/" . $this->module . "/views/" . $this->path . ".php");
+            $viewPath = $this->getPath($this->path, $this->module);
 
             if(!file_exists($viewPath)) {
                 throw new Exception("View file not found :: " . $viewPath);
@@ -36,14 +36,21 @@
             return $var;
         }
 
-        public function includes(string $path, array $args = [], ?string $module = "Main") {
-            $viewPath = base_path("modules/" . $module . "/views/" . $path . ".php");
+        public function includes(string $path, array|null $args = null, ?string $module = "Main") {
+            $viewPath = $this->getPath($path, $module);
 
             if(!file_exists($viewPath)) {
                 throw new Exception("Include file not found :: " . $viewPath);
             }
-
+            $args = $args ?? [];
+            $args["template"] = $this->args["template"];
             extract($args);
-            include $viewPath;
+            include($viewPath);
+        }
+
+        private function getPath($path, $module) {
+            $viewPath = base_path("modules/" . $module . "/views/" . $path . ".php");
+
+            return $viewPath;
         }
     }

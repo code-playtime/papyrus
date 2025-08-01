@@ -1,4 +1,4 @@
-<?php inject("includes/header", ["module" => "Panel"]); ?>
+<?php $template->includes("includes/header", null, "Panel") ?>
 
 <div class="content-section">
     <div class="section-header">
@@ -9,14 +9,11 @@
             </a>
         </div>
     </div>
-    <div class="section-body">
-        <?php inject("articleform", [
-            "module" => "PanelArticles",
-            "args" => [
-                "formUrl" => route("panel.articles.add")
-            ]
-        ]) ?>
+    <div class="section-body"> 
+        <?php $template->includes("articleform", [
+            "formUrl" => route("panel.articles.add")
+        ], "PanelArticles"); ?>
     </div>
 </div>
 
-<?php inject("includes/footer", ["module" => "Panel"]); ?>
+<?php $template->includes("includes/footer", null, "Panel") ?>

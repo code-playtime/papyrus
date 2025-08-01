@@ -1,6 +1,7 @@
 .env
 composer.lock
 package-lock.json
+logger.log
 public/uploads/
 vendor/
 node_modules/

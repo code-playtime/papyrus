@@ -1,6 +1,6 @@
     <form action="<?= $formUrl ?>" id="article-form" method="POST" enctype="multipart/form-data">
         <?= csrf_field() ?>
-        <?php inject("includes/messages", ["module" => "Auth"]) ?>
+        <?php $template->includes("includes/messages", null, "Auth") ?>
         <div class="row">
             <div class="col-md-8">
                 <div class="mb-3">

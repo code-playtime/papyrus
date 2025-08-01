@@ -1,12 +1,9 @@
-<?php inject("includes/header", ["module" => "Panel"]); ?>
-    
-    <?php inject("includes/pagebar", [
-        "module" => "Panel",
-        "args" => [
-            "pageTitle" => "Articles",
-            "pageNavs" => ["Home", "Articles"]
-        ]
-    ]); ?>
+<?php $template->includes("includes/header", null, "Panel") ?>
+
+    <?php $template->includes("includes/pagebar", [
+        "pageTitle" => "Articles",
+        "pageNavs" => ["Home", "Articles"]
+    ], "Panel") ?>
 
     <div class="content-section">
          <div class="section-header">
@@ -19,7 +16,7 @@
         </div>
 
         <div class="section-body">
-            <?php inject("includes/messages", ["module" => "Auth"]) ?>
+            <?php $this->includes("includes/messages", null, "Auth") ?>
 
             <?php if(isset($articles) && $articles->count() > 0) : ?>
                 <div class="table-responsive">
@@ -55,4 +52,4 @@
         </div>
     </div>
 
-<?php inject("includes/footer", ["module" => "Panel"]); ?>
+<?php $template->includes("includes/footer", null, "Panel") ?>
