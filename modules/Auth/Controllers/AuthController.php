@@ -23,17 +23,17 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view("register", ["module" => "Auth"]);
+        return view("register")->module("Auth")->render();
     }
 
     public function login()
     {
-        return view("login", ["module" => "Auth"]);
+        return view("login")->module("Auth")->render();
     }
 
     public function setup()
     {
-        return view("setup", ["module" => "Auth"]);
+        return view("setup")->module("Auth")->render();
     } 
 
     public function addUser()

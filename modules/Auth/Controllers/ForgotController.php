@@ -13,7 +13,7 @@
     {
         public function forgot()
         {
-            return view("forgot", ["module" => "Auth"]);
+            return view("forgot")->module("Auth")->render();
         }
 
         public function verify() {
@@ -24,10 +24,7 @@
                 Flash::make("error", $response->getMessage());
             }
             
-            return view("verify", [
-                "module" => "Auth",
-                "args" => $response->getData()
-            ]);
+            return view("verify", $response->getData())->module("Auth")->render();
         }
 
         public function forgotEmail() {

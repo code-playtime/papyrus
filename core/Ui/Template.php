@@ -2,6 +2,8 @@
 
     namespace Devyuha\Lunaris\Ui;
 
+    use Exception;
+
     use Devyuha\Lunaris\Ui\View;
 
     class Template {
@@ -36,7 +38,8 @@
             return $var;
         }
 
-        public function includes(string $path, array|null $args = null, ?string $module = "Main") {
+        public function includes(string $path, array|null $args = null, ?string $module = null) {
+            $module = $module ?? $this->module;
             $viewPath = $this->getPath($path, $module);
 
             if(!file_exists($viewPath)) {

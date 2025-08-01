@@ -1,11 +1,8 @@
-<?php inject("includes/header", ["module" => "Panel"]); ?>
+<?php $template->includes("includes/header") ?>
 
-        <?php inject("includes/pagebar", [
-            "module" => "Panel",
-            "args" => [
+        <?php $template->includes("includes/pagebar", [
                 "pageTitle" => "Dashboard",
                 "pageNavs" => ["Home", "Dashboard"]
-            ]
         ]); ?>
 
         <!-- Stats Cards -->
@@ -58,4 +55,4 @@
             </div>
         </div>
 
-<?php inject("includes/footer", ["module" => "Panel"]); ?>
+<?php $template->includes("includes/footer") ?>

@@ -11,7 +11,7 @@
     class ResetController extends Controller
     {
         public function reset() {
-            return view("reset", ["module" => "Auth"]);
+            return view("reset")->module("Auth")->render();
         }
 
         public function resetPassword() {

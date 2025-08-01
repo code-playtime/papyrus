@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <?php inject("includes/navbar", ["module" => "Panel"]); ?>
+    <?php $template->includes("includes/navbar", null, "Panel"); ?>
 
-    <?php inject("includes/sidebar", ["module" => "Panel"]); ?>
+    <?php $template->includes("includes/sidebar", null, "Panel"); ?>
 
     <main class="main-content" id="app">
          

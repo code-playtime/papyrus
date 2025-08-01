@@ -7,8 +7,6 @@ use Devyuha\Lunaris\Http\Controller;
 class PanelController extends Controller
 {
     public function index() {
-        return view("index", [
-            "module" => "Panel"
-        ]);
+        return view("index")->module("Panel")->render();
     }
 }
