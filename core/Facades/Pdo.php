@@ -37,7 +37,7 @@
             $sql = $query->sql();
             $stmt = self::getInstance()->prepare($sql);
 
-            $args = $query->getArgs();
+            $args = $query->getArgs() ?? [];
             if(count($args) > 0) {
                 foreach($args as $key => $value) {
                     $stmt->bindValue($key, $value, is_int($value) ? DB::PARAM_INT : DB::PARAM_STR);
@@ -45,7 +45,7 @@
             }
             $stmt->execute();
 
-            $type = strtoupper(trim(strtok($stmt->queryString, "\r\n\t")));
+            $type = strtoupper(trim(strtok(ltrim($sql), " ")));
 
             switch ($type) {
                 case "SELECT" :
