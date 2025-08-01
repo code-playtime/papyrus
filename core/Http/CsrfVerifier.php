@@ -1,9 +1,9 @@
 <?php
 
-    namespace Devyuha\Lunaris\Http;
+    namespace Papyrus\Http;
 
     use Pecee\Http\Middleware\BaseCsrfVerifier;
-    use Devyuha\Lunaris\Http\SessionTokenProvider;
+    use Papyrus\Http\SessionTokenProvider;
 
     class CsrfVerifier extends BaseCsrfVerifier {
         protected array $except = ["/api/*"];

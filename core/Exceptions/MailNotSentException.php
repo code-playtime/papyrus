@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Exceptions;
+    namespace Papyrus\Exceptions;
 
     use Exception;
 

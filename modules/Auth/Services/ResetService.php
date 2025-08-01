@@ -2,9 +2,9 @@
 
     namespace Module\Auth\Services;
 
-    use Devyuha\Lunaris\Facades\Pdo;
-    use Devyuha\Lunaris\Facades\Password;
-    use Devyuha\Lunaris\Facades\Session;
+    use Papyrus\Facades\Pdo;
+    use Papyrus\Facades\Password;
+    use Papyrus\Facades\Session;
 
     use Exception;
 

@@ -5,7 +5,7 @@
     use Pecee\Http\Middleware\IMiddleware;
     use Pecee\Http\Request;
 
-    use Devyuha\Lunaris\Facades\Pdo;
+    use Papyrus\Facades\Pdo;
     use Module\Auth\Queries\GetUserCount;
 
     class RegisterMiddleware implements IMiddleware {

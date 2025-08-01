@@ -1,11 +1,11 @@
 <?php
 
-    use Devyuha\Lunaris\Http\Router;
+    use Papyrus\Http\Router;
     use Pecee\Http\Request;
     use Pecee\Http\Response;
     use Pecee\Http\Url;
-    use Devyuha\Lunaris\Facades\Logger;
-    use Devyuha\Lunaris\Ui\Template;
+    use Papyrus\Facades\Logger;
+    use Papyrus\Ui\Template;
 
     // ? View methods
     function view($path, $args = []) {

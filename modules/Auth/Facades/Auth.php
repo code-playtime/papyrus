@@ -2,7 +2,7 @@
 
     namespace Module\Auth\Facades;
     
-    use Devyuha\Lunaris\Facades\Session;
+    use Papyrus\Facades\Session;
 
     class Auth {
         public static $authKey = "auth";

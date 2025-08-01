@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Interface;
+    namespace Papyrus\Interface;
 
     interface MailInterface {
         public function handle(array $args): void;

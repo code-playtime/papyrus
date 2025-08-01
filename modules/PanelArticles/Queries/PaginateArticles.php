@@ -2,7 +2,7 @@
 
     namespace Module\PanelArticles\Queries;
 
-    use Devyuha\Lunaris\Facades\Query;
+    use Papyrus\Facades\Query;
 
     class PaginateArticles extends Query {
         public function sql() {

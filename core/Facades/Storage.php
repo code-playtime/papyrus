@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
-    use Devyuha\Lunaris\Http\PublicUploader;
+    use Papyrus\Http\PublicUploader;
 
     class Storage
     {

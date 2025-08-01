@@ -2,8 +2,8 @@
 
     namespace Module\Auth\Services;
 
-    use Devyuha\Lunaris\Facades\Password;
-    use Devyuha\Lunaris\Facades\Pdo;
+    use Papyrus\Facades\Password;
+    use Papyrus\Facades\Pdo;
 
     use Module\Auth\Queries\AddUserQuery;
     use Module\Main\ServiceResult;

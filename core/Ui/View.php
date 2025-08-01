@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Ui;
+    namespace Papyrus\Ui;
 
-    use Devyuha\Lunaris\Ui\Template;
+    use Papyrus\Ui\Template;
 
     class View {
         private Template $engine;

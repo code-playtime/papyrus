@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
     use Defuse\Crypto\Key;
     use Defuse\Crypto\Crypto;

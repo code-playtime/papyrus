@@ -1,6 +1,6 @@
 <?php
 
-    use Devyuha\Lunaris\Http\Router;
+    use Papyrus\Http\Router;
 
     Router::get("/media", [Module\Media\Controllers\MediaController::class, 'index']);
 

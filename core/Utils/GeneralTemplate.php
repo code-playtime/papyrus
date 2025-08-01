@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     class GeneralTemplate 
     {
@@ -45,7 +45,7 @@
             $content = <<<PHP
             <?php
 
-                use Devyuha\\Lunaris\\Http\\Router;
+                use Papyrus\\Http\\Router;
 
                 Router::get("/{$init}", [Module\\{$moduleName}\\Controllers\\{$moduleName}Controller::class, 'index']);
             PHP;

@@ -1,11 +1,11 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
     use PDO as DB;
     use PDOException;
 
-    use Devyuha\Lunaris\Utils\Config;
+    use Papyrus\Utils\Config;
 
     class Pdo {
         private static $instance = null;

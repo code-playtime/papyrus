@@ -1,5 +1,5 @@
 <?php
-    use Devyuha\Lunaris\Facades\Flash;
+    use Papyrus\Facades\Flash;
 
     $errorHtml = ' 
         <div class="alert alert-danger alert-dismissible">

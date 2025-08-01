@@ -1,11 +1,11 @@
 <?php
 
-    namespace Devyuha\Lunaris\Providers;
+    namespace Papyrus\Providers;
 
     class PdoProvider {
         public function getCommands() {
             return [
-                "make:query" => \Devyuha\Lunaris\Commands\MakeQuery::class
+                "make:query" => \Papyrus\Commands\MakeQuery::class
             ];
         }
     }

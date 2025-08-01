@@ -1,13 +1,13 @@
 <?php
 
-    namespace Devyuha\Lunaris\Providers;
+    namespace Papyrus\Providers;
 
     class FrameworkProvider
     {
         public function getCommands() {
             return [
-                "make:controller" => \Devyuha\Lunaris\Commands\MakeController::class,
-                "make:module" => \Devyuha\Lunaris\Commands\MakeModule::class
+                "make:controller" => \Papyrus\Commands\MakeController::class,
+                "make:module" => \Papyrus\Commands\MakeModule::class
             ];
         }
     }

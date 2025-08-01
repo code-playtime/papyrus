@@ -2,8 +2,8 @@
 
 namespace Module\Auth\Controllers;
 
-use Devyuha\Lunaris\Http\Controller;
-use Devyuha\Lunaris\Facades\Flash;
+use Papyrus\Http\Controller;
+use Papyrus\Facades\Flash;
 
 use Module\Auth\Queries\GetUserCount;
 use Module\Auth\Requests\RegisterRequest;

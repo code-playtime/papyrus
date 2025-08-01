@@ -1,6 +1,6 @@
 <?php
 
-    use Devyuha\Lunaris\Http\Router;
+    use Papyrus\Http\Router;
 
     Router::get("/panel/articles", [Module\PanelArticles\Controllers\PanelArticlesController::class, 'index'])
         ->addMiddleware(Module\Panel\Middlewares\CheckAuthMiddleware::class)

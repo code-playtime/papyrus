@@ -1,10 +1,10 @@
 <?php
 
-    namespace Devyuha\Lunaris\Ui;
+    namespace Papyrus\Ui;
 
     use Exception;
 
-    use Devyuha\Lunaris\Ui\View;
+    use Papyrus\Ui\View;
 
     class Template {
         private $path;

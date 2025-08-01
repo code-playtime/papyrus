@@ -2,7 +2,7 @@
 
 namespace Module\Panel\Controllers;
 
-use Devyuha\Lunaris\Http\Controller;
+use Papyrus\Http\Controller;
     
 class PanelController extends Controller
 {

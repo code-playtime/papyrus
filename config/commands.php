@@ -5,10 +5,10 @@
             //
         ],
         "providers" => [
-            Devyuha\Lunaris\Providers\NovaProvider::class,
-            Devyuha\Lunaris\Providers\FrameworkProvider::class,
-            Devyuha\Lunaris\Providers\SecurityProvider::class,
-            Devyuha\Lunaris\Providers\MailerProvider::class,
-            Devyuha\Lunaris\Providers\PdoProvider::class
+            Papyrus\Providers\NovaProvider::class,
+            Papyrus\Providers\FrameworkProvider::class,
+            Papyrus\Providers\SecurityProvider::class,
+            Papyrus\Providers\MailerProvider::class,
+            Papyrus\Providers\PdoProvider::class
         ]
     ];

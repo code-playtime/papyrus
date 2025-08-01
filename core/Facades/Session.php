@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
     class Session {
         public static function get($name) {

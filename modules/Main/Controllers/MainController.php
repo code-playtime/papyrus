@@ -2,8 +2,8 @@
 
     namespace Module\Main\Controllers;
 
-    use Devyuha\Lunaris\Http\Controller;
-    use Devyuha\Lunaris\Facades\Pdo;
+    use Papyrus\Http\Controller;
+    use Papyrus\Facades\Pdo;
     use Module\Main\Queries\ListUsers;
 
     use Module\Auth\Queries\GetUserCount;

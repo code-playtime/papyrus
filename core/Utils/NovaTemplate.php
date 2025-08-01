@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     class NovaTemplate {
         public static function command($moduleName, $commandName=null) {
@@ -13,7 +13,7 @@
 
                 namespace Module\\{$moduleName}\\Commands;
 
-                use Devyuha\\Lunaris\\Traits\\Loggable;
+                use Papyrus\\Traits\\Loggable;
 
                 class {$commandName}
                 {
