@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
-    use Devyuha\Lunaris\Utils\MailTemplate as Template;
+    use Papyrus\Utils\MailTemplate as Template;
 
     class MakeMail {
         private string $path;

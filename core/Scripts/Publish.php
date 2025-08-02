@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Scripts;
+    namespace Papyrus\Scripts;
 
     class Publish
     {

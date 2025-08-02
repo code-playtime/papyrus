@@ -1,6 +1,6 @@
 <?php
 
-use Devyuha\Lunaris\Http\Router;
+use Papyrus\Http\Router;
 
 Router::get("/register", [Module\Auth\Controllers\AuthController::class, 'register'])
     ->addMiddleware(Module\Auth\Middlewares\AuthNotActive::class)

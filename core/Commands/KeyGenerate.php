@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
     use Defuse\Crypto\Key;
     use Exception;

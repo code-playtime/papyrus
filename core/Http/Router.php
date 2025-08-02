@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Http;
+    namespace Papyrus\Http;
 
     use Pecee\SimpleRouter\SimpleRouter;
 

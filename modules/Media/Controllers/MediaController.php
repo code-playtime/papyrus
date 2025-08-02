@@ -2,8 +2,8 @@
 
     namespace Module\Media\Controllers;
 
-    use Devyuha\Lunaris\Http\Controller;
-    use Devyuha\Lunaris\Facades\Storage;
+    use Papyrus\Http\Controller;
+    use Papyrus\Facades\Storage;
 
     use Module\Media\Requests\ImageUploadRequest;
     

@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Providers;
+    namespace Papyrus\Providers;
 
     class NovaProvider {
         public function getCommands() {

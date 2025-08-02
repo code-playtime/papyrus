@@ -1,4 +1,4 @@
-<?php inject("layouts/header", ["module" => "Auth"]); ?>
+<?php $template->includes("layouts.header") ?>
 
 <div class="container min-h-full">
     <div class="row min-h-full align-items-center justify-content-center">
@@ -7,9 +7,7 @@
                 <h2>Setup</h2>
             </div>
             <div class="body">
-                <?php
-                inject("includes/messages", ["module" => "Auth"]);
-                ?>
+                <?php $template->includes("includes/messages") ?>
                 <form method="post" action="<?= route("auth.add-questions") ?>">
                     <?= csrf_field() ?>
                     <div class="row">
@@ -65,4 +63,4 @@
     </div>
 </div>
 
-<?php inject("layouts/footer", ["module" => "Auth"]); ?>
+<?php $template->includes("layouts/footer") ?>

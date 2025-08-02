@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;

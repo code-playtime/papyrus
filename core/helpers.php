@@ -1,28 +1,15 @@
 <?php
 
-    use Devyuha\Lunaris\Http\Router;
+    use Papyrus\Http\Router;
     use Pecee\Http\Request;
     use Pecee\Http\Response;
     use Pecee\Http\Url;
-    use Devyuha\Lunaris\Facades\Logger;
+    use Papyrus\Facades\Logger;
+    use Papyrus\Ui\Template;
 
     // ? View methods
-    function view($path, $options = []) {
-        $module = $options["module"] ?? "Main";
-        $args = $options["args"] ?? [];
-        $path = str_replace(".", "/", $path);
-        $viewPath = "../modules/" . $module . "/views/" . $path . ".php";
-
-        if(!file_exists($viewPath)) {
-            throw new Exception("View file not found : {$viewPath}");
-        }
-
-        extract($args);
-        ob_start();
-        include($viewPath);
-        $var = ob_get_contents();
-        ob_end_clean();
-        return $var;
+    function view($path, $args = []) {
+        return new Template($path, $args);
     }
 
     function inject($path, $options = []) {

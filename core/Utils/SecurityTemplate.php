@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     class SecurityTemplate {
         public static function getArgs(array $args) {
@@ -26,7 +26,7 @@
 
                 namespace Module\\{$moduleName}\\Requests;
 
-                use Devyuha\\Lunaris\\Http\\Request;
+                use Papyrus\\Http\\Request;
                 
                 class {$requestName} extends Request
                 {

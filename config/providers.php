@@ -2,5 +2,5 @@
 
     return [
         // Default Providers
-        Devyuha\Lunaris\Container::class
+        Papyrus\Container::class
     ];

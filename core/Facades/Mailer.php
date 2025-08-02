@@ -1,10 +1,10 @@
 <?php
 
-    namespace Devyuha\Lunaris\Facades;
+    namespace Papyrus\Facades;
 
-    use Devyuha\Lunaris\Facades\Mail;
+    use Papyrus\Facades\Mail;
     use Exception;
-    use Devyuha\Lunaris\Exceptions\MailNotSentException;
+    use Papyrus\Exceptions\MailNotSentException;
 
     class Mailer {
         private $mailInstance;

@@ -1,11 +1,11 @@
 <?php
 
-    namespace Devyuha\Lunaris\Providers;
+    namespace Papyrus\Providers;
 
     class MailerProvider {
         public function getCommands() {
             return [
-                "make:mail" => \Devyuha\Lunaris\Commands\MakeMail::class
+                "make:mail" => \Papyrus\Commands\MakeMail::class
             ];
         }
     }

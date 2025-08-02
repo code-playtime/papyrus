@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
-    use Devyuha\Lunaris\Utils\NovaTemplate as Template;
+    use Papyrus\Utils\NovaTemplate as Template;
 
     class MakeCommand
     {

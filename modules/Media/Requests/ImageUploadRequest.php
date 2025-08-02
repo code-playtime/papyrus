@@ -2,7 +2,7 @@
 
     namespace Module\Media\Requests;
 
-    use Devyuha\Lunaris\Http\Request;
+    use Papyrus\Http\Request;
 
     use Module\Main\Traits\Validateable;
     

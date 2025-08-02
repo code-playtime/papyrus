@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris;
+    namespace Papyrus;
 
     use splitbrain\phpcli\CLI;
     use splitbrain\phpcli\Options;

@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     class PdoTemplate {
         public static function getArgs(array $args) {
@@ -26,7 +26,7 @@
 
                 namespace Module\\{$moduleName}\\Queries;
 
-                use Devyuha\Lunaris\Facades\Query;
+                use Papyrus\Facades\Query;
 
                 class {$queryName} extends Query {
                     public function sql() {

@@ -1,11 +1,11 @@
 <?php
 
-    namespace Devyuha\Lunaris;
+    namespace Papyrus;
 
     use Exception;
 
-    use Devyuha\Lunaris\Http\Router;
-    use Devyuha\Lunaris\Http\CsrfVerifier;
+    use Papyrus\Http\Router;
+    use Papyrus\Http\CsrfVerifier;
 
     use Dotenv\Dotenv;
 

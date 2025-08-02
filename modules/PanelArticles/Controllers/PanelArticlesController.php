@@ -2,9 +2,9 @@
 
     namespace Module\PanelArticles\Controllers;
 
-    use Devyuha\Lunaris\Http\Controller;
-    use Devyuha\Lunaris\Facades\Flash;
-    use Devyuha\Lunaris\Http\Request;
+    use Papyrus\Http\Controller;
+    use Papyrus\Facades\Flash;
+    use Papyrus\Http\Request;
 
     use Module\PanelArticles\Requests\CreateArticleRequest;
     use Module\PanelArticles\Services\ArticleService;
@@ -20,14 +20,15 @@
                 Flash::make("error", $response->getMessage());
             }
 
-            return view("listing", [
-                "module" => "PanelArticles",
-                "args" => $response->getData()
-            ]);
+            return view("listing", $response->getData())
+                    ->module("PanelArticles")
+                    ->render();
         }
 
         public function create() {
-            return view("create", ["module" => "PanelArticles"]);
+            return view("create")
+                    ->module("PanelArticles")
+                    ->render();
         }
 
         public function addArticle() {

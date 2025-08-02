@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
-    use Devyuha\Lunaris\Utils\SecurityTemplate as Template;
+    use Papyrus\Utils\SecurityTemplate as Template;
 
     class MakeRequest {
         private string $path;

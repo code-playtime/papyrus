@@ -5,7 +5,7 @@
     use Pecee\Http\Middleware\IMiddleware;
     use Pecee\Http\Request;
 
-    use Devyuha\Lunaris\Facades\Session;
+    use Papyrus\Facades\Session;
 
     class VerifyMiddleware implements IMiddleware {
         public function handle(Request $request): void {

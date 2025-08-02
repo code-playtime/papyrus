@@ -2,8 +2,8 @@
     
 namespace Module\Auth\Services;
 
-use Devyuha\Lunaris\Facades\Pdo;
-use Devyuha\Lunaris\Facades\Password;
+use Papyrus\Facades\Pdo;
+use Papyrus\Facades\Password;
 
 use Module\Main\ServiceResult;
 use Module\Auth\Queries\GetUserByEmail;

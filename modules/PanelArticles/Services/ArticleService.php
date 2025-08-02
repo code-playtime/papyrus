@@ -2,8 +2,8 @@
 
     namespace Module\PanelArticles\Services;
 
-    use Devyuha\Lunaris\Facades\Pdo;
-    use Devyuha\Lunaris\Facades\Storage;
+    use Papyrus\Facades\Pdo;
+    use Papyrus\Facades\Storage;
 
     use Exception;
 

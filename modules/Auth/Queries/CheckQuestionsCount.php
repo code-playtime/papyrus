@@ -2,7 +2,7 @@
 
     namespace Module\Auth\Queries;
 
-    use Devyuha\Lunaris\Facades\Query;
+    use Papyrus\Facades\Query;
 
     class CheckQuestionsCount extends Query {
         public function sql() {

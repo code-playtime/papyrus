@@ -1,10 +1,10 @@
 {
-    "name": "devyuha/lunaris",
+    "name": "devyuha/papyrus",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Devyuha\\Lunaris\\": "core/",
+            "Papyrus\\": "core/",
             "Module\\": "modules/"
         },
         "files": [
@@ -13,7 +13,7 @@
     },
     "scripts" : {
         "post-autoload-dump": [
-            "Devyuha\\Lunaris\\Scripts\\Publish::execute"
+            "Papyrus\\Scripts\\Publish::execute"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

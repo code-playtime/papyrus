@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     class MailTemplate {
         public static function getArgs(array $args) {
@@ -26,8 +26,8 @@
 
                 namespace Module\\{$moduleName}\\Mails;
 
-                use Devyuha\\Lunaris\\Facades\\Mail;
-                use Devyuha\\Lunaris\\Interface\MailInterface;
+                use Papyrus\\Facades\\Mail;
+                use Papyrus\\Interface\MailInterface;
                 
                 class {$mailName} extends Mail implements MailInterface
                 {

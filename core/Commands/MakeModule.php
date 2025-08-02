@@ -1,9 +1,9 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
-    use Devyuha\Lunaris\Utils\GeneralTemplate as Template;
-    use Devyuha\Lunaris\Commands\MakeController;
+    use Papyrus\Utils\GeneralTemplate as Template;
+    use Papyrus\Commands\MakeController;
 
     class MakeModule
     {

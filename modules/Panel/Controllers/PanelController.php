@@ -2,13 +2,11 @@
 
 namespace Module\Panel\Controllers;
 
-use Devyuha\Lunaris\Http\Controller;
+use Papyrus\Http\Controller;
     
 class PanelController extends Controller
 {
     public function index() {
-        return view("index", [
-            "module" => "Panel"
-        ]);
+        return view("index")->module("Panel")->render();
     }
 }

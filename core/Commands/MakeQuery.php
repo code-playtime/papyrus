@@ -1,8 +1,8 @@
 <?php
 
-    namespace Devyuha\Lunaris\Commands;
+    namespace Papyrus\Commands;
 
-    use Devyuha\Lunaris\Utils\PdoTemplate as Template;
+    use Papyrus\Utils\PdoTemplate as Template;
 
     class MakeQuery {
         private string $path;

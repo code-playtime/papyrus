@@ -1,6 +1,6 @@
 <?php
 
-    namespace Devyuha\Lunaris\Utils;
+    namespace Papyrus\Utils;
 
     trait Loggable {
         /**
