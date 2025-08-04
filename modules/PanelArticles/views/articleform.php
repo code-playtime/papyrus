@@ -9,7 +9,7 @@
                 <hr />
                 <div class="mb-3">
                     <div id="editor-container" class="editor-container"></div>
-                    <input type="hidden" name="content" id="editor-content" value="<?= $content ?? old('content') ?>" />
+                    <input type="hidden" name="content" id="editor-content" value='<?= $content ?? old('content') ?>' />
                 </div>
             </div>
             <div class="col-md-4">
@@ -35,12 +35,12 @@
                     <div class="card-header accordion-header cursor-pointer">
                         <h6 class="card-title">Media</h6>
                     </div>
-                    <div class="card-body collapse accordion-body">
+                    <div class="card-body <?= !isset($banner_url) ? 'collapse' : '' ?> accordion-body">
                         <label class="form-label" for="banner-image">Banner Image</label>
                         <input type="file" class="form-control" accept="image/*" name="banner" id="banner-image" />
 
-                        <div class="" id="banner-preview">
-                            <img src="<?= asset('uploads/images/uploaded-image.png') ?>" id="preview" alt="Banner Preview" />
+                        <div class="" id="banner-preview" <?= isset($banner_url) ? 'style="display: block;"' : '' ?>>
+                            <img src="<?= $banner_url ?>" id="preview" alt="Banner Preview" />
                         </div>
                     </div>
                 </div>

@@ -31,12 +31,25 @@
                     ->render();
         }
 
+        public function edit($id) {
+            $service = new ArticleService();
+            $result = $service->findArticleById($id);
+
+            if(!$result->getSuccess()) {
+                Flash::make("error", $result->getMessage());
+                return response()->redirect(route("panel.articles"));
+            }
+
+            return view("edit", $result->getData())
+                    ->module("PanelArticles")
+                    ->render();
+        }
+
         public function addArticle() {
             $request = new CreateArticleRequest();
             if(!$request->validated()) {
                 $request->remember();
                 Flash::make("error", $request->errors());
-                $request->remember();
                 return response()->redirect(route("panel.articles.create"));
             }
 

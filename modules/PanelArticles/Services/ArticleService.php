@@ -11,6 +11,7 @@
     use Module\PanelArticles\Queries\InsertArticle;
     use Module\PanelArticles\Queries\PaginateArticles;
     use Module\PanelArticles\Queries\GetArticleCount;
+    use Module\PanelArticles\Queries\FindArticleById;
 
     class ArticleService {
         public function addArticle($request) {
@@ -84,5 +85,34 @@
             $count = $query->first()["count"] ?? 0;
 
             return (int) $count;
+        }
+
+        private function getBannerUrl($banner) {
+            $path = "banners/" . $banner;
+            $storage_path = Storage::has($path) ? Storage::url($path) : null;
+            return $storage_path;
+        }
+
+        public function findArticleById($id) {
+            $result = new ServiceResult();
+
+            try {
+                $query = Pdo::execute(new FindArticleById([":id" => $id]));
+                if($query->count() > 0) {
+                    $article = $query->first();
+                    $result->setSuccess(true);
+                    $result->setData([
+                        "article" => $article,
+                        "banner_url" => $this->getBannerUrl($article["banner"])
+                    ]);
+                } else {
+                    throw new Exception("Article not found.");
+                }
+            } catch (Exception $e) {
+                $result->setSuccess(false);
+                $result->setMessage($e->getMessage());
+            }
+
+            return $result;
         }
     }

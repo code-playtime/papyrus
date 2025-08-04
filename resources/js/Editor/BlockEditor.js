@@ -57,8 +57,14 @@ class BlockEditor {
         let editor = this.editor;
         editor.isReady
             .then(() => {
-                if(element.value.trim()) {
-                    return editor.render(JSON.parse(element.value));
+                const raw = element.value;
+                if(!raw) return;
+
+                try {
+                    const parsed = JSON.parse(raw);
+                    return editor.render(parsed);
+                } catch (err) {
+                    console.log("Inavlid JSON in editor field :: ", err);
                 }
             })
             .catch((err) => {
