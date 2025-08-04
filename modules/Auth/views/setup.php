@@ -1,4 +1,4 @@
-<?php $template->includes("layouts.header") ?>
+<?php $template->includes("layouts/header") ?>
 
 <div class="container min-h-full">
     <div class="row min-h-full align-items-center justify-content-center">
