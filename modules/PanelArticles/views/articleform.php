@@ -57,7 +57,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="meta-description">Meta Description</label>
-                            <textarea class="form-control no-resize" rows="3" name="meta_description" id="meta-description" value="<?= $meta_description ?? old('meta_description') ?>"></textarea>
+                            <textarea class="form-control no-resize" rows="3" name="meta_description" id="meta-description"><?= $meta_description ?? old('meta_description') ?></textarea>
                         </div>
 
                         <div class="md-3">
