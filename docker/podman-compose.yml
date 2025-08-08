@@ -7,7 +7,7 @@ services:
       dockerfile: docker/Dockerfile
     container_name: papyrus-php-container
     volumes:
-      - /home/bhaswanth/Projects/Web/papyrus:/var/www/html:z
+      - ../:/var/www/html:z
     ports:
       - "8080:80"
     depends_on:

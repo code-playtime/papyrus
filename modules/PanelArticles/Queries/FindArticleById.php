@@ -4,16 +4,15 @@
 
     use Papyrus\Facades\Query;
 
-    class PaginateArticles extends Query {
+    class FindArticleById extends Query {
         public function sql() {
             return <<<SQL
                 SELECT
-                    id, title, created_at
+                    id, created_at, title, content, banner, tags, metadata, slug, status
                 FROM
                     articles
-                ORDER BY id DESC
-                LIMIT :limit
-                OFFSET :offset
+                WHERE
+                    id = :id
             SQL;
         }
     }

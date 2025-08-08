@@ -23876,8 +23876,13 @@ var BlockEditor = /*#__PURE__*/function () {
     value: function attachContentHandler(element) {
       var editor = this.editor;
       editor.isReady.then(function () {
-        if (element.value.trim()) {
-          return editor.render(JSON.parse(element.value));
+        var raw = element.value;
+        if (!raw) return;
+        try {
+          var parsed = JSON.parse(raw);
+          return editor.render(parsed);
+        } catch (err) {
+          console.log("Inavlid JSON in editor field :: ", err);
         }
       })["catch"](function (err) {
         console.error("Error loading saved content: ", err);

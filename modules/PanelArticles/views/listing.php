@@ -36,7 +36,7 @@
                                     <td><?= $article["title"] ?? "" ?></td>
                                     <td><?= $article["created_at"] ?? "" ?></td>
                                     <td>
-                                        <a href="">
+                                        <a href="<?= route("panel.articles.edit", ["id" => $article['id']]) ?>">
                                             <button class="btn btn-sm btn-primary">Edit</button>
                                         </a>
                                         <a href="">
