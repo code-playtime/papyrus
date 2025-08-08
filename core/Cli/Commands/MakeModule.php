@@ -4,9 +4,12 @@ namespace Papyrus\Cli\Commands;
 
 use Papyrus\Cli\Utils\GeneralTemplate as Template;
 use Papyrus\Cli\Commands\MakeController;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeModule
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -23,7 +26,7 @@ class MakeModule
 
         $moduleName = $args['name'];
         if (!$moduleName) {
-            echo "Module name is not present." . PHP_EOL;
+            $this->error("Module name is not present.");
             return;
         }
 
@@ -34,7 +37,7 @@ class MakeModule
     private function createModule($modulePath, $moduleName)
     {
         if (is_dir($modulePath)) {
-            echo "Module {$moduleName} already exists." . PHP_EOL;
+            $this->info("Module {$moduleName} already exists.");
             return;
         }
 
@@ -52,7 +55,7 @@ class MakeModule
         $routerContent = Template::router($moduleName);
         file_put_contents("{$modulePath}/routes.php", $routerContent);
 
-        echo "Module {$moduleName} is created successfully in src/modules.".PHP_EOL;
-        echo "Add module name {$moduleName} to App/Config/modules.php to activate the module." . PHP_EOL;
+        $this->success("Module {$moduleName} is created successfully in src/modules.");
+        $this->info("Add module name {$moduleName} to App/Config/modules.php to activate the module.");
     }
 }

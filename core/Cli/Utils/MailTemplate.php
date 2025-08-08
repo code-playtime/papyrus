@@ -29,8 +29,8 @@ class MailTemplate
 
                 namespace Module\\{$moduleName}\\Mails;
 
-                use Papyrus\\Facades\\Mail;
-                use Papyrus\\Interface\MailInterface;
+                use Papyrus\\Support\\Facades\\Mail;
+                use Papyrus\\Support\\Interface\MailInterface;
                 
                 class {$mailName} extends Mail implements MailInterface
                 {

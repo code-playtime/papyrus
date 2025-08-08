@@ -3,9 +3,12 @@
 namespace Papyrus\Cli\Commands;
 
 use Papyrus\Cli\Utils\GeneralTemplate as Template;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeController
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -37,9 +40,9 @@ class MakeController
 
         if (!is_dir($folderPath)) {
             if (mkdir($folderPath, 0777, true)) {
-                echo "Controllers folder has been created in {$modulePath}." . PHP_EOL;
+                $this->success("Controllers folder has been created in {$modulePath}.");
             } else {
-                echo "Failed to create Controllers folder in {$modulePath}." . PHP_EOL;
+                $this->error("Failed to create Controllers folder in {$modulePath}.");
                 return false;
             }
         }
@@ -52,12 +55,12 @@ class MakeController
         $controllerFileName = $name . ".php";
         $controllerFilePath = $path . "/" . $controllerFileName;
         if (file_exists($controllerFilePath)) {
-            echo "{$name} already exists in {$path}" . PHP_EOL;
+            $this->info("{$name} already exists in {$path}");
             return false;
         }
 
         file_put_contents($controllerFilePath, $content);
 
-        echo $name . " has been created in " . $path . PHP_EOL;
+        $this->success($name . " has been created in " . $path);
     }
 }

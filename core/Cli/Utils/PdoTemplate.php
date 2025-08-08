@@ -29,7 +29,7 @@ class PdoTemplate
 
                 namespace Module\\{$moduleName}\\Queries;
 
-                use Papyrus\Facades\Query;
+                use Papyrus\Database\Query;
 
                 class {$queryName} extends Query {
                     public function sql() {

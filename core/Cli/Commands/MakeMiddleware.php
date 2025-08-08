@@ -3,9 +3,12 @@
 namespace Papyrus\Vli\Commands;
 
 use Papyrus\Cli\Utils\GeneralTemplate as Template;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeMiddleware
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -37,9 +40,9 @@ class MakeMiddleware
 
         if (!is_dir($folderPath)) {
             if (mkdir($folderPath, 0777, true)) {
-                echo "Middlewares folder has been created in {$modulePath}." . PHP_EOL;
+                $this->success("Middlewares folder has been created in {$modulePath}.");
             } else {
-                echo "Failed to create Middlewares folder in {$modulePath}." . PHP_EOL;
+                $this->error("Failed to create Middlewares folder in {$modulePath}.");
                 return false;
             }
         }
@@ -52,12 +55,12 @@ class MakeMiddleware
         $middlewareFileName = $name . ".php";
         $middlewareFilePath = $path . "/" . $middlewareFileName;
         if (file_exists($middlewareFilePath)) {
-            echo "{$name} already exists in {$path}" . PHP_EOL;
+            $this->info("{$name} already exists in {$path}");
             return false;
         }
 
         file_put_contents($middlewareFilePath, $content);
 
-        echo $name . " has been created in " . $path . PHP_EOL;
+        $this->success($name . " has been created in " . $path);
     }
 }

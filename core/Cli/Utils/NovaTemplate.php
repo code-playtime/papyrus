@@ -15,7 +15,7 @@ class NovaTemplate
 
                 namespace Module\\{$moduleName}\\Commands;
 
-                use Papyrus\\Traits\\Loggable;
+                use Papyrus\\Cli\\Traits\\Loggable;
 
                 class {$commandName}
                 {

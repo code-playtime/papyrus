@@ -3,9 +3,12 @@
 namespace Papyrus\Cli\Commands;
 
 use Papyrus\Cli\Utils\NovaTemplate as Template;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeCommand
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -37,9 +40,9 @@ class MakeCommand
 
         if (!is_dir($commandFolderPath)) {
             if (mkdir($commandFolderPath, 0777, true)) {
-                echo "Commands folder has been created in {$modulePath}" . PHP_EOL;
+                $this->success("Commands folder has been created in {$modulePath}");
             } else {
-                echo "Failed to create Commands folder in {$modulePath}" . PHP_EOL;
+                $this->error("Failed to create Commands folder in {$modulePath}");
                 return false;
             }
         }
@@ -52,12 +55,12 @@ class MakeCommand
         $commandFileName = $name . ".php";
         $commandFilePath = $path . "/" . $commandFileName;
         if (file_exists($commandFilePath)) {
-            echo "Command: {$name} already exists in {$path}" . PHP_EOL;
+            $this->info("Command: {$name} already exists in {$path}");
             return false;
         }
 
         file_put_contents($commandFilePath, $content);
 
-        echo $name . " has been created inside " . $path . PHP_EOL;
+        $this->success($name . " has been created inside " . $path);
     }
 }

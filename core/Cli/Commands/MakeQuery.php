@@ -3,9 +3,12 @@
 namespace Papyrus\Cli\Commands;
 
 use Papyrus\Cli\Utils\PdoTemplate as Template;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeQuery
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -35,9 +38,9 @@ class MakeQuery
 
         if (!is_dir($folderPath)) {
             if (mkdir($folderPath, 0777, true)) {
-                echo "Mails folder has been created in {$modulePath}." . PHP_EOL;
+                $this->success("Mails folder has been created in {$modulePath}.");
             } else {
-                echo "Failed to create Mails folder in {$modulePath}." . PHP_EOL;
+                $this->error("Failed to create Mails folder in {$modulePath}.");
                 return false;
             }
         }
@@ -50,12 +53,12 @@ class MakeQuery
         $queryFileName = $name . ".php";
         $queryFilePath = $path . "/" . $queryFileName;
         if (file_exists($queryFilePath)) {
-            echo "{$name} already exists in {$path}" . PHP_EOL;
+            $this->info("{$name} already exists in {$path}");
             return false;
         }
 
         file_put_contents($queryFilePath, $content);
 
-        echo $name . " has been created in " . $path . PHP_EOL;
+        $this->success($name . " has been created in " . $path);
     }
 }

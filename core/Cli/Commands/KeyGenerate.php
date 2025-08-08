@@ -4,9 +4,12 @@ namespace Papyrus\Cli\Commands;
 
 use Defuse\Crypto\Key;
 use Exception;
+use Papyrus\Cli\Traits\Loggable;
 
 class KeyGenerate
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -38,6 +41,6 @@ class KeyGenerate
 
         file_put_contents($envFilePath, $envContent);
 
-        echo "Key generated successfully" . PHP_EOL;
+        $this->success("Key generated successfully");
     }
 }

@@ -29,7 +29,7 @@ class GeneralTemplate
 
                 namespace Module\\{$moduleName}\\Controllers;
 
-                use Devyuha\\Lunaris\\Http\\Controller;
+                use Papyrus\\Http\\Controller;
                 
                 class {$controllerName} extends Controller
                 {

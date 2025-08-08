@@ -3,9 +3,12 @@
 namespace Papyrus\Cli\Commands;
 
 use Papyrus\Cli\Utils\SecurityTemplate as Template;
+use Papyrus\Cli\Traits\Loggable;
 
 class MakeRequest
 {
+    use Loggable;
+
     private string $path;
     private array $args;
 
@@ -36,9 +39,9 @@ class MakeRequest
 
         if (!is_dir($folderPath)) {
             if (mkdir($folderPath, 0777, true)) {
-                echo "Requests folder has been created in {$modulePath}." . PHP_EOL;
+                $this->success("Requests folder has been created in {$modulePath}.");
             } else {
-                echo "Failed to create Requests folder in {$modulePath}." . PHP_EOL;
+                $this->error("Failed to create Requests folder in {$modulePath}.");
                 return false;
             }
         }
@@ -51,12 +54,12 @@ class MakeRequest
         $requestFileName = $name . ".php";
         $requestFilePath = $path . "/" . $requestFileName;
         if (file_exists($requestFilePath)) {
-            echo "{$name} already exists in {$path}" . PHP_EOL;
+            $this->info("{$name} already exists in {$path}");
             return false;
         }
 
         file_put_contents($requestFilePath, $content);
 
-        echo $name . " has been created in " . $path . PHP_EOL;
+        $this->success($name . " has been created in " . $path);
     }
 }
