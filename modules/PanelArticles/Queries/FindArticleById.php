@@ -1,12 +1,14 @@
 <?php
 
-    namespace Module\PanelArticles\Queries;
+namespace Module\PanelArticles\Queries;
 
-    use Papyrus\Facades\Query;
+use Papyrus\Database\Query;
 
-    class FindArticleById extends Query {
-        public function sql() {
-            return <<<SQL
+class FindArticleById extends Query
+{
+    public function sql()
+    {
+        return <<<SQL
                 SELECT
                     id, created_at, title, content, banner, tags, metadata, slug, status
                 FROM
@@ -14,5 +16,5 @@
                 WHERE
                     id = :id
             SQL;
-        }
     }
+}

@@ -1,12 +1,14 @@
 <?php
 
-    namespace Module\Auth\Queries;
+namespace Module\Auth\Queries;
 
-    use Papyrus\Facades\Query;
+use Papyrus\Database\Query;
 
-    class GetVerifyData extends Query {
-        public function sql() {
-            return <<<SQL
+class GetVerifyData extends Query
+{
+    public function sql()
+    {
+        return <<<SQL
                 SELECT 
                     u.id, u.email, q.question_1, q.question_2, q.question_3
                 FROM
@@ -17,5 +19,5 @@
                     u.id = q.user_id
                 WHERE u.email = :email; 
             SQL;
-        }
     }
+}

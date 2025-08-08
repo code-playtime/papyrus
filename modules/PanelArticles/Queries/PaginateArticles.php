@@ -1,12 +1,14 @@
 <?php
 
-    namespace Module\PanelArticles\Queries;
+namespace Module\PanelArticles\Queries;
 
-    use Papyrus\Facades\Query;
+use Papyrus\Database\Query;
 
-    class PaginateArticles extends Query {
-        public function sql() {
-            return <<<SQL
+class PaginateArticles extends Query
+{
+    public function sql()
+    {
+        return <<<SQL
                 SELECT
                     id, title, created_at
                 FROM
@@ -15,5 +17,5 @@
                 LIMIT :limit
                 OFFSET :offset
             SQL;
-        }
     }
+}
