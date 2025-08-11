@@ -7,8 +7,8 @@
             <div class="user-info">
                 <div class="avatar-img">JD</div>
                 <div class="user-details">
-                    <h4>John Doe</h4>
-                    <small>Administrator</small>
+                    <h4><?= auth()->user("name") ?></h4>
+                    <small><?= auth()->user("role") ?></small>
                 </div>
             </div>
         </div>
@@ -22,13 +22,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(['panel.articles', 'panel.articles.create', 'panel.articles.edit']) ? 'active' : '' ?>">
-                        <i class="fa fa-pencil-square-o"></i>
+                        <i class="fa fa-file-text-o"></i>
                         Articles
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="fa fa-pencil-square-o"></i>
+                        <i class="fa fa-book"></i>
                         Books
                     </a>
                 </li>

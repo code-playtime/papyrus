@@ -10,7 +10,7 @@
             <div class="user-menu">
                 <div class="user-avatar" id="userAvatar">
                     <div class="avatar-img navicon">JD</div>
-                    <span class="user-name">John Doe</span>
+                    <span class="user-name"><?= auth()->user("name") ?></span>
                 </div>
                 <div class="dropdown-menu" id="userDropdown">
                     <a href="#" class="dropdown-item">Profile</a>
