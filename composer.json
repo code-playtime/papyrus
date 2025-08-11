@@ -8,7 +8,8 @@
             "Module\\": "modules/"
         },
         "files": [
-            "core/helpers.php"
+            "core/helpers.php",
+            "helpers.php"
         ]
     },
     "scripts" : {

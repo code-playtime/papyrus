@@ -11,6 +11,7 @@ use Module\PanelArticles\Queries\PaginateArticles;
 use Module\PanelArticles\Queries\GetArticleCount;
 use Module\PanelArticles\Queries\FindArticleById;
 use Module\PanelArticles\Queries\UpdateArticleById;
+use Module\PanelArticles\Queries\UpdateArticleStatus;
 
 class ArticleService
 {
@@ -194,5 +195,30 @@ class ArticleService
         $data = json_decode($data, true);
 
         return $data;
+    }
+
+    public function updateArticleStatus($request, $id)
+    {
+        $result = new ServiceResult();
+
+        try {
+            $initialStatus = $request->sanitizeInput("status", "draft");
+            $status = $initialStatus === "published" ? "draft" : "published";
+            unset($initialStatus);
+            $query = Pdo::execute(new updateArticleStatus([
+                ":status" => $status,
+                ":id" => $id
+            ]));
+            if (!$query->getAffectedRows()) {
+                throw new Exception("Error in updating status");
+            }
+            $result->setSuccess(true);
+            $result->setMessage("Article status has been updated successfully");
+        } catch (Exception $e) {
+            $result->setSuccess(false);
+            $result->setMessage($e->getMessage());
+        }
+
+        return $result;
     }
 }
