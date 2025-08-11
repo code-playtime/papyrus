@@ -16,7 +16,7 @@ body {
 /* Header Styles */
 .header {
   background: colors.$headerBackground;
-  color: white;
+  color: colors.$panelBackground;
   padding: 0;
   position: fixed;
   top: 0;
@@ -24,7 +24,7 @@ body {
   right: 0;
   height: 60px;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px colors.shadow(0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,7 +34,7 @@ body {
   padding: 0 20px;
   font-size: 24px;
   font-weight: bold;
-  color: colors.$primary;
+  color: colors.$heading;
 }
 
 .header-left {
@@ -45,7 +45,7 @@ body {
 .menu-toggle {
   background: none;
   border: none;
-  color: white;
+  color: colors.$panelBackground;
   font-size: 20px;
   cursor: pointer;
   padding: 15px;
@@ -54,7 +54,7 @@ body {
 }
 
 .menu-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: colors.menuHover(0.1);
 }
 
 .header-right {
@@ -77,19 +77,24 @@ body {
 }
 
 .user-avatar:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: colors.menuHover(0.1);
 }
 
 .avatar-img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin-right: 10px;
-  background: #3498db;
+  background: colors.$primary;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+
+.avatar-img.navicon {
+  width: 35px;
+  height: 35px;
 }
 
 .dropdown-menu {
@@ -98,7 +103,7 @@ body {
   right: 0;
   background: white;
   border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px colors.shadow(0.2);
   min-width: 200px;
   opacity: 0;
   visibility: hidden;
@@ -117,14 +122,15 @@ body {
 .dropdown-item {
   display: block;
   padding: 12px 20px;
-  color: #333;
+  color: colors.$black;
   text-decoration: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid colors.shadow(0.1);
   transition: background 0.3s;
 }
 
 .dropdown-item:hover {
-  background: #f8f9fa;
+  background: colors.$primary;
+  color: colors.$panelBackground;
 }
 
 .dropdown-item:last-child {
@@ -150,13 +156,13 @@ body {
 
 .sidebar-header {
   padding: 20px;
-  border-bottom: 1px solid #2c3e50;
+  border-bottom: 1px solid colors.$primary;
 }
 
 .user-info {
   display: flex;
   align-items: center;
-  color: white;
+  color: colors.$panelBackground;
 }
 
 .user-info .avatar-img {
@@ -164,11 +170,12 @@ body {
 }
 
 .user-details h4 {
-  margin-bottom: 5px;
+  margin: 0px;
+  color: colors.$heading;
 }
 
 .user-details small {
-  color: #bdc3c7;
+  color: colors.$panelBackground;
 }
 
 .sidebar-nav {
@@ -186,16 +193,21 @@ body {
   flex-direction: row;
   gap: 15px;
   padding: 12px 20px;
-  color: #bdc3c7;
+  color: colors.$panelBackground;
   text-decoration: none;
   transition: all 0.3s;
   border-left: 3px solid transparent;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  background: colors.$active;
+  color: colors.$panelBackground;
+  border-left: 0px;
+}
+
 .nav-link.active {
   background: colors.$active;
-  color: white;
+  color: colors.$panelBackground;
   border-left-color: colors.$primary;
 }
 
@@ -214,7 +226,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-  background: #2c3e50;
+  background: colors.$primary;
 }
 
 .nav-submenu.active {
@@ -252,7 +264,7 @@ body {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px colors.shadow(0.1);
   margin-bottom: 20px;
 }
 
@@ -281,7 +293,7 @@ body {
 .content-section {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px colors.shadow(0.1);
   overflow: hidden;
 }
 
@@ -308,7 +320,7 @@ body {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px colors.shadow(0.1);
   display: flex;
   align-items: center;
   transition: transform 0.3s;
@@ -391,7 +403,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: colors.shadow(0.5);
     z-index: 998;
     opacity: 0;
     visibility: hidden;

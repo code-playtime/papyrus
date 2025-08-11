@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(['panel.articles', 'panel.articles.create']) ? 'active' : '' ?>">
+                    <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(['panel.articles', 'panel.articles.create', 'panel.articles.edit']) ? 'active' : '' ?>">
                         <i class="fa fa-pencil-square-o"></i>
                         Articles
                     </a>

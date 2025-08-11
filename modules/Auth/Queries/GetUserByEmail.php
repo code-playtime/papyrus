@@ -2,7 +2,7 @@
 
 namespace Module\Auth\Queries;
 
-use Papyrus\Facades\Query;
+use Papyrus\Database\Query;
 
 class GetUserByEmail extends Query
 {
@@ -13,4 +13,3 @@ class GetUserByEmail extends Query
             SQL;
     }
 }
-

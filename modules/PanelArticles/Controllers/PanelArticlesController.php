@@ -3,7 +3,7 @@
 namespace Module\PanelArticles\Controllers;
 
 use Papyrus\Http\Controller;
-use Papyrus\Facades\Flash;
+use Papyrus\Support\Facades\Flash;
 use Papyrus\Http\Request;
 use Module\PanelArticles\Requests\CreateArticleRequest;
 use Module\PanelArticles\Requests\UpdateArticleRequest;

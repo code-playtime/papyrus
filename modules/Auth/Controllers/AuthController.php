@@ -3,8 +3,7 @@
 namespace Module\Auth\Controllers;
 
 use Papyrus\Http\Controller;
-use Papyrus\Facades\Flash;
-
+use Papyrus\Support\Facades\Flash;
 use Module\Auth\Queries\GetUserCount;
 use Module\Auth\Requests\RegisterRequest;
 use Module\Auth\Requests\LoginRequest;
@@ -34,7 +33,7 @@ class AuthController extends Controller
     public function setup()
     {
         return view("setup")->module("Auth")->render();
-    } 
+    }
 
     public function addUser()
     {
@@ -63,7 +62,7 @@ class AuthController extends Controller
         $service = new LoginService();
         $response = $service->loginUser($request);
 
-        if(!$response->getSuccess()) {
+        if (!$response->getSuccess()) {
             Flash::make("error", $response->getMessage());
             return response()->redirect(route("auth.login"));
         }
@@ -72,9 +71,10 @@ class AuthController extends Controller
         return response()->redirect($url);
     }
 
-    public function addSetup() {
+    public function addSetup()
+    {
         $request = new SetupRequest();
-        if(!$request->validated()) {
+        if (!$request->validated()) {
             Flash::make("error", $request->errors());
             return response()->redirect(route("auth.setup"));
         }
@@ -88,7 +88,8 @@ class AuthController extends Controller
         return response()->redirect($data["url"]);
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::delete();
 
         Flash::make("success", "Successfully logged out!");

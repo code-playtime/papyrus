@@ -3,7 +3,7 @@
 namespace Module\PanelArticles\Requests;
 
 use Papyrus\Http\Request;
-use Module\Main\Traits\Validateable;
+use Papyrus\Http\Traits\Validateable;
 
 class UpdateArticleRequest extends Request
 {

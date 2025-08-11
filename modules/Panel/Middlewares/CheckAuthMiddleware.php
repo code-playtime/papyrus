@@ -1,16 +1,17 @@
 <?php
 
-    namespace Module\Panel\Middlewares;
+namespace Module\Panel\Middlewares;
 
-    use Pecee\Http\Middleware\IMiddleware;
-    use Pecee\Http\Request;
+use Pecee\Http\Middleware\IMiddleware;
+use Pecee\Http\Request;
+use Papyrus\Support\Facades\Session;
 
-    use Papyrus\Facades\Session;
-
-    class CheckAuthMiddleware implements IMiddleware {
-        public function handle(Request $request): void {
-            if(!Session::has("auth")) {
-                response()->redirect(route("auth.login"));
-            }
+class CheckAuthMiddleware implements IMiddleware
+{
+    public function handle(Request $request): void
+    {
+        if (!Session::has("auth")) {
+            response()->redirect(route("auth.login"));
         }
     }
+}

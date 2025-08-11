@@ -1,14 +1,54 @@
-$panelBackground: #f4f4f4;
-$headerBackground: #273f4f;
-$sidebarBackground: #273f4f;
-$headerText: #bdc3c7;
-$sidebarText: #bdc3c7;
-$heading: #447d9b;
+// Panel Background (White)
+$panelBackground: #EBF4F6;
+
+// Navbar Background
+$headerBackground: #071952;
+
+// Sidebar Background
+$sidebarBackground: #071952;
+
+// Navbar text
+$headerText: #EBF4F6;
+
+// Sidebar text
+$sidebarText: #EBF4F6;
+
+// Heading text inside navbar and sidebar (Like Logo & Something)
+$heading: #37b7c3;
+
+// Normal text color
 $text: #000000;
+
+// Danger intimation color
 $danger: #b9375d;
+
+// Success intimation color
 $success: #03a6a1;
+
+// Info imtimation color
 $info: #4da8da;
+
+// Warning intimation color
 $warning: #f7ad45;
+
+// Active sidebar item 
 $active: #43546d;
-$primary: #fe7743;
+
+// Border color
 $border: #dee2e6;
+
+// Primary color
+$primary: #37b7c3;
+
+// Black
+$black: #121212;
+
+// Box shadow
+@function shadow($opacity) {
+  @return rgba(0, 0, 0, $opacity);
+}
+
+// White rgba
+@function menuHover($opacity) {
+  @return rgba(255, 255, 255, $opacity);
+}

@@ -3,14 +3,14 @@
 namespace Module\Auth\Requests;
 
 use Papyrus\Http\Request;
-
-use Module\Main\Traits\Validateable;
+use Papyrus\Http\Traits\Validateable;
 
 class LoginRequest extends Request
 {
     use Validateable;
 
-    protected function secure() {
+    protected function secure()
+    {
         return [
             "password"
         ];
@@ -31,4 +31,3 @@ class LoginRequest extends Request
             ->required("Password is required");
     }
 }
-

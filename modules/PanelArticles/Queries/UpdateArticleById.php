@@ -2,8 +2,8 @@
 
 namespace Module\PanelArticles\Queries;
 
-use Papyrus\Facades\Query;
-use Papyrus\Traits\HasDynamicUpdate;
+use Papyrus\Database\Query;
+use Papyrus\Database\Traits\HasDynamicUpdate;
 
 class UpdateArticleById extends Query
 {

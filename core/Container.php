@@ -1,61 +1,65 @@
 <?php
 
-    namespace Papyrus;
+namespace Papyrus;
 
-    use Exception;
+use Exception;
+use Papyrus\Http\Router;
+use Papyrus\Http\CsrfVerifier;
+use Dotenv\Dotenv;
 
-    use Papyrus\Http\Router;
-    use Papyrus\Http\CsrfVerifier;
+class Container
+{
+    private $path;
 
-    use Dotenv\Dotenv;
+    public function __construct($path)
+    {
+        $this->path = $path;
+    }
 
-    class Container {
-        private $path;
+    private function loadRoutes($modules)
+    {
+        // Router::csrfVerifier(new CsrfVerifier());
 
-        public function __construct($path) {
-            $this->path = $path;
-        }
+        $modulesPath = $this->path . "/modules/";
 
-        private function loadRoutes($modules) {
-            Router::csrfVerifier(new CsrfVerifier());
+        if (count($modules) > 0) {
+            foreach ($modules as $module) {
+                $routeFile = $modulesPath . $module . "/routes.php";
 
-            $modulesPath = $this->path . "/modules/";
-
-            if(count($modules) > 0) {
-                foreach($modules as $module) {
-                    $routeFile = $modulesPath . $module . "/routes.php";
-
-                    if(file_exists($routeFile)) {
-                        require_once $routeFile;
-                    }
+                if (file_exists($routeFile)) {
+                    require_once $routeFile;
                 }
             }
-
-            Router::start();
         }
 
-        private function loadModules() {
-            $modulesFile = $this->path . "/config/modules.php";
+        Router::start();
+    }
 
-            if(file_exists($modulesFile)) {
-                $modules = require_once $modulesFile;
+    private function loadModules()
+    {
+        $modulesFile = $this->path . "/config/modules.php";
 
-                $this->loadRoutes($modules);
-            }
-        }
+        if (file_exists($modulesFile)) {
+            $modules = require_once $modulesFile;
 
-        private function loadEnv() {
-            $dotenv = Dotenv::createImmutable($this->path . "/", null, false);
-
-            try {
-                $dotenv->load();
-            } catch(Exception $e) {
-                throw new Exception("Error loading .env :: " . $e->getMessage());
-            }
-        }
-
-        public function init() {
-            $this->loadEnv();
-            $this->loadModules();
+            $this->loadRoutes($modules);
         }
     }
+
+    private function loadEnv()
+    {
+        $dotenv = Dotenv::createImmutable($this->path . "/", null, false);
+
+        try {
+            $dotenv->load();
+        } catch (Exception $e) {
+            throw new Exception("Error loading .env :: " . $e->getMessage());
+        }
+    }
+
+    public function init()
+    {
+        $this->loadEnv();
+        $this->loadModules();
+    }
+}

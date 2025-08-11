@@ -13,7 +13,7 @@
     },
     "scripts" : {
         "post-autoload-dump": [
-            "Papyrus\\Scripts\\Publish::execute"
+            "Papyrus\\Cli\\Scripts\\Publish::execute"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

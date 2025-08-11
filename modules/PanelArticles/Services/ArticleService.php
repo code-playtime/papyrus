@@ -2,8 +2,8 @@
 
 namespace Module\PanelArticles\Services;
 
-use Papyrus\Facades\Pdo;
-use Papyrus\Facades\Storage;
+use Papyrus\Database\Pdo;
+use Papyrus\Support\Storage;
 use Exception;
 use Module\Main\ServiceResult;
 use Module\PanelArticles\Queries\InsertArticle;
