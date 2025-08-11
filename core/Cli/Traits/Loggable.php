@@ -1,6 +1,6 @@
 <?php
 
-namespace Papyrus\Cli\Utils;
+namespace Papyrus\Cli\Traits;
 
 trait Loggable
 {

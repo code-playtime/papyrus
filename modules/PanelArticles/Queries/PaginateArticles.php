@@ -10,7 +10,7 @@ class PaginateArticles extends Query
     {
         return <<<SQL
                 SELECT
-                    id, title, created_at
+                    id, title, status, created_at
                 FROM
                     articles
                 ORDER BY id DESC

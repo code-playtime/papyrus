@@ -8,6 +8,7 @@ use Papyrus\Http\Request;
 use Module\PanelArticles\Requests\CreateArticleRequest;
 use Module\PanelArticles\Requests\UpdateArticleRequest;
 use Module\PanelArticles\Services\ArticleService;
+use Module\PanelArticles\Requests\UpdateStatusRequest;
 
 class PanelArticlesController extends Controller
 {
@@ -78,6 +79,21 @@ class PanelArticlesController extends Controller
         $response = $service->updateArticle($request, $id);
         $status = $response->getSuccess() ? "success" : "error";
         Flash::make($status, $response->getMessage());
+        return response()->redirect(route("panel.articles"));
+    }
+
+    public function updateArticleStatus($id)
+    {
+        $request = new UpdateStatusRequest();
+        if (!$request->validated()) {
+            Flash::make("error", $request->errors());
+            return response()->redirect(route("panel.articles"));
+        }
+
+        $service = new ArticleService();
+        $result = $service->updateArticleStatus($request, $id);
+        $status = $result->getSuccess() ? "success" : "error";
+        Flash::make($status, $result->getMessage());
         return response()->redirect(route("panel.articles"));
     }
 }

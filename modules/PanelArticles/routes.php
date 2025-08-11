@@ -21,3 +21,7 @@ Router::post("/panel/articles/create", [Module\PanelArticles\Controllers\PanelAr
 Router::post("/panel/articles/{id}/edit", [Module\PanelArticles\Controllers\PanelArticlesController::class, "updateArticle"])
     ->addMiddleware(Module\Panel\Middlewares\CheckAuthMiddleware::class)
     ->name("panel.articles.update");
+
+Router::patch("/panel/articles/{id}/status", [Module\PanelArticles\Controllers\PanelArticlesController::class, "updateArticleStatus"])
+    ->addMiddleware(Module\Panel\Middlewares\CheckAuthMiddleware::class)
+    ->name("panel.articles.status");
