@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= route("panel.books") ?>" class="nav-link <?= route_in(['panel.books']) ? 'active' : '' ?>">
                         <i class="fa fa-book"></i>
                         Books
                     </a>
