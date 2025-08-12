@@ -21,13 +21,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(['panel.articles', 'panel.articles.create', 'panel.articles.edit']) ? 'active' : '' ?>">
+                    <a href="<?= route("panel.articles") ?>" class="nav-link <?= route_in(sidebar_options("articles")) ? 'active' : '' ?>">
                         <i class="fa fa-file-text-o"></i>
                         Articles
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= route("panel.books") ?>" class="nav-link <?= route_in(['panel.books']) ? 'active' : '' ?>">
+                    <a href="<?= route("panel.books") ?>" class="nav-link <?= route_in(sidebar_options("books")) ? 'active' : '' ?>">
                         <i class="fa fa-book"></i>
                         Books
                     </a>
