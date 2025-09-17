@@ -10,7 +10,11 @@
         </div>
     </div>
 
-    <div class="section-body"></div>
+    <div class="section-body">
+        <?php $template->includes("bookform", [
+            "formUrl" => ""
+        ], "PanelBooks") ?>
+    </div>
 </div>
 
 <?php $template->includes("includes/footer", null, "Panel") ?>
