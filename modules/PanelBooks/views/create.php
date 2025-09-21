@@ -12,7 +12,7 @@
 
     <div class="section-body">
         <?php $template->includes("bookform", [
-            "formUrl" => ""
+            "formUrl" => route("panel.books.add")
         ], "PanelBooks") ?>
     </div>
 </div>

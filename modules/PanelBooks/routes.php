@@ -12,3 +12,7 @@ Router::get("/panel/books", [PanelBooksController::class, 'index'])
 Router::get("/panel/books/create", [CreateController::class, "index"])
     ->addMiddleware(CheckAuthMiddleware::class)
     ->name("panel.books.create");
+
+Router::post("/panel/books/create", [CreateController::class, "addBook"])
+    ->addMiddleware(CheckAuthMiddleware::class)
+    ->name("panel.books.add");

@@ -15,7 +15,9 @@
         </div>
     </div>
 
-    <div class="section-body"></div>
+    <div class="section-body">
+        <?php $this->includes("includes/messages", null, "Auth") ?>
+    </div>
 </div>
 
 <?php $template->includes("includes/footer", null, "Panel") ?>
