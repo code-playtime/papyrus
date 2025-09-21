@@ -6,7 +6,9 @@ use Papyrus\Database\Pdo;
 use Papyrus\Support\Storage;
 use Exception;
 use Module\Main\ServiceResult;
+use Module\PanelBooks\Queries\GetBookCount;
 use Module\PanelBooks\Queries\InsertBook;
+use Module\PanelBooks\Queries\PaginateBooks;
 
 class BookService {
     public function addBook($request) {
@@ -37,6 +39,51 @@ class BookService {
         }
 
         return $result;
+    }
+
+    public function getBookListing($request) {
+        $result = new ServiceResult();
+
+        try {
+            $totalRows = (int) $this->getBookCount();
+            $limit = 10;
+            $currentPage = (int) $request->param("page") ?? 1;
+            $currentPage = max(1, $currentPage);
+            $totalPages = ceil($totalRows / $limit);
+            $offset = ($currentPage - 1) * $limit;
+            $query = Pdo::execute(new PaginateBooks([
+                ":limit" => (int) $limit,
+                ":offset" => (int) $offset
+            ]));
+
+            $prev_page = $currentPage - 1;
+            $prev_page = $prev_page < 0 ? 1 : $prev_page;
+            $next_page = $currentPage + 1;
+            $next_page = $next_page > $totalPages ? 0 : $next_page;
+
+            $result->setSuccess(true);
+            $result->setData([
+                "books" => $query,
+                "meta" => [
+                    "total_pages" => $totalPages,
+                    "current_page" => $currentPage,
+                    "prev_page" => $prev_page,
+                    "next_page" => $next_page
+                ]
+            ]);
+        } catch(Exception $e) {
+            $result->setSuccess(false);
+            $result->setMessage($e->getMessage());
+        }
+
+        return $result;
+    }
+
+    private function getBookCount() {
+        $query = Pdo::execute(new GetBookCount());
+        $count = $query->first()["count"];
+
+        return (int) $count;
     }
 
     private function uploadBannerImage($file)

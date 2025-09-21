@@ -6,7 +6,7 @@
     ], "Panel") ?>
 
     <div class="content-section">
-         <div class="section-header">
+        <div class="section-header">
             <div class="d-flex justify-content-between align-content-center">
                 <span class="title">Listing</span>
                 <a href="<?= route("panel.articles.create") ?>">
