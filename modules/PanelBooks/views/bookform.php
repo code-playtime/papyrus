@@ -1,4 +1,4 @@
-   <form action="<?= $formUrl ?>" id="article-form" method="POST" enctype="multipart/form-data">
+    <form action="<?= $formUrl ?>" id="article-form" method="POST" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <?php $template->includes("includes/messages", null, "Auth") ?>
         <div class="row">

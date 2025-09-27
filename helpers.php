@@ -25,7 +25,8 @@ function sidebar_options($param = "dashboard")
         ],
         "books" => [
             "panel.books",
-            "panel.books.create"
+            "panel.books.create",
+            "panel.books.edit"
         ]
     ];
 

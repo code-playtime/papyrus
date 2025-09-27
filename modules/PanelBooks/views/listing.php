@@ -38,7 +38,7 @@
                                 <td><?= $book["created_at"] ?? "" ?></td>
                                 <td>
                                     <form action='<?= route("panel.articles.status", ["id" => $book["id"]]) ?>' method="POST" onsubmit="return confirm('Are you sure you want to update?')">
-                                <?= form_method("PATCH") ?>
+                                        <?= form_method("PATCH") ?>
                                         <input type="hidden" name="status" value="<?= $book['status'] ?? 'draft' ?>" />
                                         <?php if ($book["status"] === "published") : ?>
                                             <button type="submit" class="btn btn-sm btn-success">Published</button>
@@ -48,7 +48,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <a href="<?= route("panel.articles.edit", ["id" => $book['id']]) ?>">
+                                    <a href="<?= route("panel.books.edit", ["id" => $book['id']]) ?>">
                                         <button class="btn btn-sm btn-primary">Edit</button>
                                     </a> 
                                 </td>

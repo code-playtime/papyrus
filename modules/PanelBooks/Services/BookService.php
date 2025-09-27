@@ -9,6 +9,7 @@ use Module\Main\ServiceResult;
 use Module\PanelBooks\Queries\GetBookCount;
 use Module\PanelBooks\Queries\InsertBook;
 use Module\PanelBooks\Queries\PaginateBooks;
+use Module\PanelBooks\Queries\FindBookById;
 
 class BookService {
     public function addBook($request) {
@@ -77,6 +78,47 @@ class BookService {
         }
 
         return $result;
+    }
+
+    public function findBookById($id) {
+        $result = new ServiceResult();
+
+        try {
+            $query = Pdo::execute(new FindBookById([":id" => $id]));
+            if ($query->count() > 0) {
+                $book = $query->first();
+                $metadata = $this->getMetaData($book["metadata"]);
+                $result->setSuccess(true);
+                $result->setData([
+                    "book" => $book,
+                    "banner_url" => $this->getBannerUrl($book["banner"]),
+                    "meta_title" => $metadata["title"] ?? "",
+                    "meta_tags" => $metadata["tags"] ?? "",
+                    "meta_description" => $metadata["description"] ?? ""
+                ]);
+            } else {
+                throw new Exception("Book not found.");
+            }
+        } catch(Exception $e) {
+            $result->setSUccess(false);
+            $result->setMessage($e->getMessage());
+        }
+
+        return $result;
+    }
+
+    private function getMetaData($data)
+    {
+        $data = json_decode($data, true);
+
+        return $data;
+    }
+
+    private function getBannerUrl($banner)
+    {
+        $path = "banners/" . $banner;
+        $storage_path = Storage::has($path) ? Storage::url($path) : null;
+        return $storage_path;
     }
 
     private function getBookCount() {

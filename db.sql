@@ -36,7 +36,7 @@ CREATE TABLE
 /*
  * Create articles TABLE
  */
- CREATE TABLE
+CREATE TABLE
   `articles` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
