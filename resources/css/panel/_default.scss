@@ -269,6 +269,7 @@ body {
 }
 
 .page-title {
+  @apply text-red-500;
   font-size: 28px;
   font-weight: 300;
   margin-bottom: 10px;
