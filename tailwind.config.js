@@ -25,11 +25,11 @@ module.exports = {
       light: {
         DEFAULT: "#FFFFFF",
         100: "#ebf4f6",
-        200: "#ccfbf9",
-        300: "#b5ffea",
-        400: "#b6ffc9",
-        500: "#cfff9d",
-        600: "#f9f871"
+        200: "#f8f9fa",
+        300: "#dee2e6",
+        400: "#ccfbf9",
+        500: "#b5ffea",
+        600: "#b6ffc9"
       },
       primary: {
         DEFAULT: "#169976",
@@ -44,6 +44,9 @@ module.exports = {
       screens: {
         xs: "360px",
         "2xl": "1441px"
+      },
+      boxShadow: {
+        "card" : "0 2px 10px rgba(0, 0, 0, 0.1)"
       }
     },
   },

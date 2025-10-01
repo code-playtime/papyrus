@@ -5,38 +5,6 @@
                 "pageNavs" => ["Home", "Dashboard"]
         ]); ?>
 
-        <!-- Stats Cards -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon blue">👥</div>
-                <div class="stat-info">
-                    <h3>1,234</h3>
-                    <p>Total Users</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon green">📦</div>
-                <div class="stat-info">
-                    <h3>567</h3>
-                    <p>Products</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon orange">📋</div>
-                <div class="stat-info">
-                    <h3>89</h3>
-                    <p>Orders</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon red">💰</div>
-                <div class="stat-info">
-                    <h3>$12,345</h3>
-                    <p>Revenue</p>
-                </div>
-            </div>
-        </div>
-
         <!-- Content Section -->
         <div class="content-section">
             <div class="section-header">
