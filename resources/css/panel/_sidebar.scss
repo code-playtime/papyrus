@@ -1,0 +1,57 @@
+/* Sidebar Styles */
+.sidebar {
+    @apply fixed top-[60px] left-0 w-64 bg-dark-100 z-[999] overflow-y-auto;
+    height: calc(100vh - 60px);
+    transition: transform 0.3s ease;
+
+    &.collapsed {
+        transform: translateX(-256px);
+    }
+
+    .sidebar-header {
+        @apply p-5 border-b border-solid border-primary-100;
+
+        .user-info {
+            @apply flex items-center text-light-100 gap-2;
+
+            .avatar-img {
+                @apply w-9 h-9 flex items-center justify-center rounded-full bg-primary;
+            }
+
+            .user-details {
+                h4 {
+                    @apply m-0 text-primary font-medium;
+                }
+
+                small {
+                    @apply text-light-100;
+                }
+            }
+        }
+    }
+
+    .sidebar-nav {
+        @apply list-none py-5 px-0;
+
+        .nav-item {
+            @apply my-1 mx-0;
+
+            .nav-link {
+                @apply flex flex-row items-center gap-4 py-3 px-5 text-light-100 no-underline border-l-4 border-solid border-transparent;
+                transition: all 0.3s;
+
+                &.active {
+                    @apply bg-dark-300 text-light-100 border-primary-100;
+                }
+
+                &:hover {
+                    @apply bg-dark-300 text-light-100;
+                }
+
+                .nav-icon {
+                    @apply w-5 h-5 mr-4 flex items-center justify-center text-lg;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,8 @@
 // @use "~bootstrap/scss/bootstrap";
 @use "./panel/base";
 @use "./panel/_default.scss";
+@use "./panel/sidebar";
+@use "./panel/header";
 @use "./panel/_utils.scss";
 @use "./panel/_extend.scss";
 @use "./panel/_article.scss";

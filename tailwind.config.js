@@ -14,6 +14,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       dark: {
+        DEFAULT: "#000000",
         100: "#222222",
         200: "#3d3f43",
         300: "#556067",
@@ -22,6 +23,7 @@ module.exports = {
         600: "#a9cec2"
       },
       light: {
+        DEFAULT: "#FFFFFF",
         100: "#ebf4f6",
         200: "#ccfbf9",
         300: "#b5ffea",
@@ -30,12 +32,12 @@ module.exports = {
         600: "#f9f871"
       },
       primary: {
-        100: "#169976",
-        200: "#00948f",
-        300: "#008da9",
-        400: "#0083be",
-        500: "#0076c9",
-        600: "#3063c3"
+        DEFAULT: "#169976",
+        100: "#00948f",
+        200: "#008da9",
+        300: "#0083be",
+        400: "#0076c9",
+        500: "#3063c3"
       }
     },
     extend: {
