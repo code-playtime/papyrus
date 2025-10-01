@@ -6,20 +6,44 @@ module.exports = {
     
     // Modules - all variations
     "./modules/*/*.php",
-    "./modules/*/Resources/**/*.{blade.php,vue,js,jsx,ts,tsx}",
-    "./modules/*/Resources/views/**/*.blade.php",
-    "./modules/*/Resources/assets/**/*.{vue,js,jsx,scss,css}",
-    "./modules/*/Http/Controllers/**/*.php",
-    "./modules/*/Entities/**/*.php",
-    
-    // App directory
-    "./app/**/*.php",
     
     // Public files
     "./public/**/*.html",
   ],
   theme: {
-    extend: {},
+    colors: {
+      transparent: "transparent",
+      dark: {
+        100: "#222222",
+        200: "#3d3f43",
+        300: "#556067",
+        400: "#6d8389",
+        500: "#87a8a8",
+        600: "#a9cec2"
+      },
+      light: {
+        100: "#ebf4f6",
+        200: "#ccfbf9",
+        300: "#b5ffea",
+        400: "#b6ffc9",
+        500: "#cfff9d",
+        600: "#f9f871"
+      },
+      primary: {
+        100: "#169976",
+        200: "#00948f",
+        300: "#008da9",
+        400: "#0083be",
+        500: "#0076c9",
+        600: "#3063c3"
+      }
+    },
+    extend: {
+      screens: {
+        xs: "360px",
+        "2xl": "1441px"
+      }
+    },
   },
   plugins: [],
 }
