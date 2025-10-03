@@ -3,7 +3,7 @@
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
+        <!-- <div class="sidebar-header">
             <div class="user-info">
                 <div class="avatar-img">JD</div>
                 <div class="user-details">
@@ -11,7 +11,7 @@
                     <small><?= auth()->user("role") ?></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <nav>
             <ul class="sidebar-nav">
                 <li class="nav-item">

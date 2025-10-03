@@ -13,9 +13,9 @@ body {
 
 /* Main Content */
 .main-content {
-    @apply ml-64 mt-[60px] p-5;
+    @apply ml-44 mt-[48px] p-5 flex flex-col gap-4;
     transition: margin-left 0.3s ease;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 48px);
 
     &.expanded {
         @apply ml-0;
@@ -24,10 +24,14 @@ body {
 
 // ? Page Header
 .content-header {
-    @apply bg-light p-5 rounded-lg shadow-card mb-5;
+    @apply flex flex-row items-center justify-between p-2;
 
-    .page-title {
-        @apply text-primary text-2xl font-medium mb-3;
+    .content-top {
+        @apply flex flex-row gap-2 items-center justify-center;
+
+        .page-title {
+            @apply text-primary text-2xl font-medium;
+        }
     }
 
     .breadcrumb {
@@ -48,7 +52,7 @@ body {
 
 // ? Page Body
 .content-section {
-    @apply bg-light rounded-lg overflow-hidden shadow-card;
+    @apply bg-light rounded-lg overflow-hidden;
 
     .section-header {
         @apply bg-light-200 py-4 px-5 border-b border-solid border-light-300 font-semibold;
@@ -169,5 +173,15 @@ body {
 
     .title {
         @apply text-lg font-semibold text-primary;
+    }
+}
+
+.btn {
+    &.btn-sm {
+        @apply py-[3px] px-[5px] rounded-md text-sm tracking-[0.5px];
+    }
+
+    &.btn-primary {
+        @apply bg-primary text-light;
     }
 }

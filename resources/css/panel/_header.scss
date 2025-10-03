@@ -1,6 +1,6 @@
 /* Header Styles */
 .header {
-    @apply bg-primary text-light-100 p-0 fixed top-0 left-0 right-0 h-16 z-[1000] px-5 flex items-center justify-between shadow-md;
+    @apply bg-dark-100 text-light-100 p-0 fixed top-0 left-0 right-0 h-12 z-[1000] px-5 flex items-center justify-between;
 
     .header-left {
         @apply flex items-center gap-2;
@@ -11,7 +11,7 @@
         }
 
         .logo {
-            @apply text-2xl font-bold text-light-100 p-0;
+            @apply text-xl font-bold text-light-100 p-0;
         }
     }
 
@@ -26,7 +26,7 @@
                 transition: background 0.3s;
 
                 .avatar-img {
-                    @apply w-9 h-9 rounded-full bg-dark-100 text-light-100 flex items-center justify-center font-bold;
+                    @apply w-7 h-7 rounded-full text-xs bg-primary text-light-100 flex items-center justify-center font-medium;
                 }
 
                 .user-name {

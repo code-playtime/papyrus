@@ -2,19 +2,17 @@
 
     <?php $template->includes("includes/pagebar", [
         "pageTitle" => "Articles",
-        "pageNavs" => ["Home", "Articles"]
+        "pageNavs" => ["Home", "Articles"],
+        "buttons" => [
+            [
+                "class" => "btn btn-sm btn-primary",
+                "text" => "Create",
+                "link" => route("panel.articles.create")
+            ]
+        ]
     ], "Panel") ?>
 
     <div class="content-section">
-         <div class="section-header">
-            <div class="section-top">
-                <span class="title">Listing</span>
-                <a href="<?= route("panel.articles.create") ?>">
-                    <button class="btn btn-sm btn-primary">Create</button>
-                </a>
-            </div>
-        </div>
-
         <div class="section-body">
             <?php $this->includes("includes/messages", null, "Auth") ?>
 

@@ -1,11 +1,11 @@
 /* Sidebar Styles */
 .sidebar {
-    @apply fixed top-[60px] left-0 w-64 bg-dark-100 z-[999] overflow-y-auto;
-    height: calc(100vh - 60px);
+    @apply fixed top-[48px] left-0 w-44 bg-dark-100 z-[999] overflow-y-auto;
+    height: calc(100vh - 48px);
     transition: transform 0.3s ease;
 
     &.collapsed {
-        transform: translateX(-256px);
+        transform: translateX(-176px);
     }
 
     .sidebar-header {
@@ -15,7 +15,7 @@
             @apply flex items-center text-light-100 gap-2;
 
             .avatar-img {
-                @apply w-9 h-9 flex items-center justify-center rounded-full bg-primary;
+                @apply w-7 h-7 flex text-xs font-medium items-center justify-center rounded-full bg-primary;
             }
 
             .user-details {
@@ -34,18 +34,18 @@
         @apply list-none py-5 px-0;
 
         .nav-item {
-            @apply my-1 mx-0;
+            @apply my-2 mx-0;
 
             .nav-link {
-                @apply flex flex-row items-center gap-4 py-3 px-5 text-light-100 no-underline border-l-4 border-solid border-transparent;
+                @apply flex flex-row items-center gap-4 py-2 px-4 text-sm text-light-100 no-underline border-l-4 border-solid border-transparent;
                 transition: all 0.3s;
 
                 &.active {
-                    @apply bg-dark-300 text-light-100 border-primary-100;
+                    @apply bg-primary text-light-100 border-primary-100;
                 }
 
-                &:hover {
-                    @apply bg-dark-300 text-light-100;
+                &:not(.active):hover {
+                    @apply border-primary text-primary;
                 }
 
                 .nav-icon {
