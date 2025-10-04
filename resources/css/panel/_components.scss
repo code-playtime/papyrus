@@ -1,0 +1,84 @@
+// ? Table
+.table-responsive {
+    @apply w-full overflow-x-auto;
+}
+
+.table {
+    @apply w-full border-collapse text-left border border-solid border-dark-200;
+
+    th {
+        @apply font-medium px-4 py-2 border-b;
+    }
+
+    td {
+        @apply px-4 py-2 border-b;
+    }
+
+    &.table-bordered {
+        @apply border border-dark-200;
+
+        th, td {
+            @apply border border-dark-200;
+        }
+    }
+}
+
+// ? Button
+.btn {
+    &.btn-sm {
+        @apply py-[3px] px-[5px] rounded-md text-xs tracking-[0.5px];
+    }
+    
+    &.btn-lg {
+        @apply py-[5px] px-[10px] rounded-md text-sm tracking-[0.5px];
+    }
+
+    &.btn-primary {
+        @apply bg-primary text-light;
+    }
+
+    &.btn-success {
+        @apply bg-success text-light;
+    }
+
+    &.btn-info {
+        @apply bg-info text-light;
+    }
+
+    &.btn-danger {
+        @apply bg-danger text-light;
+    }
+
+    &.btn-warning {
+        @apply bg-warning text-dark;
+    }
+}
+
+// ? Alerts
+.alert {
+    @apply px-3 py-3 w-full rounded-sm text-sm tracking-[0.5px] flex flex-row items-center justify-between;
+
+    &.alert-success {
+        @apply bg-success text-light;
+    }
+
+    &.alert-danger {
+        @apply bg-danger text-light;
+    }
+
+    &.alert-warning {
+        @apply bg-warning text-dark;
+    }
+
+    &.alert-info {
+        @apply bg-info text-light;
+    }
+
+    &.alert-primary {
+        @apply bg-primary text-light;
+    }
+
+    .alert-dismissable {
+        //
+    }
+}

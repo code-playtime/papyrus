@@ -8,15 +8,63 @@
         <!-- Content Section -->
         <div class="content-section">
             <div class="section-body">
-                <p>This is a custom-built admin panel created with vanilla HTML, CSS, and JavaScript. It features:</p>
-                <ul style="margin: 20px 0; padding-left: 20px;">
-                    <li>Fully responsive design that works on all devices</li>
-                    <li>Collapsible sidebar with smooth animations</li>
-                    <li>Modern UI with clean design principles</li>
-                    <li>No external dependencies or frameworks</li>
-                    <li>Customizable and extensible architecture</li>
-                </ul>
-                <p>Start building your amazing application from here!</p>
+                <p>All components developed within Papyrus :</p>
+                <br/>
+                <div class="flex flex-col gap-4 p-5 border border-solid border-dark-100">
+                    <p class="text-dark-100 text-sm font-semibold">Buttons :</p>
+                    <div class="flex flex-row gap-2">
+                        <button class="btn btn-sm btn-primary">Primary</button>
+                        <button class="btn btn-sm btn-success">Success</button>
+                        <button class="btn btn-sm btn-info">Info</button>
+                        <button class="btn btn-sm btn-warning">Warning</button>
+                        <button class="btn btn-sm btn-danger">Danger</button>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-sm btn-primary">Small</button>
+                        <button class="btn btn-lg btn-info">Large</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="flex flex-col gap-4 p-5 border border-solid border-dark-100">
+                    <p class="text-dark-100 text-sm font-semibold">Alerts :</p>
+                    <div class="flex flex-col gap-2">
+                        <div class="alert alert-primary">
+                            This is a primary alert.
+                            <button class="alert-dismissable">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+
+                        <div class="alert alert-success">
+                            This is a success alert.
+                            <button class="alert-dismissable">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+
+                        <div class="alert alert-danger">
+                            This is a danger alert.
+                            <button class="alert-dismissable">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+
+                        <div class="alert alert-info">
+                            This is a info alert.
+                            <button class="alert-dismissable">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            This is a warning alert.
+                            <button class="alert-dismissable">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
