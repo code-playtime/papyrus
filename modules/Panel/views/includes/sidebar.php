@@ -32,6 +32,12 @@
                         Books
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= route("panel.components") ?>" class="nav-link <?= route_in(['panel.components']) ? 'active' : '' ?>">
+                        <i class="fa fa-cubes"></i>
+                        Components
+                    </a>
+                </li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link" data-submenu="products">
                         <span class="nav-icon icon-products"></span>

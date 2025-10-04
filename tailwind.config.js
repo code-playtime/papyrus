@@ -38,7 +38,11 @@ module.exports = {
         300: "#0083be",
         400: "#0076c9",
         500: "#3063c3"
-      }
+      },
+      success: "#8FA31E",
+      danger: "#BF3131",
+      info: "#4DA8DA",
+      warning: "#FAA533"
     },
     extend: {
       screens: {
