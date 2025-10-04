@@ -6,6 +6,7 @@ module.exports = {
     
     // Modules - all variations
     "./modules/*/*.php",
+    "./modules/*/views/**/*.php",
     
     // Public files
     "./public/**/*.html",

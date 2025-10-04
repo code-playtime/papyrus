@@ -1,8 +1,8 @@
     <form action="<?= $formUrl ?>" id="article-form" method="POST" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <?php $template->includes("includes/messages", null, "Auth") ?>
-        <div class="row">
-            <div class="col-md-8">
+        <div class="grid grid-cols-12 gap-2">
+            <div class="md:col-span-8">
                 <div class="mb-3">
                     <input type="text" class="article-title" name="title" id="title" value="<?= $title ?? old('title') ?>" placeholder="Title" />
                 </div>
@@ -12,7 +12,7 @@
                     <input type="hidden" name="content" id="editor-content" value='<?= $content ?? old('content') ?>' />
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="md:col-span-4">
                 <div class="card accordion">
                     <div class="card-header accordion-header cursor-pointer">
                         <h6 class="card-title">Article Settings</h6>
@@ -70,7 +70,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </div>
                     </div>
                 </div>
