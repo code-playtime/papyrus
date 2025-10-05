@@ -24,6 +24,10 @@
                         <button class="btn btn-sm btn-primary">Small</button>
                         <button class="btn btn-lg btn-info">Large</button>
                     </div>
+
+                    <div>
+                        <button class="btn btn-block btn-primary">Block</button>
+                    </div>
                 </div>
                 <br/>
                 <div class="flex flex-col gap-4 p-5 border border-solid border-dark-100">

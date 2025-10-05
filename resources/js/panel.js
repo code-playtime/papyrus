@@ -8,8 +8,8 @@ import Primitives from "./Panel/Primitives.js";
 // Run after DOM Loaded
 document.addEventListener("DOMContentLoaded", panel.init);
 
-const accordion = new Accordion();
-accordion.init();
+// const accordion = new Accordion();
+// accordion.init();
 
 const primitives = new Primitives();
 primitives.init();

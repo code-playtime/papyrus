@@ -2,24 +2,14 @@
 
 #article-form {
     #banner-preview {
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px solid colors.$border;
-      border-radius: 5px;
-      display: none;
+      @apply mt-2 p-2 border border-solid border-dark-400 rounded-sm hidden;
 
       img {
-        width: 100%;
-        height: auto;
+        @apply w-full h-auto;
       }
     }
 
     .article-title {
-      border: 0;
-      outline: none;
-      font-size: 25px;
-      width: 100%;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      @apply border-0 outline-none text-2xl w-full font-bold tracking-[0.5px];
     }
 }
