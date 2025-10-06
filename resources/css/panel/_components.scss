@@ -60,7 +60,7 @@
 
 // ? Alerts
 .alert {
-    @apply px-3 py-3 w-full rounded-sm text-sm tracking-[0.5px] flex flex-row items-center justify-between;
+    @apply px-3 py-3 w-full rounded-sm text-sm tracking-[0.5px] flex flex-row items-center justify-between mb-2;
 
     &.alert-success {
         @apply bg-success text-light;

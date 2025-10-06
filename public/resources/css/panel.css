@@ -106,7 +106,7 @@
   --tw-contain-style:  ;
 }
 /*
-! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
 */
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1425,6 +1425,7 @@ body{
 }
 
 .alert{
+  margin-bottom: 0.5rem;
   display: flex;
   width: 100%;
   flex-direction: row;
