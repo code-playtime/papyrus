@@ -1,6 +1,18 @@
 const mix = require("laravel-mix");
 
 mix.sass("resources/css/panel.scss", "public/resources/css")
-    .js("resources/js/panel.js", "public/resources/js");
+    .sass("resources/css/auth.scss", "public/resources/css")
+    .options({
+        processCssUrls: false,
+        postCss: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+        ]
+    })
+    .js("resources/js/panel.js", "public/resources/js")
+    .sourceMaps();
 
-mix.sass("resources/css/auth.scss", "public/resources/css");
+
+if (mix.inProduction()) {
+   mix.version();
+}

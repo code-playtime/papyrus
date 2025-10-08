@@ -81,7 +81,7 @@ export const panel = {
         // DOM Elements
         panel.menuToggle = document.getElementById('menuToggle');
         panel.sidebar = document.getElementById('sidebar');
-        panel.mainContent = document.getElementById('mainContent');
+        panel.mainContent = document.getElementById('app');
         panel.sidebarOverlay = document.getElementById('sidebarOverlay');
         panel.userAvatar = document.getElementById('userAvatar');
         panel.userDropdown = document.getElementById('userDropdown');
