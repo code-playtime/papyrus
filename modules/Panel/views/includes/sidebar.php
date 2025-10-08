@@ -3,7 +3,7 @@
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
+        <!-- <div class="sidebar-header">
             <div class="user-info">
                 <div class="avatar-img">JD</div>
                 <div class="user-details">
@@ -11,7 +11,7 @@
                     <small><?= auth()->user("role") ?></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <nav>
             <ul class="sidebar-nav">
                 <li class="nav-item">
@@ -30,6 +30,12 @@
                     <a href="#" class="nav-link">
                         <i class="fa fa-book"></i>
                         Books
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= route("panel.components") ?>" class="nav-link <?= route_in(['panel.components']) ? 'active' : '' ?>">
+                        <i class="fa fa-cubes"></i>
+                        Components
                     </a>
                 </li>
                 <!-- <li class="nav-item">

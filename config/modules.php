@@ -5,5 +5,6 @@
         "Auth",
         "Panel",
         "PanelArticles",
-        "Media"
+        "Media",
+        "Components"
     ];
