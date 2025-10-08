@@ -36,7 +36,7 @@ CREATE TABLE
 /*
  * Create articles TABLE
  */
- CREATE TABLE
+CREATE TABLE
   `articles` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -50,3 +50,21 @@ CREATE TABLE
     PRIMARY KEY (`id`),
     UNIQUE KEY `UNIQUE_SLUG` (`slug`)
   ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_bin
+
+/*
+ * Create Books table 
+ */
+CREATE TABLE
+  `books` (
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `title` varchar(255) NOT NULL,
+    `description` longtext DEFAULT NULL,
+    `banner` varchar(255) DEFAULT NULL,
+    `tags` text DEFAULT NULL,
+    `metadata` text DEFAULT NULL,
+    `status` varchar(255) NOT NULL DEFAULT 'draft',
+    `slug` varchar(255) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `UNIQUE_SLUG` (`slug`)
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci

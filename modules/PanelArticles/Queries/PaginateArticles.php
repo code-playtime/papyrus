@@ -12,7 +12,7 @@ class PaginateArticles extends Query
                 SELECT
                     id, title, status, created_at
                 FROM
-                    articles
+                articles
                 ORDER BY id DESC
                 LIMIT :limit
                 OFFSET :offset

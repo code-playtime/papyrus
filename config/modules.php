@@ -1,10 +1,11 @@
 <?php
 
-    return [
-        "Main",
-        "Auth",
-        "Panel",
-        "PanelArticles",
-        "Media",
-        "Components"
-    ];
+return [
+    "Main",
+    "Auth",
+    "Panel",
+    "PanelArticles",
+    "Media",
+    "PanelBooks",
+    "Components"
+];

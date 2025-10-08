@@ -11,3 +11,24 @@ function auth()
 {
     return AuthUser::init();
 }
+
+function sidebar_options($param = "dashboard")
+{
+    $list = [
+        "dashboard" => [
+            "panel.dashboard"
+        ],
+        "articles" => [
+            "panel.articles",
+            "panel.articles.create",
+            "panel.articles.edit"
+        ],
+        "books" => [
+            "panel.books",
+            "panel.books.create",
+            "panel.books.edit"
+        ]
+    ];
+
+    return $list[$param] ?? [];
+}
