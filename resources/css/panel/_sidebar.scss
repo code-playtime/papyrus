@@ -1,0 +1,57 @@
+/* Sidebar Styles */
+.sidebar {
+    @apply fixed top-[48px] left-0 w-44 bg-dark-100 z-[999] overflow-y-auto;
+    height: calc(100vh - 48px);
+    transition: transform 0.3s ease;
+
+    &.collapsed {
+        transform: translateX(-176px);
+    }
+
+    .sidebar-header {
+        @apply p-5 border-b border-solid border-primary-100;
+
+        .user-info {
+            @apply flex items-center text-light-100 gap-2;
+
+            .avatar-img {
+                @apply w-7 h-7 flex text-xs font-medium items-center justify-center rounded-full bg-primary;
+            }
+
+            .user-details {
+                h4 {
+                    @apply m-0 text-primary font-medium;
+                }
+
+                small {
+                    @apply text-light-100;
+                }
+            }
+        }
+    }
+
+    .sidebar-nav {
+        @apply list-none py-5 px-0;
+
+        .nav-item {
+            @apply my-2 mx-0;
+
+            .nav-link {
+                @apply flex flex-row items-center gap-4 py-2 px-4 text-sm text-light-100 no-underline border-l-4 border-solid border-transparent;
+                transition: all 0.3s;
+
+                &.active {
+                    @apply bg-primary text-light-100 border-primary-100;
+                }
+
+                &:not(.active):hover {
+                    @apply border-primary text-primary;
+                }
+
+                .nav-icon {
+                    @apply w-5 h-5 mr-4 flex items-center justify-center text-lg;
+                }
+            }
+        }
+    }
+}

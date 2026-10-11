@@ -1,0 +1,151 @@
+@use "./_colors.scss" as colors;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @apply bg-light-200 text-dark-100 overflow-x-hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main Content */
+.main-content {
+    @apply ml-44 mt-[48px] p-5 flex flex-col gap-4;
+    transition: margin-left 0.3s ease;
+    min-height: calc(100vh - 48px);
+
+    &.expanded {
+        @apply ml-0;
+    }
+}
+
+// ? Page Header
+.content-header {
+    @apply flex flex-row items-center justify-between p-2;
+
+    .content-top {
+        @apply flex flex-row gap-2 items-center justify-center;
+
+        .page-title {
+            @apply text-primary text-2xl font-medium;
+        }
+    }
+
+    .breadcrumb {
+        @apply flex list-none text-dark-200;
+
+        li {
+            @apply mr-2;
+
+            &:not(:last-child) {
+                &::after {
+                    @apply ml-2 text-dark-200;
+                    content: "›";
+                }
+            }
+        }
+    }
+}
+
+// ? Page Body
+.content-section {
+    @apply bg-light rounded-lg overflow-hidden;
+
+    .section-header {
+        @apply bg-light-200 py-4 px-5 border-b border-solid border-light-300 font-semibold;
+    }
+
+    .section-body {
+        @apply p-5;
+    }
+}
+
+/* Footer */
+.footer {
+    @apply bg-light p-5 text-center text-dark-300 border-t border-solid border-light-300 mt-10;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-256px);
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-right .user-name {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: colors.shadow(0.5);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Icons using CSS */
+.icon-dashboard::before {
+    content: "⚡";
+}
+
+.icon-users::before {
+    content: "👥";
+}
+
+.icon-products::before {
+    content: "📦";
+}
+
+.icon-orders::before {
+    content: "📋";
+}
+
+.icon-analytics::before {
+    content: "📊";
+}
+
+.icon-settings::before {
+    content: "⚙️";
+}
+
+.icon-menu::before {
+    content: "☰";
+}
+
+.icon-arrow::before {
+    content: "▶";
+}
+
+.section-top {
+    @apply flex items-center justify-between;
+
+    .title {
+        @apply text-lg font-semibold text-primary;
+    }
+}

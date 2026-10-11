@@ -1,0 +1,8 @@
+.env
+composer.lock
+package-lock.json
+logger.log
+.php-cs-fixer.cache
+public/uploads/
+vendor/
+node_modules/

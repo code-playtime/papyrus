@@ -1,0 +1,19 @@
+@use "./_colors.scss" as colors;
+
+#article-form {
+    #banner-preview {
+      @apply mt-2 p-2 border border-solid border-dark-400 rounded-sm hidden;
+
+      img {
+        @apply w-full h-auto;
+      }
+    }
+
+    .article-title {
+      @apply border-0 outline-none text-2xl w-full font-bold tracking-[0.5px];
+    }
+
+    #page_parent {
+      display: none;
+    }
+}
